@@ -1,2 +1,2 @@
 # bole
-基于struts+hibern在线招聘网站
+基于struts+hibernate在线招聘网站
