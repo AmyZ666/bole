@@ -37,6 +37,7 @@ public class LoginRegisterAction extends ActionSupport{
         for(int i = 0; i < list.size(); i ++){
         	if(list.get(i).getEmail().equals(getUser().getEmail())){
         		if(list.get(i).getPassWord().equals(getUser().getPassWord())) {
+        			ActionContext.getContext().getSession().put("status",list.get(i).getStatus());
         			ActionContext.getContext().getSession().put("id",list.get(i).getId());
         			ActionContext.getContext().getSession().put("username",list.get(i).getUserName());
         			return "success";

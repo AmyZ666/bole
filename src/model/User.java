@@ -12,7 +12,7 @@ public class User {
 	private int id;
 	private String email;
 	private String userName;
-	
+	private int status;
 	private String passWord;   
 	
 	@Id
@@ -41,7 +41,12 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 }
 

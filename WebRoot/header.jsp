@@ -6,24 +6,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>header</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
+<head>
+<base href="<%=basePath%>">
+
+<title>header</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	
-  </head>
-  
-  <body>
-    <!-- <div id="header">
+
+</head>
+
+<body>
+	<!-- <div id="header">
     	<div class="wrapper">
     		<a href="index.jsp" class="logo">
     			<img src="style/images/logoko111.png" width="229" height="43" alt="拉勾招聘-专注互联网招聘" />
@@ -41,47 +41,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<li><a href="register.jsp" rel="nofollow">注册</a></li>
             </ul>
                                 </div>
-    </div> --><!-- end #header -->
-    <%
+    </div> -->
+	<!-- end #header -->
+	<%
     	if(session.getAttribute("username")==null){
     	
      %>
-      <jsp:forward page ="login.jsp"/>
-     <%
+	<jsp:forward page="login.jsp" />
+	<%
      	}
      	
       %>
-    <div id="header">
-    	<div class="wrapper">
-    		<a class="logo" href="index.html">
-    			<img width="229" height="43" alt="拉勾招聘-专注互联网招聘" src="style/images/logo.png">
-    		</a>
-    		<ul id="navheader" class="reset">
-    			<li><a href="index.html">首页</a></li>
-    			<li class="current"><a href="companylist.html">公司</a></li>
-    			<li><a target="_blank" href="">论坛</a></li>
-    				    			<li>
-	    				<a rel="nofollow" href="">简历管理</a>
-	    					    			</li>
-	    							    			<li><a rel="nofollow" href="create.html">发布职位</a></li>
-	    		    		</ul>
-        	        	<dl class="collapsible_menu">
-            	<dt>
-           			<span><%=session.getAttribute("username") %>&nbsp;</span> 
-            		<span class="red dn" id="noticeDot-1"></span>
-            		<i></i>
-            	</dt>
-                                	<dd><a href="positions.html">我发布的职位</a></dd>
-                	<dd><a href="">我收到的简历</a></dd>
-                	<dd class="btm"><a href="myhome.html">我的公司主页</a></dd>
-                	<dd><a href="jianli.html">我要找工作</a></dd>
-                                                <dd><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout"><!-- <a rel="nofollow" href="login.html">退出</a> -->
-                                	<form action="logout" method="post">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="退出" style="background-color:#019875;color:#FFF"></form>
-                                </dd>
-            </dl>
-                                </div>
-    </div><!-- end #header -->
-    
-  </body>
+	
+			<dl class="collapsible_menu">
+				<dt>
+					<span><%=session.getAttribute("username") %>&nbsp;</span> <span
+						class="red dn" id="noticeDot-1"></span> <i></i>
+				</dt>
+				<%
+					if(session.getAttribute("status").equals(1)){
+				 %>
+				<dd>
+					<a href="positions.html">我发布的职位</a>
+				</dd>
+				<dd>
+					<a href="">我收到的简历</a>
+				</dd>
+				<dd class="btm">
+					<a href="myhome.html">我的公司主页</a>
+				</dd>
+				<dd>
+					<a href="create.html">我要招人</a>
+				</dd>
+				<%
+					}else{
+				 %>
+				<dd>
+					<a rel="nofollow" href="jianli.html">我的简历</a>
+				</dd>
+				<dd>
+					<a href="collections.html">我收藏的职位</a>
+				</dd>
+				<dd class="btm">
+					<a href="subscribe.html">我的订阅</a>
+				</dd>
+				<dd>
+					<a href="jianli.html">我要找工作</a>
+				</dd>
+				<%
+					}
+				 %>
+				<dd>
+					<a href="accountBind.html">帐号设置</a>
+				</dd>
+				<dd class="logout">
+					<!-- <a rel="nofollow" href="login.html">退出</a> -->
+					<form action="logout" method="post">
+						&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="退出"
+							style="background-color:#019875;color:#FFF">
+					</form>
+				</dd>
+			</dl>
+	
+	<!-- end #header -->
+
+</body>
 </html>
