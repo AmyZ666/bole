@@ -6,11 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="bole")
+@Table(name="user")
 public class User {       
 	
 	private int id;
 	private String email;
+	private String userName;
+	
 	private String passWord;   
 	
 	@Id
@@ -32,6 +34,12 @@ public class User {
 	}
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 
