@@ -46,21 +46,7 @@ var youdao_conv_id = 271546;
 <script src="style/js/ajaxCross.json" charset="UTF-8"></script>
 </head>
 <body>
-<div id="header">
-		<div class="wrapper">
-			<a class="logo" href="index.html"> <img width="229" height="43"
-				alt="拉勾招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
-			<ul id="navheader" class="reset">
-				<li class="current"><a href="index.html">首页</a></li>
-				<li><a href="companylist.html">公司</a></li>
-				<li><a target="_blank" href="">论坛</a></li>
-				<li><a rel="nofollow" href="">简历管理</a>
-				</li>
-				<li><a rel="nofollow" href="create.html">发布职位</a></li>
-			</ul>
-			<jsp:include page="header.jsp" />
-		</div>
-	</div>
+
     <ul class="reset hotabbing">
             	            		<li class="current">热门职位</li>
             	            	<li>最新职位</li>

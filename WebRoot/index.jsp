@@ -47,12 +47,12 @@ var youdao_conv_id = 271546;
 <div id="body">
 	<div id="header">
 		<div class="wrapper">
-			<a class="logo" href="index.html"> <img width="229" height="43"
+			<a class="logo" href="index.jsp"> <img width="229" height="43"
 				alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
 			<ul id="navheader" class="reset">
 				<li class="current"><a href="index.html">首页</a></li>
 				<li><a href="companylist.html">公司</a></li>
-				<li><a target="_blank" href="">论坛</a></li>
+				<li><a target="_blank" href="logout.action">论坛</a></li>
 				<li><a rel="nofollow" href="">简历管理</a>
 				</li>
 				<li><a rel="nofollow" href="create.html">发布职位</a></li>
@@ -62,7 +62,7 @@ var youdao_conv_id = 271546;
 	</div>
     <div id="container">
         				
-		<jsp:include page="left_zhi.jsp" />
+		 <jsp:include page="left_zhi.jsp" />
         <div class="content">	
 	        			<div id="search_box">
 		<form id="searchForm" name="searchForm" action="list.html" method="get">

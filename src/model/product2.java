@@ -6,13 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="product")
-public class product {
+@Table(name="product_class2")
+public class product2 {
 	private int id;
-	private int hot_num;
 	private String name;
-	private int class2_id;
+	private int class1_id;
 	
+
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -21,24 +21,16 @@ public class product {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getHot_num() {
-		return hot_num;
-	}
-	public void setHot_num(int hot_num) {
-		this.hot_num = hot_num;
-	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public int getClass2_id() {
-		return class2_id;
+	public int getClass1_id() {
+		return class1_id;
 	}
-	public void setClass2_id(int class2_id) {
-		this.class2_id = class2_id;
+	public void setClass1_id(int class1_id) {
+		this.class1_id = class1_id;
 	}
-	
 }

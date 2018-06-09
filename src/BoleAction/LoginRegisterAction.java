@@ -13,6 +13,8 @@ import org.junit.Test;
 
 import model.User;
 import model.product;
+import model.product1;
+import model.product2;
 
 import test.HibernateSessionFactory;
 
@@ -59,29 +61,67 @@ public class LoginRegisterAction extends ActionSupport{
 		Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
 
-        List<product> list = session.createSQLQuery("select * from product_class").addEntity(product.class).list();
-
+        List<product> list = session.createSQLQuery("select * from product order by hot_num desc limit 10").addEntity(product.class).list();
+        List<product1> list1 = session.createSQLQuery("select * from product_class").addEntity(product1.class).list();
+        List<product2> list2 = session.createSQLQuery("select * from product_class2").addEntity(product2.class).list();
+        List<product> list3 = session.createSQLQuery("select * from product").addEntity(product.class).list();
         tx.commit();
         session.close();
 
         ArrayList<product> pros =new ArrayList<product>();
-        product pro;
+        ArrayList<product1> pros1 =new ArrayList<product1>();
+        ArrayList<product2> pros2 =new ArrayList<product2>();
+        ArrayList<product> pros3 =new ArrayList<product>();
+        product pro; //搜索量排前10
+        product1 pro1;	//第一级目录
+        product2 pro2;	//第二级目录
+        product pro3;	//所有职位
         for(int i = 0; i < list.size(); i ++){
         	pro=new product();
         	pro.setName(list.get(i).getName());
         	pro.setHot_num(list.get(i).getHot_num());
+        	pro.setClass2_id(list.get(i).getClass2_id());
         	pro.setId(list.get(i).getId());
         	pros.add(pro);
         
         }
-
-        
-     
-        if(!pros.isEmpty()&&pros.size()!=0){
-     
-        	ActionContext.getContext().getSession().put("pros",pros);
+        for(int i = 0; i < list1.size(); i ++){
+        	pro1=new product1();
+        	pro1.setName(list1.get(i).getName());
+        	pro1.setId(list1.get(i).getId());
+        	pros1.add(pro1);
         
         }
+        for(int i = 0; i < list2.size(); i ++){
+        	pro2=new product2();
+        	pro2.setName(list2.get(i).getName());
+        	pro2.setClass1_id(list2.get(i).getClass1_id());
+        	pro2.setId(list2.get(i).getId());
+        	pros2.add(pro2);
+
+        
+        }
+        for(int i = 0; i < list3.size(); i ++){
+        	pro3=new product();
+        	pro3.setName(list3.get(i).getName());
+        	pro3.setHot_num(list3.get(i).getHot_num());
+        	pro3.setClass2_id(list3.get(i).getClass2_id());
+        	pro3.setId(list3.get(i).getId());
+        	pros3.add(pro3);
+     
+        
+        }
+
+        
+      
+ 
+     
+        	ActionContext.getContext().getSession().put("pros",pros);
+        	ActionContext.getContext().getSession().put("pros1",pros1);
+        	ActionContext.getContext().getSession().put("pros2",pros2);
+        	ActionContext.getContext().getSession().put("pros3",pros3);
+        
+      
         
      
      
