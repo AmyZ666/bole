@@ -1,3 +1,4 @@
+<%@page import="model.product"%>  
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
@@ -17,8 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>伯乐在线-最专业的互联网招聘平台</title>
 <meta property="qc:admins" content="23635710066417756375" />
-<meta content="拉勾网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在拉勾网" name="description">
-<meta content="拉勾,拉勾网,拉勾招聘,拉钩, 拉钩网 ,互联网招聘,拉勾互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 拉勾官网, 拉勾百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
+<meta content="伯乐网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在伯乐网" name="description">
+<meta content="伯乐,伯乐网,伯乐招聘,伯乐, 伯乐网 ,互联网招聘,伯乐互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 伯乐官网, 伯乐百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
@@ -47,7 +48,7 @@ var youdao_conv_id = 271546;
 	<div id="header">
 		<div class="wrapper">
 			<a class="logo" href="index.html"> <img width="229" height="43"
-				alt="拉勾招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
+				alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
 			<ul id="navheader" class="reset">
 				<li class="current"><a href="index.html">首页</a></li>
 				<li><a href="companylist.html">公司</a></li>
@@ -95,7 +96,8 @@ var youdao_conv_id = 271546;
 <script type="text/javascript" src="style/js/search.min.js"></script>
 <dl class="hotSearch">
 	<dt>热门搜索：</dt>
-	<dd><a href="list.htmlJava?labelWords=label&city=">Java</a></dd>
+
+	<!--  <dd><a href="list.htmlJava?labelWords=label&city=">Java</a></dd>
 	<dd><a href="list.htmlPHP?labelWords=label&city=">PHP</a></dd>
 	<dd><a href="list.htmlAndroid?labelWords=label&city=">Android</a></dd>
 	<dd><a href="list.htmliOS?labelWords=label&city=">iOS</a></dd>
@@ -104,7 +106,23 @@ var youdao_conv_id = 271546;
 	<dd><a href="list.htmlUI?labelWords=label&city=">UI</a></dd>
 	<dd><a href="list.html运营?labelWords=label&city=">运营</a></dd>
 	<dd><a href="list.htmlBD?labelWords=label&city=">BD</a></dd>
-	<dd><a href="list.html?gx=实习&city=">实习</a></dd>
+	<dd><a href="list.html?gx=实习&city=">实习</a></dd> -->
+	<%
+		ArrayList pros = (ArrayList)session.getAttribute("pros");
+		if(pros.size()==0||pros==null){
+			%>
+				<dd><a href="#">查新出错</a></dd>
+			<%
+		}else{
+			  product pro=null;
+		      for(int i=0;i<pros.size();i++){
+		      	pro=(product)pros.get(i);
+	 %>
+	<dd><a href="list.jsp?<%=pro.getId() %>"><%=pro.getName() %></a></dd>
+	<%
+			}
+		}
+	 %>
 </dl>			
 			<div id="home_banner">
 	            <ul class="banner_bg">
@@ -295,7 +313,7 @@ var youdao_conv_id = 271546;
 		    <input type="submit" id="submitLogin" value="登 &nbsp; &nbsp; 录" />
 		</form>
 		<div class="login_right">
-			<div>还没有拉勾帐号？</div>
+			<div>还没有伯乐帐号？</div>
 			<a href="register.html" class="registor_now">立即注册</a>
 		    <div class="login_others">使用以下帐号直接登录:</div>
 		    <a href="h/ologin/auth/sina.html" target="_blank" id="icon_wb" class="icon_wb" title="使用新浪微博帐号登录"></a>

@@ -13,6 +13,7 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="myeclipse.connection.profile">com.mysql.jdbc.Driver</property>
     	<mapping class="model.User" />
+    	<mapping class="model.product" />
     </session-factory>
 
 </hibernate-configuration>
