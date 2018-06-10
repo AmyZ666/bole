@@ -50,10 +50,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						for(int j=0;j<pros3.size();j++){
 							pro3=(product)pros3.get(j);
 							pro2=(product2)pros2.get(pro3.getClass2_id()-1);
-							if(pro3.getHot_num()>100&&(pro2.getClass1_id()-1)==pro1.getId()){
+							if(pro3.getHot_num()>100&&(pro2.getClass1_id())==pro1.getId()){
 					 %>
 					 
-					 	<a href="list.jsp?<%=pro3.getId() %>"><%=pro3.getName() %><%=pro3.getClass2_id() %><%=pro2.getClass1_id() %><%=pro1.getId() %></a>
+					 	<a href="list.jsp?<%=pro3.getId() %>"><%=pro3.getName() %></a>
 					
 					 <%
 					 		}
@@ -64,6 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<%
 						for(int k=0;k<pros2.size();k++){
 							pro2=(product2)pros2.get(k);
+							if(pro2.getClass1_id()==pro1.getId()){
 					 %>
 					<dl class="reset">
 						<dt>
@@ -89,6 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</dd>
 					</dl>
 					<%
+						}
 						}
 					 %>
 					

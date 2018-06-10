@@ -10,10 +10,35 @@ Target Server Type    : MYSQL
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-06-09 19:01:41
+Date: 2018-06-11 00:50:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for company
+-- ----------------------------
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE `company` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `position` varchar(255) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `salary` varchar(255) DEFAULT NULL,
+  `exp` varchar(255) DEFAULT NULL,
+  `education` varchar(255) DEFAULT NULL,
+  `tempt` varchar(255) DEFAULT NULL,
+  `start_date` datetime DEFAULT NULL,
+  `introduce` varchar(255) DEFAULT NULL,
+  `domain` varchar(255) DEFAULT NULL,
+  `founder` varchar(255) DEFAULT NULL,
+  `stage` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of company
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for product
@@ -184,7 +209,7 @@ CREATE TABLE `product_class` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of product_class
@@ -257,3 +282,18 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '123', '123', '123', '0');
 INSERT INTO `user` VALUES ('2', '456', '456', '456', '1');
 INSERT INTO `user` VALUES ('3', '789', '789', '789', '0');
+
+-- ----------------------------
+-- Table structure for weal
+-- ----------------------------
+DROP TABLE IF EXISTS `weal`;
+CREATE TABLE `weal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weal_name` varchar(255) DEFAULT NULL,
+  `com_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of weal
+-- ----------------------------
