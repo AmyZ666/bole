@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link  media="handheld" rel="alternate">
 <!-- end 云适配 -->
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>平潭协创进出口贸易有限公司-拉勾网-最专业的互联网招聘平台</title>
+<title>平潭协创进出口贸易有限公司-伯乐网-最专业的互联网招聘平台</title>
 <meta content="23635710066417756375" property="qc:admins">
 <meta name="description" content="平潭协创进出口贸易有限公司 福建平潭协创进出口贸易有限公司 上海 移动互联网 天使轮 150-500人 测试的发打发打发大范德萨发">
 <meta name="keywords" content="平潭协创进出口贸易有限公司 福建平潭协创进出口贸易有限公司 上海 移动互联网 天使轮 150-500人 测试的发打发打发大范德萨发">
@@ -40,35 +40,36 @@ var youdao_conv_id = 271546;
 <script src="style/js/ajaxCross.json" charset="UTF-8"></script></head>
 <body>
 <div id="body">
-	<div id="header">
-    	<div class="wrapper">
-    		<a class="logo" href="index.html">
-    			<img width="229" height="43" alt="拉勾招聘-专注互联网招聘" src="style/images/logo.png">
-    		</a>
-    		<ul id="navheader" class="reset">
-    			<li><a href="index.html">首页</a></li>
-    			<li class="current"><a href="companylist.html">公司</a></li>
-    			<li><a target="_blank" href="">论坛</a></li>
-    				    			<li>
-	    				<a rel="nofollow" href="">简历管理</a>
-	    					    			</li>
-	    							    			<li><a rel="nofollow" href="create.html">发布职位</a></li>
-	    		    		</ul>
-        	        	<dl class="collapsible_menu">
-            	<dt>
-           			<span>jason&nbsp;</span> 
-            		<span class="red dn" id="noticeDot-1"></span>
-            		<i></i>
-            	</dt>
-                                	<dd><a href="positions.html">我发布的职位</a></dd>
-                	<dd><a href="">我收到的简历</a></dd>
-                	<dd class="btm"><a href="myhome.html">我的公司主页</a></dd>
-                	<dd><a href="jianli.html">我要找工作</a></dd>
-                                                <dd><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
-            </dl>
-                                </div>
-    </div><!-- end #header -->
+	<jsp:include page="lock.jsp"></jsp:include>
+		<div id="header">
+			<div class="wrapper">
+				<a class="logo" href="index.jsp"> <img width="229" height="43"
+					alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
+				<ul id="navheader" class="reset">
+					<li><a href="index.jsp">首页</a>
+					</li>
+					<li class="current"><a href="companylist.jsp">公司</a>
+					</li>
+					<li><a target="_blank" href="forum.jsp">论坛</a>
+					</li>
+					<%
+						if (session.getAttribute("status").equals(1)) {
+					%>
+					<li><a rel="nofollow" href="">简历管理</a></li>
+					<li><a rel="nofollow" href="create.jsp">发布职位</a>
+					</li>
+					<%
+						} else {
+					%>
+					<li><a rel="nofollow" href="#">我的简历</a>
+					</li>
+					<%
+						}
+					%>
+				</ul>
+				<jsp:include page="header.jsp" />
+			</div>
+		</div><!-- end #header -->
     <div id="container">
         <!-- <script src="style/js/swfobject_modified.js" type="text/javascript"></script> -->
         <div class="clearfix">
@@ -98,7 +99,7 @@ var youdao_conv_id = 271546;
 	                    		                   			<h2 title="平潭协创进出口贸易有限公司">平潭协创进出口贸易有限公司</h2>
 	                   			                        
 	                        	                        	<em class="unvalid"></em>
-                        		<span class="va dn">拉勾未认证企业</span>
+                        		<span class="va dn">伯乐未认证企业</span>
 	                        	<a target="_blank" class="applyC" href="http://www.lagou.com/c/auth.html">申请认证</a>
 	                        	                        <div class="clear"></div>
 	                       	
@@ -270,7 +271,7 @@ var youdao_conv_id = 271546;
 		                    <dd>
 		                    	<div class="addnew">
 		                        	发布需要的人才信息，让伯乐和千里马尽快相遇……<br>
-		                            <a href="create.html">+添加招聘职位</a>
+		                            <a href="create.jsp">+添加招聘职位</a>
 		                        </div>
 		                    </dd>
 		                </dl>
@@ -623,10 +624,10 @@ avatar.uploadComplate = function( data ){
 	</div><!-- end #body -->
 	<div id="footer">
 		<div class="wrapper">
-			<a rel="nofollow" target="_blank" href="about.html">联系我们</a>
-		    <a target="_blank" href="http://www.lagou.com/af/zhaopin.html">互联网公司导航</a>
-		    <a rel="nofollow" target="_blank" href="http://e.weibo.com/lagou720">拉勾微博</a>
-		    <a rel="nofollow" href="javascript:void(0)" class="footer_qr">拉勾微信<i></i></a>
+			<a rel="nofollow" target="_blank" href="about.jsp">联系我们</a>
+		    <a target="_blank" href="http://www.lagou.com/af/zhaopin.jsp">互联网公司导航</a>
+		    <a rel="nofollow" target="_blank" href="http://e.weibo.com/lagou720">伯乐微博</a>
+		    <a rel="nofollow" href="javascript:void(0)" class="footer_qr">伯乐微信<i></i></a>
 			<div class="copyright">&copy;2013-2014 Lagou <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">京ICP备14023790号-2</a></div>
 		</div>
 	</div>

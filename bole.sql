@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-06-11 00:50:08
+Date: 2018-06-11 17:38:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,23 +21,44 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `position` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `shortName` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `salary` varchar(255) DEFAULT NULL,
-  `exp` varchar(255) DEFAULT NULL,
-  `education` varchar(255) DEFAULT NULL,
   `tempt` varchar(255) DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
+  `shotIntroduce` varchar(255) DEFAULT NULL,
   `introduce` varchar(255) DEFAULT NULL,
   `domain` varchar(255) DEFAULT NULL,
   `founder` varchar(255) DEFAULT NULL,
   `stage` varchar(255) DEFAULT NULL,
   `size` varchar(255) DEFAULT NULL,
+  `invest_name` varchar(255) DEFAULT NULL,
+  `invest_stage` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for founder
+-- ----------------------------
+DROP TABLE IF EXISTS `founder`;
+CREATE TABLE `founder` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `position` varchar(255) DEFAULT NULL,
+  `sina` varchar(255) DEFAULT NULL,
+  `introduce` varchar(255) DEFAULT NULL,
+  `com_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of founder
 -- ----------------------------
 
 -- ----------------------------
@@ -262,6 +283,24 @@ INSERT INTO `product_class2` VALUES ('24', '人力资源', '6');
 INSERT INTO `product_class2` VALUES ('25', '行政', '6');
 INSERT INTO `product_class2` VALUES ('26', '财务', '6');
 INSERT INTO `product_class2` VALUES ('27', '高端职位', '6');
+
+-- ----------------------------
+-- Table structure for pro_com
+-- ----------------------------
+DROP TABLE IF EXISTS `pro_com`;
+CREATE TABLE `pro_com` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `introduce` varchar(255) DEFAULT NULL,
+  `com_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of pro_com
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user

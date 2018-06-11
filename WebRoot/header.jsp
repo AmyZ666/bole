@@ -29,11 +29,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<img src="style/images/logoko111.png" width="229" height="43" alt="拉勾招聘-专注互联网招聘" />
     		</a>
     		<ul class="reset" id="navheader">
-    			<li class="current"><a href="index.html">首页</a></li>
-    			<li ><a href="companylist.html" >公司</a></li>
-    			<li ><a href="h/toForum.html" target="_blank">论坛</a></li>
-    				    			<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-	    							    			<li ><a href="create.html" rel="nofollow">发布职位</a></li>
+    			<li class="current"><a href="index.jsp">首页</a></li>
+    			<li ><a href="companylist.jsp" >公司</a></li>
+    			<li ><a href="h/toForum.jsp" target="_blank">论坛</a></li>
+    				    			<li ><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
+	    							    			<li ><a href="create.jsp" rel="nofollow">发布职位</a></li>
 	    		    		</ul>
         	            <ul class="loginTop">
             	<li><a href="login.jsp" rel="nofollow">登录</a></li> 
@@ -43,15 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
     </div> -->
 	<!-- end #header -->
-	<%
-    	if(session.getAttribute("username")==null){
-    	
-     %>
-	<jsp:forward page="login.jsp" />
-	<%
-     	}
-     	
-      %>
+	
 	
 			<dl class="collapsible_menu">
 				<dt>
@@ -62,40 +54,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					if(session.getAttribute("status").equals(1)){
 				 %>
 				<dd>
-					<a href="positions.html">我发布的职位</a>
+					<a href="positions.jsp">我发布的职位</a>
 				</dd>
 				<dd>
 					<a href="">我收到的简历</a>
 				</dd>
 				<dd class="btm">
-					<a href="myhome.html">我的公司主页</a>
+					<a href="myhome.jsp">我的公司主页</a>
 				</dd>
 				<dd>
-					<a href="create.html">我要招人</a>
+					<a href="create.jsp">我要招人</a>
 				</dd>
 				<%
 					}else{
 				 %>
 				<dd>
-					<a rel="nofollow" href="jianli.html">我的简历</a>
+					<a rel="nofollow" href="jianli.jsp">我的简历</a>
 				</dd>
 				<dd>
-					<a href="collections.html">我收藏的职位</a>
+					<a href="collections.jsp">我收藏的职位</a>
 				</dd>
 				<dd class="btm">
-					<a href="subscribe.html">我的订阅</a>
+					<a href="subscribe.jsp">我的订阅</a>
 				</dd>
 				<dd>
-					<a href="jianli.html">我要找工作</a>
+					<a href="jianli.jsp">我要找工作</a>
 				</dd>
 				<%
 					}
 				 %>
 				<dd>
-					<a href="accountBind.html">帐号设置</a>
+					<a href="accountBind.jsp">帐号设置</a>
 				</dd>
 				<dd class="logout">
-					<!-- <a rel="nofollow" href="login.html">退出</a> -->
+					<!-- <a rel="nofollow" href="login.jsp">退出</a> -->
 					<form action="logout" method="post">
 						&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="退出"
 							style="background-color:#019875;color:#FFF">

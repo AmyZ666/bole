@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML>
@@ -25,8 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- <div class="web_root"  style="display:none">http://www.lagou.com</div> -->
 <script type="text/javascript">
-var ctx = "http://www.lagou.com";
-console.log(1);
+	var ctx = "http://www.lagou.com";
+	console.log(1);
 </script>
 <link href="http://www.lagou.com/images/favicon.ico" rel="Shortcut Icon">
 <link href="style/css/style.css" type="text/css" rel="stylesheet">
@@ -40,32 +42,43 @@ console.log(1);
     <script type="text/javascript" src="style/js/excanvas.js"></script>
 <![endif]-->
 <script type="text/javascript">
-var youdao_conv_id = 271546; 
+	var youdao_conv_id = 271546;
 </script>
 <script src="style/js/conv.js" type="text/javascript"></script>
 <script src="style/js/ajaxCross.json" charset="UTF-8"></script>
 </head>
 <body>
 	<div id="body">
+		<jsp:include page="lock.jsp"></jsp:include>
 		<div id="header">
 			<div class="wrapper">
-				<a class="logo" href="index.html"> <img width="229" height="43"
-					alt="伯乐招聘-专注互联网招聘" src="style/images/logo.png"> </a>
+				<a class="logo" href="index.jsp"> <img width="229" height="43"
+					alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
 				<ul id="navheader" class="reset">
-					<li><a href="index.html">首页</a>
+					<li><a href="index.jsp">首页</a>
 					</li>
-					<li class="current"><a href="companylist.html">公司</a>
+					<li class="current"><a href="companylist.jsp">公司</a>
 					</li>
-					<li><a target="_blank" href="">论坛</a>
+					<li><a target="_blank" href="forum.jsp">论坛</a>
 					</li>
+					<%
+						if (session.getAttribute("status").equals(1)) {
+					%>
 					<li><a rel="nofollow" href="">简历管理</a></li>
 					<li><a rel="nofollow" href="create.html">发布职位</a>
 					</li>
+					<%
+						} else {
+					%>
+					<li><a rel="nofollow" href="#">我的简历</a>
+					</li>
+					<%
+						}
+					%>
 				</ul>
-				<jsp:include page="header.jsp"></jsp:include>
+				<jsp:include page="header.jsp" />
 			</div>
 		</div>
-		<!-- end #header -->
 		<div id="container">
 
 			<div style="" id="stepTip">
@@ -85,10 +98,11 @@ var youdao_conv_id = 271546;
 								src="style/images/step1.png">
 
 							<h3>
-								公司全称 <!-- <span>福建平潭协创进出口贸易有限公司</span> -->
+								公司全称
+								<!-- <span>福建平潭协创进出口贸易有限公司</span> -->
 							</h3>
-							<input type="text" placeholder="请输入公司全称，如:福建平潭协创进出口贸易有限公司" value=""
-								name="name" id="name" class="valid">
+							<input type="text" placeholder="请输入公司全称，如:福建平潭协创进出口贸易有限公司"
+								value="" name="name" id="name" class="valid">
 							<h3>公司简称</h3>
 							<!--非必填-->
 							<input type="text" placeholder="请输入公司简称，如:伯乐" value=""
@@ -200,7 +214,8 @@ var youdao_conv_id = 271546;
 											<li>上市公司</li>
 										</ul>
 									</div> <input type="text" placeholder="请输入投资机构，如真格基金，创新工场"
-									name="stageorg"></li>
+									name="stageorg">
+								</li>
 							</ul>
 							<div class="dn" id="cloneInvest">
 								<input type="hidden" class="select_invest_hidden"
@@ -267,8 +282,7 @@ var youdao_conv_id = 271546;
 									<a href="http://www.adobe.com/go/getflashplayer"><img
 										width="112" height="33"
 										src="style/images/get_flash_player.gif"
-										alt="获取 Adobe Flash Player">
-									</a>
+										alt="获取 Adobe Flash Player"> </a>
 								</p>
 							</div>
 							<!--[if !IE]>-->
@@ -282,17 +296,18 @@ var youdao_conv_id = 271546;
 
 			<script src="style/js/step1.min.js" type="text/javascript"></script>
 			<script>
-var avatar = {};
-avatar.uploadComplate = function( data ){
-	var result = eval('('+ data +')');
-	if(result.success){
-		jQuery('#logoShow img').attr("src",ctx+ '/'+result.content);
-		jQuery.colorbox.close();
-		jQuery('#logoNo').hide();
-		jQuery('#logoShow').show();
-	}
-};
-</script>
+				var avatar = {};
+				avatar.uploadComplate = function(data) {
+					var result = eval('(' + data + ')');
+					if (result.success) {
+						jQuery('#logoShow img').attr("src",
+								ctx + '/' + result.content);
+						jQuery.colorbox.close();
+						jQuery('#logoNo').hide();
+						jQuery('#logoShow').show();
+					}
+				};
+			</script>
 			<div class="clear"></div>
 			<input type="hidden" value="13ae35fedd9e45cdb66fb712318d7369"
 				id="resubmitToken"> <a rel="nofollow" title="回到顶部"
