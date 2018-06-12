@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 
 import model.User;
+import model.company;
 import model.product;
 import model.product1;
 import model.product2;
@@ -45,6 +46,7 @@ public class LoginRegisterAction extends ActionSupport{
         	if(list.get(i).getEmail().equals(getUser().getEmail())){
         		if(list.get(i).getPassWord().equals(getUser().getPassWord())) {
         			Product();
+        			//CompanyList();
         			ActionContext.getContext().getSession().put("status",list.get(i).getStatus());
         			ActionContext.getContext().getSession().put("id",list.get(i).getId());
         			ActionContext.getContext().getSession().put("username",list.get(i).getUserName());
@@ -55,7 +57,19 @@ public class LoginRegisterAction extends ActionSupport{
 		return "error";
 	
 	}
-	//@Test
+	@Test
+	
+	public void CompanyList() throws SQLException{
+		Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+
+        List<company> list = session.createSQLQuery("select * from company").addEntity(company.class).list();
+
+        
+        tx.commit();
+        session.close();
+	}
+	
 	public void Product() throws SQLException{
 
 		Session session = HibernateSessionFactory.getSession();
