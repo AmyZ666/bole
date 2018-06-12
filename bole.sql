@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-06-12 11:13:38
+Date: 2018-06-12 11:24:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,12 +35,25 @@ CREATE TABLE `company` (
   `invest_name` varchar(255) DEFAULT NULL,
   `invest_stage` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
 -- ----------------------------
 INSERT INTO `company` VALUES ('1', '烟台富土康有限公司', '富土康', 'D:/futu.png', 'www.fushikang.com', '烟台市莱山县中山大街', '2018-06-11 21:02:06', '我们的公司待遇很好', '随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写', '移动互联网', '初创型（天使轮）', '15-50人', '腾讯', 'A轮融资');
+INSERT INTO `company` VALUES ('2', 'MOMO', 'MOMO', 'momo.png', 'www.momo.com', '西安', '2017-06-12 10:49:56', null, null, '运营', 'C轮', '20-30', '腾讯', null);
+INSERT INTO `company` VALUES ('3', '博雅', 'boya', 'boya.png', 'www.boya.com', '北京', '2017-09-12 10:52:46', null, null, '后端开发', 'B轮', '50-100', '网易', null);
+INSERT INTO `company` VALUES ('4', '飞道科技', 'feidao', 'feidao.png', 'www.feidao.com', '郑州', '2016-07-12 10:54:37', null, null, '前端开发', 'D轮及以上', '50-100', '阿里巴巴', null);
+INSERT INTO `company` VALUES ('5', '世纪优优', 'sjyy', 'sjyy.png', 'www.sjyy.com', '北京', '2015-05-12 10:56:28', null, null, '移动开发', 'D轮及以上', '12-30', '百度', null);
+INSERT INTO `company` VALUES ('6', '易迅', 'yixun', 'yixun.png', 'www.yixun.com\r\n\r\n', '上海', '2017-05-12 10:57:55', null, null, '行政', 'D轮及以上', '40-50', '滴滴', null);
+INSERT INTO `company` VALUES ('7', '大东方', 'ddf', 'ddf.png', 'www.ddf.com', '成都', '2018-06-12 10:59:49', null, null, '会计', 'D轮及以上', '13-40', '百度', null);
+INSERT INTO `company` VALUES ('8', '金棕榈', 'jzl', 'jzl.png', 'www.jzl.com', '上海', '2018-04-12 11:07:35', null, null, '移动开发', 'B轮', '40-130', '百度', null);
+INSERT INTO `company` VALUES ('9', '永航科技', 'yh', 'yh.png', 'www.yh.com', '北京', '2017-11-12 11:10:20', null, null, '后端开发', 'D轮及以上', '30-50', '阿里巴巴', null);
+INSERT INTO `company` VALUES ('10', '北京思特奇', 'stq', 'stq.png', 'www.stq.com', '南昌', '2018-04-02 11:13:34', null, null, '移动开发', 'D轮及以上', '20-30', '腾讯', null);
+INSERT INTO `company` VALUES ('11', '瑞德医疗', 'rdyl', 'rdyl.png', 'www.rdyl.com', '北京', '2018-04-01 11:14:58', null, null, '市场营销', 'C轮', '20-59', '美团', null);
+INSERT INTO `company` VALUES ('12', '乐影网', 'ly', 'ly.png', 'www.ly.png', '北京', '2018-04-15 11:16:34', null, null, '后端开发', 'B轮', '30-60', '阿里巴巴', null);
+INSERT INTO `company` VALUES ('13', '卓宝计算机', 'zb', 'zb.png', 'www.zb.com', '上海', '2018-01-25 11:17:47', null, null, '移动开发', 'B轮', '30-100', '网易', null);
+INSERT INTO `company` VALUES ('14', '中科蓝鲸', 'zklj', 'zklj.png', 'www.zklj.com', '北京', '2017-11-19 11:19:05', null, null, '设计', 'D轮及以上', '50-100', '百度', null);
 
 -- ----------------------------
 -- Table structure for founder
