@@ -149,4 +149,30 @@ public class LoginRegisterAction extends ActionSupport{
 		
 		return "success";
 	}
+	
+	
+	public String register() throws Exception{
+		User u = new User();
+		String email = getUser().getEmail();
+		String passWord = getUser().getPassWord();
+		int status = getUser().getStatus();
+		String userName = getUser().getUserName();
+	/*	System.out.println(passWord);
+		System.out.println(status);*/
+		
+		u.setPassWord(passWord);
+		u.setEmail(email);
+		u.setStatus(status);
+		u.setUserName(userName);
+		Session session = HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(u);
+		transaction.commit();
+		session.close();
+		return"success";
+		
+	}
+	
+
 }
+

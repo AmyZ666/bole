@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
-  <!-- Field Validators for email field -->
-  <field name="user.email">
-      <field-validator type="required" short-circuit="true">
-          <message>You must enter a value for email.</message>
-      </field-validator>
-      <field-validator type="email" short-circuit="true">
-          <message>Not a valid e-mail.</message>
-      </field-validator>
-  </field>
-  <field name="user.passWord">
-		<field-validator type="requiredstring">
-			<message>请填写密码</message>
-		</field-validator>
-		<field-validator type="stringlength"> 
-			<param name="minLength">6</param>
-			<param name="maxLength">32</param> 
-			<message>为了您账号的安全，请设置6个字母以上的密码（最长可设置32个字母）</message> 
-		</field-validator>
-	</field>
-  </validator>
+<!-- <field name="user.email">
+	<field-validator type="requiredstring">
+		<param name="trim">true</param>
+		<message>请填写邮箱</message>
+	</field-validator>
+	<field-validator type="email">
+		<message>你的电子邮件地址必须是一个有效的电邮地址</message>
+	</field-validator>
+</field>
+<field name="user.passWord">
+	<field-validator type="requiredstring">
+	<message>请填写密码</message>
+	</field-validator>
+	<field-validator type="stringlength"> 
+	<param name="minLength">6</param>
+	<param name="maxLength">32</param> 
+	<message>为了您账号的安全，请设置6个字母以上的密码（最长可设置32个字母）</message> 
+	</field-validator>
+</field> -->
 </validators>

@@ -2,10 +2,16 @@
 <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
 "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
-<!-- <field name="user.email">
+<!-- <field name="user.userName">
 	<field-validator type="requiredstring">
 		<param name="trim">true</param>
-		<message>请填写邮箱</message>
+		<message>请填写用户名</message>
+	</field-validator>
+</field>
+<field name="user.email">
+	<field-validator type="requiredstring">
+		<param name="trim">true</param>
+		<message>请填写常用邮箱</message>
 	</field-validator>
 	<field-validator type="email">
 		<message>你的电子邮件地址必须是一个有效的电邮地址</message>
