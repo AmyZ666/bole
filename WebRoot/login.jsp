@@ -57,7 +57,7 @@ var youdao_conv_id = 271546;
 <!-- 			<input type="password" id="password" name="user.passWord" tabindex="2" placeholder="请输入密码" />
  -->				<span class="error" style="display:none;" id="beError"></span>
 <!-- 			    <label class="fl" for="remember"><input type="checkbox" id="remember" value="" checked="checked" name="autoLogin" /> 记住我</label>
- -->			    <s:a href="reset.jsp" class="fr" target="_blank">忘记密码？</s:a>
+ -->			<%--     <s:a href="reset.jsp" class="fr" target="_blank">忘记密码？</s:a> --%>
 			    
 				<!-- <input type="submit" id="submitLogin" value="登 &nbsp; &nbsp; 录" /> -->
 				<s:submit value="登 录" id="submitLogin"></s:submit>
