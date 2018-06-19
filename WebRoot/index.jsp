@@ -4,7 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 
 <!DOCTYPE HTML>
@@ -120,7 +120,7 @@ var youdao_conv_id = 271546;
 	<dd><a href="list.html运营?labelWords=label&city=">运营</a></dd>
 	<dd><a href="list.htmlBD?labelWords=label&city=">BD</a></dd>
 	<dd><a href="list.html?gx=实习&city=">实习</a></dd> -->
-	<%
+	<%-- <%
 		ArrayList pros = (ArrayList)session.getAttribute("pros");
 		if(pros.size()==0||pros==null){
 			%>
@@ -135,7 +135,10 @@ var youdao_conv_id = 271546;
 	<%
 			}
 		}
-	 %>
+	 %> --%>
+	 <s:iterator value="#session.pros" var="pro"  status='st' >
+		 <dd><a href="list.jsp?<s:property value="#pro.id"></s:property>"><s:property value="#pro.name"></s:property></a></dd>
+	 </s:iterator>
 </dl>			
 			<div id="home_banner">
 	            <ul class="banner_bg">

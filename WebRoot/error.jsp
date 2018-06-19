@@ -21,8 +21,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-  
+  <style>
+  	body {background:url(style/images/error.jpg) top center no-repeat;background-size: 100% 100%;  
+            position: absolute;  }
+           .btn{
+           		height: 31px;
+    		width: 153px;
+    margin-left: 590px;
+    margin-top: 449px;
+    background-color: red;
+    text-align:center;
+    padding-top:8px;
+           }
+           a{
+           	color:white;
+           	text-decoration:none
+           }
+  </style>
+
   <body>
-    咿呀呀呀呀，page迷路啦啦....<br>
+
+    <div class="btn">
+    	<a href="index.jsp">返回首页</a>
+    </div>
   </body>
 </html>
