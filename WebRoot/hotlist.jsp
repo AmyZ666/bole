@@ -54,6 +54,7 @@ var youdao_conv_id = 271546;
 	<div id="hotList">
 		<ul class="hot_pos reset">
 			<s:iterator value="#session.poss" var="pos"  status='st' >
+			
 				<s:if test="#st.Odd">
 					<li class="clearfix">	
 				</s:if>
@@ -86,8 +87,9 @@ var youdao_conv_id = 271546;
 						</ul>
 					</div>
 				</li>
+				
 			</s:iterator>
-			<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr"
+			<a href="list.jsp" class="btn fr"
 				target="_blank">查看更多</a>
 		</ul>
 		<ul class="hot_pos hot_posHotPosition reset" style="display:none;">

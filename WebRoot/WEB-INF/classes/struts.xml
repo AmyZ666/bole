@@ -40,5 +40,9 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="list" class="BoleAction.ListAction" method="List">
+			<result name="success">/list.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 </struts>    

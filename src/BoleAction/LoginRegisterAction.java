@@ -104,7 +104,7 @@ public class LoginRegisterAction extends ActionSupport{
 		Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         
-        List<position> list = session.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id limit 10").addEntity(position.class).list();
+        List<position> list = session.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id order by hot_num desc limit 10").addEntity(position.class).list();
         List<weal_pos> list1 = session.createSQLQuery("select * from weal_pos").addEntity(weal_pos.class).list();
         List<position> list2 = session.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id order by p.start_time desc limit 10").addEntity(position.class).list();
        tx.commit();

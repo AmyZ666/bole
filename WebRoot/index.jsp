@@ -112,32 +112,6 @@ var youdao_conv_id = 271546;
 <dl class="hotSearch">
 	<dt>热门搜索：</dt>
 
-	<!--  <dd><a href="list.htmlJava?labelWords=label&city=">Java</a></dd>
-	<dd><a href="list.htmlPHP?labelWords=label&city=">PHP</a></dd>
-	<dd><a href="list.htmlAndroid?labelWords=label&city=">Android</a></dd>
-	<dd><a href="list.htmliOS?labelWords=label&city=">iOS</a></dd>
-	<dd><a href="list.html前端?labelWords=label&city=">前端</a></dd>
-	<dd><a href="list.html产品经理?labelWords=label&city=">产品经理</a></dd>
-	<dd><a href="list.htmlUI?labelWords=label&city=">UI</a></dd>
-	<dd><a href="list.html运营?labelWords=label&city=">运营</a></dd>
-	<dd><a href="list.htmlBD?labelWords=label&city=">BD</a></dd>
-	<dd><a href="list.html?gx=实习&city=">实习</a></dd> -->
-	<%-- <%
-		ArrayList pros = (ArrayList)session.getAttribute("pros");
-		if(pros.size()==0||pros==null){
-			%>
-				<dd><a href="#">查新出错</a></dd>
-			<%
-		}else{
-			  product pro=null;
-		      for(int i=0;i<pros.size();i++){
-		      	pro=(product)pros.get(i);
-	 %>
-	<dd><a href="list.jsp?<%=pro.getId() %>"><%=pro.getName() %></a></dd>
-	<%
-			}
-		}
-	 %> --%>
 	 <s:iterator value="#session.pros" var="pro"  status='st' >
 		 <dd><a href="list.jsp?<s:property value="#pro.id"></s:property>"><s:property value="#pro.name"></s:property></a></dd>
 	 </s:iterator>
