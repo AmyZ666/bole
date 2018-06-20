@@ -17,6 +17,8 @@
     	<mapping class="model.product1" />
     	<mapping class="model.product2" />
     	<mapping class="model.company" />
+    	<mapping class="model.position" />
+    	<mapping class="model.weal_pos" />
     </session-factory>
 
 </hibernate-configuration>

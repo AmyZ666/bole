@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="position")
+@Table(name="weal_pos")
 public class weal_pos {
 	private int id;
 	private int pos_id;

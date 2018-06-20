@@ -17,9 +17,11 @@ import org.omg.CORBA.PRIVATE_MEMBER;
 
 import model.User;
 import model.company;
+import model.position;
 import model.product;
 import model.product1;
 import model.product2;
+import model.weal_pos;
 
 import test.HibernateSessionFactory;
 
@@ -51,6 +53,7 @@ public class LoginRegisterAction extends ActionSupport{
         		if(list.get(i).getPassWord().equals(getUser().getPassWord())) {
         			Product();
         			//CompanyList();
+        			//Position();
         			ActionContext.getContext().getSession().put("status",list.get(i).getStatus());
         			ActionContext.getContext().getSession().put("id",list.get(i).getId());
         			ActionContext.getContext().getSession().put("username",list.get(i).getUserName());
@@ -91,9 +94,81 @@ public class LoginRegisterAction extends ActionSupport{
         	com.setStart_date(list.get(i).getStart_date());
         	com.setWebsite(list.get(i).getWebsite());
         	coms.add(com);
-     //   	System.out.println(datelist.get(i).getStart_date());
+        	//System.out.println(com.getStart_date());
         }
         ActionContext.getContext().getSession().put("coms",coms);
+	}
+	//@Test
+	public String Position() throws SQLException{
+	
+		Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        
+        List<position> list = session.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id limit 10").addEntity(position.class).list();
+        List<weal_pos> list1 = session.createSQLQuery("select * from weal_pos").addEntity(weal_pos.class).list();
+        List<position> list2 = session.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id order by p.start_time desc limit 10").addEntity(position.class).list();
+       tx.commit();
+        session.close();
+
+        ArrayList<position> pross =new ArrayList<position>();
+        ArrayList<position> pross2 =new ArrayList<position>();
+        ArrayList<weal_pos> wposs =new ArrayList<weal_pos>();
+
+        position pros;
+        weal_pos wpos;
+ 
+     
+        for(int i=0;i<list.size();i++){
+        	pros=new position();
+        	pros.setCom_id(list.get(i).getCom_id());
+        	pros.setEducution(list.get(i).getEducution());
+        	pros.setExp(list.get(i).getExp());
+        	pros.setName(list.get(i).getName());
+        	pros.setSalary(list.get(i).getSalary());
+        	pros.setStart_time(list.get(i).getStart_time());
+        	pros.setTempt(list.get(i).getTempt());
+        	pros.setAddress(list.get(i).getAddress());
+        	pros.setId(list.get(i).getId());
+        	pros.setCom_founder(list.get(i).getCom_founder());
+        	pros.setCom_name(list.get(i).getCom_name());
+        	pros.setDomain(list.get(i).getDomain());
+        	pros.setSize(list.get(i).getSize());
+        	pros.setStage(list.get(i).getStage());
+        	pross.add(pros);
+     
+        }
+        
+        for(int i=0;i<list2.size();i++){
+        	pros=new position();
+        	pros.setCom_id(list2.get(i).getCom_id());
+        	pros.setEducution(list2.get(i).getEducution());
+        	pros.setExp(list2.get(i).getExp());
+        	pros.setName(list2.get(i).getName());
+        	pros.setSalary(list2.get(i).getSalary());
+        	pros.setStart_time(list2.get(i).getStart_time());
+        	pros.setTempt(list2.get(i).getTempt());
+        	pros.setAddress(list2.get(i).getAddress());
+        	pros.setId(list2.get(i).getId());
+        	pros.setCom_founder(list2.get(i).getCom_founder());
+        	pros.setCom_name(list2.get(i).getCom_name());
+        	pros.setDomain(list2.get(i).getDomain());
+        	pros.setSize(list2.get(i).getSize());
+        	pros.setStage(list2.get(i).getStage());
+        	pross2.add(pros);
+     
+        }
+        
+        for(int i=0;i<list1.size();i++){
+        	wpos=new weal_pos();
+        	wpos.setName(list1.get(i).getName());
+        	wpos.setPos_id(list1.get(i).getPos_id());
+        	wposs.add(wpos);
+
+        }
+        ActionContext.getContext().getSession().put("poss",pross);
+        ActionContext.getContext().getSession().put("poss2",pross2);
+        ActionContext.getContext().getSession().put("wposs",wposs);
+        return "success";
 	}
 	
 	public void Product() throws SQLException{

@@ -15,6 +15,11 @@
 			<result name="success">/login.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="position" class="BoleAction.LoginRegisterAction" method="Position">
+			
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		<action name="company1" class="BoleAction.CompanyAction" method="company1">
 			<result name="success">/company2.jsp</result>
 			<result name="error">/error.jsp</result>
