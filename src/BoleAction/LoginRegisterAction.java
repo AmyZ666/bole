@@ -1,15 +1,19 @@
 package BoleAction;
 
+import java.util.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.xml.crypto.Data;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
+import org.omg.CORBA.PRIVATE_MEMBER;
 
 import model.User;
 import model.company;
@@ -62,7 +66,9 @@ public class LoginRegisterAction extends ActionSupport{
 	public void CompanyList() throws SQLException{
 		Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+//        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+     //  Date date = new Date();
         List<company> list = session.createSQLQuery("select * from company").addEntity(company.class).list();
         tx.commit();
         session.close();
@@ -85,6 +91,7 @@ public class LoginRegisterAction extends ActionSupport{
         	com.setStart_date(list.get(i).getStart_date());
         	com.setWebsite(list.get(i).getWebsite());
         	coms.add(com);
+     //   	System.out.println(datelist.get(i).getStart_date());
         }
         ActionContext.getContext().getSession().put("coms",coms);
 	}

@@ -104,9 +104,7 @@ var youdao_conv_id = 271546;
 						<img width="668" height="56" class="c_steps" alt="第三步"
 							src="style/images/step3.png">
 
-						<form method="post"
-							action="http://www.lagou.com/cl/saveLeaderInfos.json"
-							id="memberForm">
+						<form method="post" action="company3" id="memberForm">
 							<input type="hidden" value="52346c62232045a8ab1d45cb3e0540b7"
 								name="resubmitToken"> <input type="hidden"
 								id="companyId" name="companyId" value="25927">
@@ -134,20 +132,20 @@ var youdao_conv_id = 271546;
 
 									<h3>创始人姓名</h3>
 									<input type="text" placeholder="请输入创始人姓名"
-										name="leaderInfos[0].name" id="name0" class="s_input1 valid">
+										name="fd.name" id="name0" class="s_input1 valid">
 
 									<h3>当前职位</h3>
 									<input type="text" placeholder="请输入当前职位，如：创始人兼CEO"
-										name="leaderInfos[0].position" id="position0"
+										name="fd.position" id="position0"
 										class="s_input1 valid">
 
 									<h3>新浪微博</h3>
 									<input type="text" placeholder="请输入创始人新浪微博地址"
-										name="leaderInfos[0].weibo" id="weibo0">
+										name="fd.sina" id="weibo0">
 
 									<h3>创始人简介</h3>
 									<textarea placeholder="请输入该创始人的个人履历等，建议按照时间倒序分条展示"
-										maxlength="1000" name="leaderInfos[0].remark"
+										maxlength="1000" name="fd.introduce"
 										id="description0"></textarea>
 									<div class="word_count">
 										你还可以输入 <span>500</span> 字

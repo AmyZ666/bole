@@ -89,8 +89,9 @@ var youdao_conv_id = 271546;
 			</div>
 		</div>
 		<!-- end #header -->
+		<form action="company2" method="post">
 		<div id="container">
-
+		
 			<div class="content_mid">
 				<dl class="c_section c_section_mid">
 					<dt>
@@ -104,15 +105,15 @@ var youdao_conv_id = 271546;
 						<img width="668" height="56" class="c_steps" alt="第二步"
 							src="style/images/step2.png">
 
-						<h3>已添加标签</h3>
+						 <h3>已添加标签</h3>
 						<ul class="reset" id="labels">
 						</ul>
 
-						<input type="text" placeholder="请输入自定义标签" name="label" id="label">
-						<input type="submit" value="贴上" id="add_label">
+						<input type="text" placeholder="请输入自定义标签" name="wl.weal_name" id="label">
+						<input type="button" value="贴上" id="add_label">
 						<div class="clear"></div>
 
-						<div id="box_labels">
+<!-- 						<div id="box_labels">
 							<dl>
 								<dt>薪酬激励</dt>
 								<dd>
@@ -163,16 +164,16 @@ var youdao_conv_id = 271546;
 									</ul>
 								</dd>
 							</dl>
-						</div>
-						<input type="hidden" id="companyId" name="companyId" value="25927">
-						<input type="button" value="保存，下一步" id="step2Submit"
+						</div> -->
+					<input type="hidden" id="companyId" name="companyId" value="25927"> 
+						<input type="submit" value="保存，下一步" id="step2Submit"
 							class="btn_big fr"> <a class="btn_cancel fr"
 							href="http://www.lagou.com/c/founder.html">跳过</a>
 
 					</dd>
 				</dl>
 			</div>
-
+			</form>
 			<script src="style/js/step2.min.js" type="text/javascript"></script>
 			<div class="clear"></div>
 			<input type="hidden" value="" id="resubmitToken"> <a

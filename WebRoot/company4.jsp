@@ -92,8 +92,7 @@ var youdao_conv_id = 271546;
 						<img width="668" height="56" class="c_steps" alt="第四步"
 							src="style/images/step4.png">
 
-						<form method="post"
-							action="http://www.lagou.com/cp/saveCompanyProducts.json"
+						<form method="post" action="company4"
 							id="productForm">
 							<input type="hidden" value="8f79f658e49846ae89d90a3f1590f12e"
 								name="resubmitToken"> <input type="hidden"

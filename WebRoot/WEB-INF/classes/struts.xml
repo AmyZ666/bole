@@ -19,5 +19,17 @@
 			<result name="success">/company2.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="company2" class="BoleAction.CompanyAction" method="company2">
+			<result name="success">/company3.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="company3" class="BoleAction.CompanyAction" method="company3">
+			<result name="success">/company4.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="company4" class="BoleAction.CompanyAction" method="company4">
+			<result name="success">/company5.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 </struts>    
