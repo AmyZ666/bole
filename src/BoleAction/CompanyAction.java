@@ -1,9 +1,15 @@
 package BoleAction;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import test.HibernateSessionFactory;
+
 import model.company;
 import model.founder;
-import model.produce;
+import model.pro_com;
 import model.weal;
+
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -11,13 +17,13 @@ public class CompanyAction extends ActionSupport{
 	public company com;
 	public weal wl;
 	public founder fd;	
-	public produce pd;
+	public pro_com pd;
 	
 	
-	public produce getPd() {
+	public pro_com getPd() {
 		return pd;
 	}
-	public void setPd(produce pd) {
+	public void setPd(pro_com pd) {
 		this.pd = pd;
 	}
 	public founder getFd() {
@@ -40,15 +46,6 @@ public class CompanyAction extends ActionSupport{
 	}
 	
 	public String company1() throws Exception{
-		System.out.println("23333333333");
-		System.out.println(getCom().getName());
-		System.out.println(getCom().getShort_name());
-		System.out.println(getCom().getLogo());
-		System.out.println(getCom().getWebsite());
-		System.out.println(getCom().getAddress());
-		System.out.println(getCom().getDomain());
-		System.out.println(getCom().getSize());
-		System.out.println(getCom().getStage());
 		return "success";
 	}
 	public String company2() throws Exception{
@@ -61,12 +58,30 @@ public class CompanyAction extends ActionSupport{
 		return "success";
 	}
 	public String company4() throws Exception{
-		System.out.println(getPd().getProduce_name());
-		System.out.println(getPd().getProduce_introuce());
+		System.out.println(getPd().getName());
+		System.out.println(getPd().getIntroduce());
 		return "success";
 	}
 	public String company5() throws Exception{
-		return "";
+		System.out.println(getCom().getName());
+		company c = new company();
+		c.setName(getCom().getName());
+		c.setShort_name(getCom().getShort_name());
+		c.setLogo("logo");
+		c.setWebsite(getCom().getWebsite());
+		c.setAddress(getCom().getAddress());
+		c.setDomain(getCom().getDomain());
+		c.setSize(getCom().getSize());
+		c.setStage(getCom().getStage());
+		c.setShort_introduce(getCom().getShort_introduce());
+		c.setIntroduce(getCom().getIntroduce());
+		
+		Session session = HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(c);
+		transaction.commit();
+		session.close();
+		return "success";
 	}
 	
 }

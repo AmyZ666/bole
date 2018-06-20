@@ -93,17 +93,16 @@ var youdao_conv_id = 271546;
 						<img width="668" height="56" class="c_steps" alt="第五步"
 							src="style/images/step5.png">
 						<!-- action="http://www.lagou.com/c/saveProfile.json" -->
-						<form method="post"
-							action="http://www.lagou.com/c/saveProfile.json" id="infoForm">
+						<form method="post" action="company5">
 							<input type="hidden" name="companyId" value="25927">
 							<h3>公司介绍</h3>
-							<textarea placeholder="请分段详细描述公司简介、企业文化等" name="companyProfile"
+							<textarea placeholder="请分段详细描述公司简介、企业文化等" name="com.introduce"
 								id="companyProfile"></textarea>
 							<div class="word_count">
 								你还可以输入 <span>1000</span> 字
 							</div>
 							<div class="clear"></div>
-							<input type="button" id="step5Submit" value="保存，完成"
+							<input type="submit" id="step5Submit" value="保存，完成"
 								class="btn_big fr">
 						</form>
 					</dd>

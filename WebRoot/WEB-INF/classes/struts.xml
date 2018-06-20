@@ -31,5 +31,9 @@
 			<result name="success">/company5.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="company5" class="BoleAction.CompanyAction" method="company5">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 </struts>    

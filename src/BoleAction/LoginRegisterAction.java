@@ -61,7 +61,7 @@ public class LoginRegisterAction extends ActionSupport{
 		return "error";
 	
 	}
-	@Test
+	//@Test
 	
 	public void CompanyList() throws SQLException{
 		Session session = HibernateSessionFactory.getSession();

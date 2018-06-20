@@ -92,8 +92,7 @@ var youdao_conv_id = 271546;
 						<img width="668" height="56" class="c_steps" alt="第四步"
 							src="style/images/step4.png">
 
-						<form method="post" action="company4"
-							id="productForm">
+						<form method="post" action="company4" id="productForm">
 							<input type="hidden" value="8f79f658e49846ae89d90a3f1590f12e"
 								name="resubmitToken"> <input type="hidden"
 								id="companyId" name="companyId" value="25927">
@@ -123,15 +122,15 @@ var youdao_conv_id = 271546;
 
 									<h3>产品名称</h3>
 									<input type="text" placeholder="请输入产品名称"
-										name="productInfos[0].product" id="name0">
+										name="pd.name" id="name0">
 
 									<h3>产品地址</h3>
 									<input type="text" placeholder="请输入产品主页URL或产品下载地址"
-										name="productInfos[0].productUrl" id="address0">
+										name="pd.url" id="address0">
 
 									<h3>产品简介</h3>
 									<textarea placeholder="请简短描述该产品定位、产品特色、用户群体等" maxlength="1000"
-										name="productInfos[0].productProfile" id="description0"></textarea>
+										name="pd.introduce" id="description0"></textarea>
 									<div class="word_count">
 										你还可以输入 <span>500</span> 字
 									</div>
