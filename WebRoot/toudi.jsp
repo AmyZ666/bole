@@ -1607,38 +1607,10 @@ div.BMap_cmLstItem {
 								<li><span>目前阶段</span> <s:property value="#pos.stage"></s:property></li>
 							</ul>
 
-							<!--	                    	<h4>公司产品</h4>
-	                        <ul class="c_feature reset">
-	                        		                        		<li><span>百田网、问他</span></li>
-	                        		                        </ul>
-                                                
-                       	<h4>公司标签</h4>
-                        <ul class="company_tags reset" id="hasLabels">
-                        	                            	<li><span>股票期权</span></li>
-                                                        	<li><span>专项奖金</span></li>
-                                                        	<li><span>年底双薪</span></li>
-                                                        	<li><span>五险一金</span></li>
-                                                        	<li><span>带薪年假</span></li>
-                                                        	<li><span>节日礼物</span></li>
-                                                        	<li><span>年度旅游</span></li>
-                                                        	<li><span>弹性工作</span></li>
-                                                        	<li><span>定期体检</span></li>
-                                                        	<li><span>岗位晋升</span></li>
-                                                        	<li><span>技能培训</span></li>
-                                                        	<li><span>扁平管理</span></li>
-                                                        	<li><span>领导好</span></li>
-                                                        	<li><span>美女多</span></li>
-                                                        	<li><span>帅哥多</span></li>
-                                                       <li class="link"><a>编辑</a></li>
-                        </ul>
-                        <div class="clear"></div>
-                        <div id="addLabel" class="addLabel dn">
-                            <input type="text" class="fl" id="label" name="label" placeholder="添加自定义标签" />	
-                            <input type="submit" id="add" value="贴上" />
-                        </div> -->
+							
 
 							<h4>工作地址</h4>
-							<div>广州市天河区科韵路信息港建中路36号裕桥商务大厦</div>
+							<div>广州市天河区科韵路信息港建中路36号裕桥商务大厦吧 </div>
 							<div id="smallmap"
 								style="overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;">
 								<div
