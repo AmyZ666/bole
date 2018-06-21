@@ -19,6 +19,8 @@
     	<mapping class="model.company" />
     	<mapping class="model.position" />
     	<mapping class="model.weal_pos" />
+    	<mapping class="model.weal" />
+    	<mapping class="model.founder"/>
     </session-factory>
 
 </hibernate-configuration>

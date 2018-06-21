@@ -1,5 +1,9 @@
 package BoleAction;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -13,12 +17,17 @@ import model.weal;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CompanyAction extends ActionSupport{
+public class CompanyAction extends ActionSupport implements SessionAware{
 	public company com;
 	public weal wl;
 	public founder fd;	
 	public pro_com pd;
 	
+	private Map session;
+	public void setSession(Map session){
+		
+		this.session=session;
+	}
 	
 	public pro_com getPd() {
 		return pd;
@@ -46,15 +55,72 @@ public class CompanyAction extends ActionSupport{
 	}
 	
 	public String company1() throws Exception{
+		company c = new company();
+		int id=(Integer)(session.get("id"));
+		c.setId(id);
+		c.setName(getCom().getName());
+		c.setStage(getCom().getStage());
+;		c.setShort_name(getCom().getShort_name());
+		c.setLogo("logo");
+		c.setWebsite(getCom().getWebsite());
+		c.setAddress(getCom().getAddress());
+		c.setDomain(getCom().getDomain());
+		c.setSize(getCom().getSize());
+		c.setStage(getCom().getStage());
+		c.setShort_introduce(getCom().getShort_introduce());
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		s.saveOrUpdate(c);
+		transaction.commit();
+		s.close();
+		
+		//System.out.println("这个id是：" + id);
+		
 		return "success";
 	}
 	public String company2() throws Exception{
-		System.out.println(getWl().getWeal_name());
+		weal w = new weal();
+		int com_id=(Integer)(session.get("id"));
+		w.setCom_id(com_id);
+		w.setWeal_name(getWl().getWeal_name());
+		
+	//	System.out.println(getWl().getWeal_name());
+	//	System.out.println(com_id);
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		s.save(w);
+		
+		transaction.commit();
+		s.close();
+		
 		return "success";
 	}
 	public String company3() throws Exception{
-		System.out.println(getFd().getName());
-		System.out.println(getFd().getPosition());
+		//System.out.println(getFd().getName());
+		//System.out.println(getFd().getPosition());
+		
+		founder f = new founder();
+		int com_id = (Integer)(session.get("id"));
+		
+		System.out.println(com_id);
+		
+		f.setCom_id(com_id);
+		f.setName(getFd().getName());
+		f.setIntroduce(getFd().getIntroduce());
+		f.setPosition(getFd().getPosition());
+		f.setSina(getFd().getSina());
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		s.saveOrUpdate(f);
+		
+		transaction.commit();
+		s.close();
+		
 		return "success";
 	}
 	public String company4() throws Exception{
@@ -63,24 +129,22 @@ public class CompanyAction extends ActionSupport{
 		return "success";
 	}
 	public String company5() throws Exception{
-		System.out.println(getCom().getName());
-		company c = new company();
-		c.setName(getCom().getName());
-		c.setShort_name(getCom().getShort_name());
-		c.setLogo("logo");
-		c.setWebsite(getCom().getWebsite());
-		c.setAddress(getCom().getAddress());
-		c.setDomain(getCom().getDomain());
-		c.setSize(getCom().getSize());
-		c.setStage(getCom().getStage());
-		c.setShort_introduce(getCom().getShort_introduce());
-		c.setIntroduce(getCom().getIntroduce());
+		//company c = new company();
+		String introduce = (getCom().getIntroduce());
+		int id=(Integer)(session.get("id"));
+		//c.setId(id);
 		
-		Session session = HibernateSessionFactory.getSession();
-		Transaction transaction = session.beginTransaction();
-		session.save(c);
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		//hql更新部分列 
+		Query query = s.createQuery("update company t set t.introduce = '"+introduce+"' where id = id");  
+        query.executeUpdate();
+		
+		//s.saveOrUpdate(c);
 		transaction.commit();
-		session.close();
+		s.close();
 		return "success";
 	}
 	
