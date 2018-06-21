@@ -44,5 +44,9 @@
 			<result name="success">/list.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="listSearch" class="BoleAction.ListAction" method="ListSearch">
+			<result name="success">/listSea.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 </struts>    

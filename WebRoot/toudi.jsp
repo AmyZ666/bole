@@ -18,12 +18,12 @@
 <link media="handheld" rel="alternate">
 <!-- end 云适配 -->
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>产品经理-广州百田-拉勾网-最专业的互联网招聘平台</title>
+<title>产品经理-广州百田-伯乐网-最专业的互联网招聘平台</title>
 <meta content="23635710066417756375" property="qc:admins">
 <meta name="description"
-	content="产品经理 广州 本科 1-3年 全职 产品经理 上市公司，快速发展空间，产品的话语权 广州百田 广州百田信息科技有限公司 专注于儿童互联网市场的发展和创新，为中国少年儿童提供互联网互动娱乐和学习服务。 拉勾网-最专业的互联网招聘平台">
+	content="产品经理 广州 本科 1-3年 全职 产品经理 上市公司，快速发展空间，产品的话语权 广州百田 广州百田信息科技有限公司 专注于儿童互联网市场的发展和创新，为中国少年儿童提供互联网互动娱乐和学习服务。 伯乐网-最专业的互联网招聘平台">
 <meta name="keywords"
-	content="产品经理 广州 本科 1-3年 全职 产品经理 上市公司，快速发展空间，产品的话语权 广州百田 广州百田信息科技有限公司 专注于儿童互联网市场的发展和创新，为中国少年儿童提供互联网互动娱乐和学习服务。 拉勾网-最专业的互联网招聘平台">
+	content="产品经理 广州 本科 1-3年 全职 产品经理 上市公司，快速发展空间，产品的话语权 广州百田 广州百田信息科技有限公司 专注于儿童互联网市场的发展和创新，为中国少年儿童提供互联网互动娱乐和学习服务。 伯乐网-最专业的互联网招聘平台">
 <meta content="QIQ6KC1oZ6" name="baidu-site-verification">
 
 
@@ -1459,47 +1459,32 @@ div.BMap_cmLstItem {
 </head>
 <body>
 	<div id="body">
-		<div id="header">
-			<div class="wrapper">
-				<a class="logo" href="h/"> <img width="229" height="43"
-					alt="拉勾招聘-专注互联网招聘" src="style/images/logo.png"> </a>
-				<ul id="navheader" class="reset">
-					<li><a href="index.html">首页</a>
-					</li>
-					<li><a href="companylist.html">公司</a>
-					</li>
-					<li><a target="_blank" href="h/toForum.html">论坛</a>
-					</li>
-					<li><a rel="nofollow" href="jianli.html">我的简历</a></li>
-					<li><a rel="nofollow" href="create.html">发布职位</a>
-					</li>
-				</ul>
-				<dl class="collapsible_menu">
-					<dt>
-						<span>jason&nbsp;</span> <span class="red dn" id="noticeDot-1"></span>
-						<i></i>
-					</dt>
-					<dd style="display: none;">
-						<a href="positions.html">我发布的职位</a>
-					</dd>
-					<dd style="display: none;">
-						<a href="positions.html">我收到的简历</a>
-					</dd>
-					<dd class="btm" style="display: none;">
-						<a href="myhome.html">我的公司主页</a>
-					</dd>
-					<dd style="display: none;">
-						<a href="list.html">我要找工作</a>
-					</dd>
-					<dd style="display: none;">
-						<a href="accountBind.html">帐号设置</a>
-					</dd>
-					<dd class="logout" style="display: none;">
-						<a rel="nofollow" href="login.html">退出</a>
-					</dd>
-				</dl>
-			</div>
+		<jsp:include page="lock.jsp"></jsp:include>
+	<div id="header">
+		<div class="wrapper">
+			<a class="logo" href="index.jsp"> <img width="229" height="43"
+				alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
+			<ul id="navheader" class="reset">
+				<li><a href="index.jsp">首页</a></li>
+				<li class="current"><a href="companylist.jsp">公司</a></li>
+				<%
+					if(session.getAttribute("status").equals(1)){
+				 %>
+				<li><a rel="nofollow" href="">简历管理</a>
+				</li>
+				<li><a rel="nofollow" href="create.jsp">发布职位</a></li>
+				<%
+					}else{
+					
+				 %>
+				 <li><a rel="nofollow" href="#">我的简历</a></li>
+				 <%
+				 	}
+				  %>
+			</ul>
+			<jsp:include page="header.jsp" />
 		</div>
+	</div>
 		<!-- end #header -->
 		<div id="container">
 			<div class="clearfix">
@@ -1595,8 +1580,8 @@ div.BMap_cmLstItem {
 								class="b2">
 								<div>
 									<h2 class="fl">
-										广州百田 <img width="15" height="19" alt="拉勾认证企业"
-											src="style/images/valid.png"> <span class="dn">拉勾认证企业</span>
+										广州百田 <img width="15" height="19" alt="伯乐认证企业"
+											src="style/images/valid.png"> <span class="dn">伯乐认证企业</span>
 
 									</h2>
 								</div> </a>
@@ -1970,7 +1955,7 @@ div.BMap_cmLstItem {
 							type="submit" value="登 &nbsp; &nbsp; 录" id="submitLogin">
 					</form>
 					<div class="login_right">
-						<div>还没有拉勾帐号？</div>
+						<div>还没有伯乐帐号？</div>
 						<a class="registor_now" href="register.html">立即注册</a>
 						<div class="login_others">使用以下帐号直接登录:</div>
 						<a title="使用新浪微博帐号登录" class="icon_wb" target="_blank"
@@ -2121,7 +2106,7 @@ div.BMap_cmLstItem {
 								<td align="center">
 									<p class="font_16 count"></p>
 									<p class="font_16 share dn">
-										邀请好友成功注册拉勾，可提升每日投递量 &nbsp;&nbsp; <a target="_blank"
+										邀请好友成功注册伯乐，可提升每日投递量 &nbsp;&nbsp; <a target="_blank"
 											href="h/share/invite.html">邀请好友&gt;&gt;</a>
 									</p></td>
 							</tr>
@@ -2180,7 +2165,7 @@ div.BMap_cmLstItem {
 					<table width="100%">
 						<tbody>
 							<tr>
-								<td align="center"><p class="font_16">你在拉勾还没有简历，请先上传一份</p>
+								<td align="center"><p class="font_16">你在伯乐还没有简历，请先上传一份</p>
 								</td>
 							</tr>
 							<tr>
@@ -2208,7 +2193,7 @@ div.BMap_cmLstItem {
 	-->
 				<div style="height:240px;" class="popup" id="activePop">
 					<h4>登录邮箱未验证</h4>
-					<p>请验证你的登录邮箱以使用拉勾网的所有功能！</p>
+					<p>请验证你的登录邮箱以使用伯乐网的所有功能！</p>
 					<p>
 						我们已将验证邮件发送至：<a>jason@qq.com</a>，请点击邮件内的链接完成验证。
 					</p>
@@ -2525,8 +2510,8 @@ $(function(){
 		<div class="wrapper">
 			<a rel="nofollow" target="_blank" href="h/about.html">联系我们</a> <a
 				target="_blank" href="h/af/zhaopin.html">互联网公司导航</a> <a
-				rel="nofollow" target="_blank" href="http://e.weibo.com/lagou720">拉勾微博</a>
-			<a rel="nofollow" href="javascript:void(0)" class="footer_qr">拉勾微信<i></i>
+				rel="nofollow" target="_blank" href="http://e.weibo.com/lagou720">伯乐微博</a>
+			<a rel="nofollow" href="javascript:void(0)" class="footer_qr">伯乐微信<i></i>
 			</a>
 			<div class="copyright">
 				&copy;2013-2014 Lagou <a

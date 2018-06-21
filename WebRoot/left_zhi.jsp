@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							if(pro3.getHot_num()>100&&(pro2.getClass1_id())==pro1.getId()){
 					 %>
 					 
-					 	<a href="list.jsp?<%=pro3.getId() %>"><%=pro3.getName() %></a>
+					 	<a href="listSearch.action?pos_name=<%=pro3.getName() %>"><%=pro3.getName() %></a>
 					
 					 <%
 					 		}
@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 %>
 					<dl class="reset">
 						<dt>
-							<a href="h/jobs/list_后端开发?labelWords=label"> <%=pro2.getName() %> </a>
+							<a href="listSearch.action?pos_name=<%=pro2.getName() %>"> <%=pro2.getName() %> </a>
 						</dt>
 						<dd>
 							<%
@@ -76,11 +76,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									pro3=(product)pros3.get(x);
 									if(pro3.getClass2_id()==pro2.getId()&&pro3.getHot_num()>100){
 							 %>
-							 			<a href="list.jsp?<%=pro3.getId() %>" class="curr"><%=pro3.getName() %></a>
+							 			<a href="listSearch.action?pos_name=<%=pro3.getName() %>" class="curr"><%=pro3.getName() %></a>
 							 <%
 							 		}else if(pro3.getClass2_id()==pro2.getId()&&pro3.getHot_num()<=100){
 							 		%>
-							 		<a href="list.jsp?<%=pro3.getId() %>"><%=pro3.getName() %></a>
+							 		<a href="listSearch.action?pos_name=<%=pro3.getName() %>"><%=pro3.getName() %></a>
 							 		<% 
 							 		
 							 		}

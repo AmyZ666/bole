@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-06-12 11:24:36
+Date: 2018-06-21 21:53:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `short_name` varchar(255) DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `company` (
 -- Records of company
 -- ----------------------------
 INSERT INTO `company` VALUES ('1', '烟台富土康有限公司', '富土康', 'D:/futu.png', 'www.fushikang.com', '烟台市莱山县中山大街', '2018-06-11 21:02:06', '我们的公司待遇很好', '随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写随便写写', '移动互联网', '初创型（天使轮）', '15-50人', '腾讯', 'A轮融资');
-INSERT INTO `company` VALUES ('2', 'MOMO', 'MOMO', 'momo.png', 'www.momo.com', '西安', '2017-06-12 10:49:56', null, null, '运营', 'C轮', '20-30', '腾讯', null);
+INSERT INTO `company` VALUES ('2', 'MOMO', 'MOMO', 'momo.png', 'www.momo.com', '西安', '2018-06-18 10:49:56', null, null, '运营', 'C轮', '20-30', '腾讯', null);
 INSERT INTO `company` VALUES ('3', '博雅', 'boya', 'boya.png', 'www.boya.com', '北京', '2017-09-12 10:52:46', null, null, '后端开发', 'B轮', '50-100', '网易', null);
 INSERT INTO `company` VALUES ('4', '飞道科技', 'feidao', 'feidao.png', 'www.feidao.com', '郑州', '2016-07-12 10:54:37', null, null, '前端开发', 'D轮及以上', '50-100', '阿里巴巴', null);
 INSERT INTO `company` VALUES ('5', '世纪优优', 'sjyy', 'sjyy.png', 'www.sjyy.com', '北京', '2015-05-12 10:56:28', null, null, '移动开发', 'D轮及以上', '12-30', '百度', null);
@@ -67,12 +67,68 @@ CREATE TABLE `founder` (
   `introduce` varchar(255) DEFAULT NULL,
   `com_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of founder
 -- ----------------------------
 INSERT INTO `founder` VALUES ('1', '张曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '1');
+INSERT INTO `founder` VALUES ('2', '李曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '2');
+INSERT INTO `founder` VALUES ('3', '钱曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '3');
+INSERT INTO `founder` VALUES ('4', '赵曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '4');
+INSERT INTO `founder` VALUES ('5', '孙曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '5');
+INSERT INTO `founder` VALUES ('6', '周曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '6');
+INSERT INTO `founder` VALUES ('7', '吴曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '7');
+INSERT INTO `founder` VALUES ('8', '郑曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '8');
+INSERT INTO `founder` VALUES ('9', '王曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '9');
+INSERT INTO `founder` VALUES ('10', '乔曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '10');
+INSERT INTO `founder` VALUES ('11', '徐曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '11');
+INSERT INTO `founder` VALUES ('12', '胡曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '12');
+INSERT INTO `founder` VALUES ('13', '于曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '13');
+INSERT INTO `founder` VALUES ('14', '高曦', 'CEO', '啦啦的歌', '基本介绍基本介绍', '14');
+
+-- ----------------------------
+-- Table structure for jianli
+-- ----------------------------
+DROP TABLE IF EXISTS `jianli`;
+CREATE TABLE `jianli` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `sex` varchar(255) DEFAULT NULL,
+  `education` varchar(255) DEFAULT NULL,
+  `exp` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `hope_city` varchar(255) DEFAULT NULL,
+  `hope_job_class` varchar(255) DEFAULT NULL,
+  `hope_position` varchar(255) DEFAULT NULL,
+  `hope_salary` varchar(255) DEFAULT NULL,
+  `school_name` varchar(255) DEFAULT NULL,
+  `school_education` varchar(255) DEFAULT NULL,
+  `school_major` varchar(255) DEFAULT NULL,
+  `start_school` datetime DEFAULT NULL,
+  `end_school` datetime DEFAULT NULL,
+  `self_introduction` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jianli
+-- ----------------------------
+INSERT INTO `jianli` VALUES ('1', '1', '2018-06-05 08:41:25', '男', '大专', '3年', '1864444444', 'jason@qq.com', '杭州', '全职', '产品经理', '10k-12k', '鲁东大学', '大专', '生物', '2016-05-18 08:53:23', '2018-06-19 08:53:55', '本人性格开朗，稳重，有活力，待人热情，真诚。工作负责，积极主动，能吃苦耐劳；喜欢思考，虚心与人交流，以取长补短。有较强的组织能力、实际动手能力和团体协作精神，能迅速适应各种环境，并融合其中。在工作期间分析工作要领，社会责任感强，踏实肯干，主动争取锻炼机会。');
+INSERT INTO `jianli` VALUES ('2', '2', '2018-01-10 08:44:39', '女', '本科', '3年', '1234524367', '1234@qq.com', '广州', '兼职', '项目总监', '8k-10k', '烟台大学', '本科', '软件工程', '2013-06-11 08:56:00', '2018-06-07 08:55:56', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('3', '3', '2018-05-16 08:58:40', '男', '本科', '2年', '14567853245', '2345@qq.com', '烟台', '全职', '技术总监', '13k-14k', '鲁东大学', '本科', '土木工程', '2012-10-01 08:56:44', '2018-06-19 08:56:39', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('4', '4', '2018-06-07 08:59:46', '女', '本科', '1年', '15678987340', '4567@qq.com', '广西', '兼职', '总经理秘书', '6k-10k', '西安电子', '本科', '教育心理学', '2013-02-19 09:01:33', '2018-06-28 09:01:48', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('5', '5', '2018-06-05 09:05:09', '男', '研究生', '2年', '12345678909', '3457@qq.com', '深圳', '全职', '律师', '13k-17k', '青岛科技', '研究生', '法学', '2000-06-19 09:02:05', '2018-06-08 09:02:03', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('6', '6', '2018-06-12 09:05:39', '女', '本科', '3年', '13456327895', '3789@qq.com', '青岛', '兼职', '前端工程师', '13k-15k', '上海交大', '本科', '软件工程', '2004-06-19 09:10:46', '2018-06-06 09:10:59', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('7', '7', '2018-06-13 09:16:20', '男', '研究生', '1年', '13568909876', '1578@qq.com', '烟台', '全职', '律师', '10k-15k', '烟台大学', '研究生', '法学', '2015-02-19 09:12:14', '2018-06-12 09:12:00', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('8', '8', '2018-06-23 09:16:24', '女', '本科', '2年', '12435789076', '190@qq.com', '威海', '全职', '后端工程师', '8k-10k', '鲁东大学', '本科', '计算机', '2015-06-19 09:12:20', '2018-06-27 09:12:05', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('9', '9', '2018-06-19 09:16:28', '男', '大专', '3年', '12345765432', '1250@qq.com', '潍坊', '兼职', '会计', '6k-8k', '工商学院', '大专', '会计', '2015-01-01 09:12:26', '2018-06-20 09:12:10', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('10', '10', '2018-06-19 09:16:55', '男', '本科', '2年', '18796545678', '12345@qq.com', '浙江', '全职', 'Java工程师', '10k-15k', '浙江大学', '本科', '计算机', '2010-06-19 09:22:02', '2014-06-19 09:22:10', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('11', '11', '2018-06-13 09:16:59', '女', '本科', '5年', '10986543213', '1qwe@qq.com', '江苏', '全职', '调酒师', '5k-8k', '南通大学', '本科', '葡萄酒', '2016-06-19 09:22:32', '2018-06-19 09:22:29', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('12', '12', '2018-06-15 09:17:03', '男', '大专', '1年', '10987654345', 'qwer@qq.com', '南京', '全职', '会计', '8k-10k', '华北理工', '大专', '会计', '1990-06-19 09:22:38', '2018-06-13 09:22:46', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
+INSERT INTO `jianli` VALUES ('13', '13', '2018-06-20 09:17:06', '女', '大专', '2年', '17892761726', 'qwerf@qq.com', '厦门', '全职', '数学教师', '6k-8k', '厦门大学', '大专', '教育学', '2006-06-19 09:22:50', '2018-06-19 09:22:59', '我有过这个专业的工作经历，勤奋刻骨，比较擅长与人的沟通，相信能胜任这个职位。');
 
 -- ----------------------------
 -- Table structure for position
@@ -81,17 +137,94 @@ DROP TABLE IF EXISTS `position`;
 CREATE TABLE `position` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `salary` varchar(255) DEFAULT NULL,
   `exp` varchar(255) DEFAULT NULL,
   `educution` varchar(255) DEFAULT NULL,
   `tempt` varchar(255) DEFAULT NULL,
   `start_time` datetime DEFAULT NULL,
-  `com_id` int(11) DEFAULT NULL,
+  `com_id` int(11) unsigned zerofill DEFAULT NULL,
+  `hot_num` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of position
+-- ----------------------------
+INSERT INTO `position` VALUES ('1', '运营总监', '北京', '15k-20k', '3-5年', '本科', '发展前景', '2018-06-13 08:34:32', '00000000001', '1000');
+INSERT INTO `position` VALUES ('2', '售前工程师（运维经验优先）', '北京', '6k-12k', '3-5年', '大专', '五险一金+商业保险+带薪年假+奖金等', '2018-05-01 08:44:15', '00000000002', '999');
+INSERT INTO `position` VALUES ('3', '手机游戏运营', '南京', '4k-8k', '1-3年', '本科', '工作氛围和谐,正面激励成长，福利好', '2017-09-26 08:47:25', '00000000003', '998');
+INSERT INTO `position` VALUES ('4', '葡萄酒内容运营专员', '广州', '5k-8k', '1-3年', '本科', '喝着世界美酒快乐的工作！', '2018-03-01 08:50:44', '00000000004', '997');
+INSERT INTO `position` VALUES ('5', '百度移动游戏UI designer', '北京', '7k-14k', '1-3年', '本科', '喜欢游戏，喜欢生活，游戏生活', '2018-06-18 08:51:48', '00000000001', '996');
+INSERT INTO `position` VALUES ('6', 'ios', '北京', '13k-26k', '1-3年', '本科', '中国第一智能手机广告平台', '2018-06-04 08:53:18', '00000000001', '995');
+INSERT INTO `position` VALUES ('7', 'java', '北京', '15k-25k', '1-3年', '本科', '项目快速发展，技术氛围浓厚，有业界大牛', '2018-05-28 08:54:33', '00000000001', '994');
+INSERT INTO `position` VALUES ('8', 'web前端', '上海', '6k-12k', '1-3年', '本科', '靠谱的工程师要来靠谱的公司', '2016-06-06 08:56:53', '00000000001', '993');
+INSERT INTO `position` VALUES ('9', 'java', '杭州', '15k-30k', '不限', '本科', '有技术挑战，有成长机会，有漂亮妹子', '2018-04-18 08:58:20', '00000000001', '992');
+INSERT INTO `position` VALUES ('10', '测试实习生', '上海', '3k-5k', '不限', '本科', '实习通过，毕业直接转正，实习期有餐贴', '1999-06-13 08:59:25', '00000000001', '991');
+INSERT INTO `position` VALUES ('11', '网页产品设计师', '北京', '8k-10k', '1-3年', '本科', '六险一金，饭补，班车，晋升机制，氛围好', '2017-07-13 09:01:30', '00000000001', '990');
+INSERT INTO `position` VALUES ('12', '产品经理（工商系统项目）', '北京', '10k-20k', '5-10年', '本科', '和一群聪明的人共事', '2017-06-13 09:02:47', '00000000001', '989');
+INSERT INTO `position` VALUES ('13', '团队经理', '北京', '10k-15k', '不限', '大专', '位置佳，环境优越，发展空间大，薪酬高', '2016-06-13 09:03:53', '00000000001', '988');
+INSERT INTO `position` VALUES ('14', '手游商务', '上海', '6k-10k', '1-3年', '大专', '一年两次调薪，免费早，晚餐，项目，年终奖', '2010-06-13 09:05:22', '00000000001', '987');
+INSERT INTO `position` VALUES ('15', '市场推广', '上海', '7k-12k', '1-3年', '大专', '年度16薪 市场营销发展方向', '2018-05-01 09:06:50', '00000000001', '986');
+INSERT INTO `position` VALUES ('16', '前端开发', '北京', '10k-20k', '3-5年', '本科', '借移动医疗大势享受坐直升飞机的职业发展', '2018-06-04 09:09:04', '00000000001', '985');
+INSERT INTO `position` VALUES ('17', '前端开发', '北京', '8k-16k', '3-5年', '本科', '第一家互联网私人银行招募各路牛人', '2018-06-13 09:10:11', '00000000001', '984');
+INSERT INTO `position` VALUES ('18', '高级web前端开发工程师', '上海', '8k-15k', '3-5年', '大专', '上市公司创业型团队 五险一金 精英团队', '2018-01-01 09:12:33', '00000000001', '983');
+INSERT INTO `position` VALUES ('19', '前端开发', '广州', '8k-9k', '1-3年', '不限', '高新，双休，五险一金！等你来了！', '2018-06-27 09:13:32', '00000000001', '982');
+INSERT INTO `position` VALUES ('20', '前端开发', '上海', '7k-14k', '1-3年', '大专', '全新的外贸业务开发模式，等你一起来创造！', '2016-02-13 09:20:43', '00000000001', '981');
+INSERT INTO `position` VALUES ('21', '前端开发', '上海', '4k-7k', '1-3年', '大专', '保险，双休，带薪年假等', '1990-06-13 09:25:08', '00000000001', '980');
+INSERT INTO `position` VALUES ('22', '前端开发', '杭州', '4k-7k', '1-3年', '大专', '保险，双休，带薪年假等', '2018-06-26 09:26:15', '00000000001', '979');
+INSERT INTO `position` VALUES ('23', '前端开发', '北京', '6k-12k', '1-3年', '不限', '前端主管', '2018-06-13 09:27:22', '00000000001', '978');
+INSERT INTO `position` VALUES ('24', '前端开发工程师', '上海', '8k-12k', '不限', '大专', '发展空间，与大牛一起工作', '2018-06-26 09:28:56', '00000000001', '977');
+INSERT INTO `position` VALUES ('25', '前端开发工程师实习生', '上海', '3k-6k', '不限', '大专', '快速成长的机会，优秀可转正', '2018-06-11 09:30:06', '00000000001', '976');
+INSERT INTO `position` VALUES ('26', 'js前端开发工程师-北京-01899', '北京', '10k-20k', '3-5年', '本科', '六险一金，饭补，班车，晋升机制，领导好', '2018-05-13 09:32:23', '00000000001', '975');
+INSERT INTO `position` VALUES ('27', '资深js前端开发工程师-北京-02398', '北京', '15k-25k', '3-5年', '本科', '六险一金，饭补，班车，晋升机制，氛围好', '2018-06-13 09:34:28', '00000000001', '974');
+INSERT INTO `position` VALUES ('28', '前端开发工程师', '北京', '10k-18k', '1-3年', '本科', '精英团队；有竞争力的薪酬', '2018-01-13 09:35:27', '00000000001', '973');
+INSERT INTO `position` VALUES ('29', '前端开发工程师', '苏州', '6k-12k', '1-3年', '大专', 'c轮融资，工作环境好，待遇优', '2018-06-05 09:36:35', '00000000001', '972');
+INSERT INTO `position` VALUES ('30', 'web前端开发工程师，主管', '深圳', '6k以上', '1-3年', '大专', '年底双薪，带薪年假，周末双休，年度旅游', '2018-06-13 09:38:12', '00000000001', '971');
+
+-- ----------------------------
+-- Table structure for pos_description
+-- ----------------------------
+DROP TABLE IF EXISTS `pos_description`;
+CREATE TABLE `pos_description` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pos_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of position
+-- Records of pos_description
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for pos_order
+-- ----------------------------
+DROP TABLE IF EXISTS `pos_order`;
+CREATE TABLE `pos_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pos_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of pos_order
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for pos_other
+-- ----------------------------
+DROP TABLE IF EXISTS `pos_other`;
+CREATE TABLE `pos_other` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pos_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of pos_other
 -- ----------------------------
 
 -- ----------------------------
@@ -346,7 +479,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -354,6 +487,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '123', '123', '123', '0');
 INSERT INTO `user` VALUES ('2', '456', '456', '456', '1');
 INSERT INTO `user` VALUES ('3', '789', '789', '789', '0');
+INSERT INTO `user` VALUES ('4', '123@qq.com', 'ygy', '123', '0');
 
 -- ----------------------------
 -- Table structure for weal
@@ -382,8 +516,98 @@ CREATE TABLE `weal_pos` (
   `pos_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of weal_pos
 -- ----------------------------
+INSERT INTO `weal_pos` VALUES ('1', '1', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('2', '1', '五险一金');
+INSERT INTO `weal_pos` VALUES ('3', '1', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('4', '2', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('5', '2', '五险一金');
+INSERT INTO `weal_pos` VALUES ('6', '2', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('7', '3', '技能培训');
+INSERT INTO `weal_pos` VALUES ('8', '3', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('9', '3', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('10', '4', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('11', '4', '五险一金');
+INSERT INTO `weal_pos` VALUES ('12', '4', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('13', '5', '技能培训');
+INSERT INTO `weal_pos` VALUES ('14', '5', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('15', '5', '五险一金');
+INSERT INTO `weal_pos` VALUES ('16', '6', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('17', '6', '技能培训');
+INSERT INTO `weal_pos` VALUES ('18', '6', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('19', '7', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('20', '7', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('21', '7', '技能培训');
+INSERT INTO `weal_pos` VALUES ('22', '8', '五险一金');
+INSERT INTO `weal_pos` VALUES ('23', '8', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('24', '8', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('25', '9', '技能培训');
+INSERT INTO `weal_pos` VALUES ('26', '9', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('27', '9', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('28', '10', '技能培训');
+INSERT INTO `weal_pos` VALUES ('29', '10', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('30', '10', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('31', '11', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('32', '11', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('33', '11', '技能培训');
+INSERT INTO `weal_pos` VALUES ('34', '12', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('35', '12', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('36', '12', '技能培训');
+INSERT INTO `weal_pos` VALUES ('37', '13', '技能培训');
+INSERT INTO `weal_pos` VALUES ('38', '13', '五险一金');
+INSERT INTO `weal_pos` VALUES ('39', '13', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('40', '14', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('41', '14', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('42', '14', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('43', '15', '技能培训');
+INSERT INTO `weal_pos` VALUES ('44', '15', '五险一金');
+INSERT INTO `weal_pos` VALUES ('45', '15', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('46', '16', '技能培训');
+INSERT INTO `weal_pos` VALUES ('47', '16', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('48', '16', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('49', '17', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('50', '17', '技能培训');
+INSERT INTO `weal_pos` VALUES ('51', '17', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('52', '18', '五险一金');
+INSERT INTO `weal_pos` VALUES ('53', '18', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('54', '18', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('55', '19', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('56', '19', '五险一金');
+INSERT INTO `weal_pos` VALUES ('57', '19', '技能培训');
+INSERT INTO `weal_pos` VALUES ('58', '20', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('59', '20', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('60', '20', '五险一金');
+INSERT INTO `weal_pos` VALUES ('61', '21', '技能培训');
+INSERT INTO `weal_pos` VALUES ('62', '21', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('63', '21', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('64', '22', '五险一金');
+INSERT INTO `weal_pos` VALUES ('65', '22', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('66', '22', '技能培训');
+INSERT INTO `weal_pos` VALUES ('67', '23', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('68', '23', '技能培训');
+INSERT INTO `weal_pos` VALUES ('69', '23', '五险一金');
+INSERT INTO `weal_pos` VALUES ('70', '24', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('71', '24', '技能培训');
+INSERT INTO `weal_pos` VALUES ('72', '24', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('73', '25', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('74', '25', '五险一金');
+INSERT INTO `weal_pos` VALUES ('75', '25', '技能培训');
+INSERT INTO `weal_pos` VALUES ('76', '26', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('77', '26', '技能培训');
+INSERT INTO `weal_pos` VALUES ('78', '26', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('79', '27', '五险一金');
+INSERT INTO `weal_pos` VALUES ('80', '27', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('81', '27', '技能培训');
+INSERT INTO `weal_pos` VALUES ('82', '28', '五险一金');
+INSERT INTO `weal_pos` VALUES ('83', '28', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('84', '28', '技能培训');
+INSERT INTO `weal_pos` VALUES ('85', '29', '技能培训');
+INSERT INTO `weal_pos` VALUES ('86', '29', '五险一金');
+INSERT INTO `weal_pos` VALUES ('87', '29', '带薪年假');
+INSERT INTO `weal_pos` VALUES ('88', '30', '午餐补助');
+INSERT INTO `weal_pos` VALUES ('89', '30', '绩效奖金');
+INSERT INTO `weal_pos` VALUES ('90', '30', '带薪年假');

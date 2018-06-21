@@ -89,7 +89,7 @@ var youdao_conv_id = 271546;
 				</li>
 				
 			</s:iterator>
-			<a href="list.jsp" class="btn fr"
+			<a href="listAll.jsp" class="btn fr"
 				target="_blank">查看更多</a>
 		</ul>
 		<ul class="hot_pos hot_posHotPosition reset" style="display:none;">
@@ -129,7 +129,7 @@ var youdao_conv_id = 271546;
 			</s:iterator>
 			
 				
-			<a href="list.html?city=%E5%85%A8%E5%9B%BD" class="btn fr"
+			<a href="listAll.jsp" class="btn fr"
 				target="_blank">查看更多</a>
 		</ul>
 	</div>

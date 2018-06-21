@@ -80,27 +80,18 @@ var youdao_conv_id = 271546;
 		 <jsp:include page="left_zhi.jsp" />
         <div class="content">	
 	        			<div id="search_box">
-		<form id="searchForm" name="searchForm" action="list.html" method="get">
-        <ul id="searchType">
+	    
+		<form name="searchForm" action="listSearch" method="get">
+        	<ul id="searchType">
         	        	<li data-searchtype="1" class="type_selected">职位</li>
-        	<li data-searchtype="4">公司</li>
-        	        </ul>
-        <div class="searchtype_arrow"></div>
-        <input type="text" id="search_input" name = "kd"  tabindex="1" value=""  placeholder="请输入职位名称，如：产品经理"  />
-        <input type="hidden" name="spc" id="spcInput" value=""/>
-        <input type="hidden" name="pl" id="plInput" value=""/>
-        <input type="hidden" name="gj" id="gjInput" value=""/>
-        <input type="hidden" name="xl" id="xlInput" value=""/>
-        <input type="hidden" name="yx" id="yxInput" value=""/>
-        <input type="hidden" name="gx" id="gxInput" value="" />
-        <input type="hidden" name="st" id="stInput" value="" />
-        <input type="hidden" name="labelWords" id="labelWords" value="" />
-        <input type="hidden" name="lc" id="lc" value="" />
-        <input type="hidden" name="workAddress" id="workAddress" value=""/>
-                <input type="hidden" name="city" id="cityInput" value=""/>
-                <input type="submit" id="search_button" value="搜索" />
+        				<li data-searchtype="4">公司</li>
+        	</ul>
+        	<div class="searchtype_arrow"></div>
+        	<input type="text" id="search_input" name = "pos_name"  tabindex="1" value=""  placeholder="请输入职位名称，如：产品经理"  />
+  
+            <input type="submit" id="search_button" value="搜索" />
 				
-    </form>
+   		 </form> 
 </div>
 <style>
 .ui-autocomplete{width:488px;background:#fafafa !important;position: relative;z-index:10;border: 2px solid #91cebe;}
