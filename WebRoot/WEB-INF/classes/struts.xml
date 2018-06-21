@@ -48,5 +48,9 @@
 			<result name="success">/listSea.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="toudi" class="BoleAction.ToudiAction" method="Toudi">
+			<result name="success">/toudi.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 </struts>    

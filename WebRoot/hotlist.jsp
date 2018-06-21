@@ -63,7 +63,7 @@ var youdao_conv_id = 271546;
 				</s:else>
 					<div class="hot_pos_l">
 						<div class="mb10">
-							<a href="h/jobs/147822.html" target="_blank"><s:property value="#pos.name"></s:property></a> &nbsp; <span
+							<a href="toudi.action?pos_id=<s:property value='#pos.id'></s:property>" target="_blank"><s:property value="#pos.name"></s:property></a> &nbsp; <span
 								class="c9">[<s:property value="#pos.address"></s:property>]</span>
 						</div>
 						<span><em class="c7">月薪： </em><s:property value="#pos.salary"></s:property></span> <span><em
@@ -102,7 +102,7 @@ var youdao_conv_id = 271546;
 				</s:else>
 					<div class="hot_pos_l">
 						<div class="mb10">
-							<a href="h/jobs/147822.html" target="_blank"><s:property value="#pos.name"></s:property></a> &nbsp; <span
+							<a href="toudi.action?pos_id=<s:property value='#pos.id'></s:property>" target="_blank"><s:property value="#pos.name"></s:property></a> &nbsp; <span
 								class="c9">[<s:property value="#pos.address"></s:property>]</span>
 						</div>
 						<span><em class="c7">月薪： </em><s:property value="#pos.salary"></s:property></span> <span><em

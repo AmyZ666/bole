@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE HTML>
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
@@ -1486,6 +1486,8 @@ div.BMap_cmLstItem {
 		</div>
 	</div>
 		<!-- end #header -->
+		<s:iterator>
+		
 		<div id="container">
 			<div class="clearfix">
 				<div class="content_l">
@@ -2504,6 +2506,7 @@ $(function(){
 				id="backtop" style="display: inline;"></a>
 		</div>
 		<!-- end #container -->
+		</s:iterator>
 	</div>
 	<!-- end #body -->
 	<div id="footer">
