@@ -21,9 +21,13 @@
     	<mapping class="model.weal_pos" />
     	<mapping class="model.weal" />
     	<mapping class="model.founder"/>
+<<<<<<< HEAD
     	<mapping class="model.pos_order"/>
     	<mapping class="model.pos_other"/>
     	<mapping class="model.pos_description"/>
+=======
+    	<mapping class="model.pro_com" />
+>>>>>>> 1e21fa26976e943d9a2cd75c371b36634501309f
     </session-factory>
 
 </hibernate-configuration>

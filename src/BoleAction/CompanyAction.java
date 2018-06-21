@@ -124,8 +124,28 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 		return "success";
 	}
 	public String company4() throws Exception{
-		System.out.println(getPd().getName());
-		System.out.println(getPd().getIntroduce());
+		//System.out.println(getPd().getName());
+		//System.out.println(getPd().getIntroduce());
+		
+		pro_com pc = new pro_com();
+		int com_id = (Integer)(session.get("id"));
+		
+		System.out.println(com_id);
+		
+		pc.setCom_id(com_id);
+		pc.setIntroduce(getPd().getIntroduce());
+		pc.setName(getPd().getName());
+		pc.setUrl(getPd().getUrl());
+		pc.setImg("YGY×îË§");
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		s.saveOrUpdate(pc);
+		
+		transaction.commit();
+		s.close();
+		
 		return "success";
 	}
 	public String company5() throws Exception{
