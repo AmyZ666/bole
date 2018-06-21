@@ -22,6 +22,7 @@ import model.position;
 public class ToudiAction extends ActionSupport{
 	
 	public String Toudi() throws Exception{
+		ListAction.List();
 		String id;
 		HttpServletRequest request = ServletActionContext.getRequest();
 		id=request.getParameter("pos_id");

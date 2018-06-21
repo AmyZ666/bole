@@ -18,7 +18,7 @@
 <link media="handheld" rel="alternate">
 <!-- end 云适配 -->
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>产品经理-广州百田-伯乐网-最专业的互联网招聘平台</title>
+<title>职位信息</title>
 <meta content="23635710066417756375" property="qc:admins">
 <meta name="description"
 	content="产品经理 广州 本科 1-3年 全职 产品经理 上市公司，快速发展空间，产品的话语权 广州百田 广州百田信息科技有限公司 专注于儿童互联网市场的发展和创新，为中国少年儿童提供互联网互动娱乐和学习服务。 伯乐网-最专业的互联网招聘平台">
@@ -1486,17 +1486,21 @@ div.BMap_cmLstItem {
 		</div>
 	</div>
 		<!-- end #header -->
-		<s:iterator>
+		<s:iterator value="#session.poss_all" var="pos"  status='st'>
+		<s:iterator value="#session.others" var="oth"  status='sta'>
+		<s:if test="#pos.id==#oth.pos_id">
+		<s:if test="#sta.index==0">
+		
 		
 		<div id="container">
 			<div class="clearfix">
 				<div class="content_l">
 					<dl class="job_detail">
 						<dt>
-							<h1 title="产品经理">
+							<h1 title="<s:property value="#pos.name"></s:property>">
 								<em></em>
-								<div>广州百田招聘</div>
-								产品经理
+								<div><s:property value="#pos.com_name"></s:property>招聘</div>
+								<s:property value="#pos.name"></s:property>
 							</h1>
 
 
@@ -1509,30 +1513,31 @@ div.BMap_cmLstItem {
 							</div>
 						</dt>
 						<dd class="job_request">
-							<span class="red">8k-15k</span> <span>广州</span> <span>经验1-3年
-							</span> <span> 本科及以上</span> <span>全职</span><br> 职位诱惑 :
-							上市公司，快速发展空间，产品的话语权
+							<span class="red"><s:property value="#pos.salary"></s:property></span> <span><s:property value="#pos.address"></s:property></span> <span>经验<s:property value="#pos.exp"></s:property>
+							</span> <span> <s:property value="#pos.educution"></s:property></span> <span>全职</span><br> 职位诱惑 :
+							<s:property value="#pos.tempt"></s:property>
 							<div>发布时间：1天前发布</div>
 						</dd>
 						<dd class="job_bt">
 							<h3 class="description">职位描述</h3>
 							<p>
-								<strong>工作职责：</strong>&nbsp;<br>1、挖掘公司互联网产品现有和预期的市场需求；&nbsp;
-								<br>2、负责组织公司互联网新产品开发和产品改进；&nbsp; <br>3、发掘收集竞争对手信息，进行竞争对手分析，制定应对战略；&nbsp;
-								<br>4、在产品运营中倾听用户声音，了解用户潜在需求，并在产品改进中满足；&nbsp; <br>5、在产品运营中整合已有的产品功能、用户资源、推广资源，策划运营活动；&nbsp;
-								<br>6、与市场、运营、UI、开发、测试、公关、法务、客服等人员紧密合作，实现产品目标。 <br>&nbsp;
-								<br> <strong>任职要求：</strong> <br>1、本科及以上学历，英语四级以上，专业不限；&nbsp;
-								<br>2、对互联网产品有敏锐的直觉和良好的市场分析能力；&nbsp; <br>3、有严密的逻辑分析能力，有良好的沟通协作能力；&nbsp;
-								<br>4、有很强的责任心、学习能力、文字表达能力；&nbsp; <br>5、具有很强的团队协助精神，善于总结和分享经验；&nbsp;
-								<br>6、具有互联网产品规划和产品设计经验者优先。
+								<strong>工作职责：</strong>&nbsp;
+								<s:iterator value="#session.depts" var="des"  status='stb'>
+									<br><s:property value="#stb.index+1"></s:property>、<s:property value="#des.name"></s:property>；&nbsp;
+								</s:iterator>
+							    <br>&nbsp;
+								<s:iterator value="#session.ordes" var="ord"  status='stc'>
+									<br><s:property value="#stc.index+1"></s:property>、<s:property value="#ord.name"></s:property>；&nbsp;
+								</s:iterator>
 							</p>
 							<p>&nbsp;</p>
 							<p>
 								<strong>其他：&nbsp;</strong>
 							</p>
-							<p>1、五险一金、商业综合医疗保险，节日慰问金、生日礼金、结婚礼金、年度体检、旅游；</p>
-							<p>2、工作时间为5天工作制，享受国家法定节假日、带薪年假7天、带薪病假、产假（陪产假）、婚假、丧假等；</p>
-							<p>3、每周定期举办足球、羽毛球、篮球及员工深度互动等文体活动。</p>
+							<s:iterator value="#session.others" var="ot"  status='std'>
+									<p><s:property value="#std.index+1"></s:property>、<s:property value="#ot.name"></s:property>；</p>
+								</s:iterator>
+							
 						</dd>
 
 						<!-- 用户是否激活 0-否；1-是 -->
@@ -1582,7 +1587,7 @@ div.BMap_cmLstItem {
 								class="b2">
 								<div>
 									<h2 class="fl">
-										广州百田 <img width="15" height="19" alt="伯乐认证企业"
+										<s:property value="#pos.name"></s:property> <img width="15" height="19" alt="伯乐认证企业"
 											src="style/images/valid.png"> <span class="dn">伯乐认证企业</span>
 
 									</h2>
@@ -1590,8 +1595,8 @@ div.BMap_cmLstItem {
 						</dt>
 						<dd>
 							<ul class="c_feature reset">
-								<li><span>领域</span> 移动互联网,游戏</li>
-								<li><span>规模</span> 500-2000人</li>
+								<li><span>领域</span> <s:property value="#pos.domain"></s:property></li>
+								<li><span>规模</span> <s:property value="#pos.size"></s:property></li>
 								<li><span>主页</span> <a rel="nofollow"
 									title="http://www.100bt.com" target="_blank"
 									href="http://www.100bt.com">http://www.100bt.com</a></li>
@@ -1599,7 +1604,7 @@ div.BMap_cmLstItem {
 
 							<h4>发展阶段</h4>
 							<ul class="c_feature reset">
-								<li><span>目前阶段</span> 上市公司</li>
+								<li><span>目前阶段</span> <s:property value="#pos.stage"></s:property></li>
 							</ul>
 
 							<!--	                    	<h4>公司产品</h4>
@@ -2506,6 +2511,9 @@ $(function(){
 				id="backtop" style="display: inline;"></a>
 		</div>
 		<!-- end #container -->
+		</s:if>
+		</s:if>
+		</s:iterator>
 		</s:iterator>
 	</div>
 	<!-- end #body -->

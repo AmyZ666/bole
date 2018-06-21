@@ -88,7 +88,7 @@ public class ListAction extends ActionSupport {
 		return "success";
 	}
 
-	public String List() throws Exception {
+	public static String List() throws Exception {
 
 		Session session = HibernateSessionFactory.getSession();
 		Transaction tx = session.beginTransaction();

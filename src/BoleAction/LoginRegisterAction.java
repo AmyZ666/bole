@@ -57,6 +57,7 @@ public class LoginRegisterAction extends ActionSupport {
 					Product();
 					// CompanyList();
 					// Position();
+					
 					ActionContext.getContext().getSession()
 							.put("status", list.get(i).getStatus());
 					ActionContext.getContext().getSession()
