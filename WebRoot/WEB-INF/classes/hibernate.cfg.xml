@@ -21,6 +21,7 @@
     	<mapping class="model.weal_pos" />
     	<mapping class="model.weal" />
     	<mapping class="model.founder"/>
+    	<mapping class="model.pro_com" />
     </session-factory>
 
 </hibernate-configuration>

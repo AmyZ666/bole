@@ -6,8 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="company")
+@Table(name="pro_com")
 public class pro_com {
+	private int id;
 	private int com_id;
 	private String name;
 	private String introduce;
@@ -15,6 +16,12 @@ public class pro_com {
 	private String img;
 	@Id
 	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getCom_id() {
 		return com_id;
 	}
