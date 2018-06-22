@@ -72,20 +72,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a rel="nofollow" href="jianli.jsp">我的简历</a>
 				</dd>
 				<dd>
-					<a href="collections.jsp">我收藏的职位</a>
-				</dd>
-				<dd class="btm">
-					<a href="subscribe.jsp">我的订阅</a>
-				</dd>
-				<dd>
-					<a href="jianli.jsp">我要找工作</a>
+					<a href="listAll.jsp">我要找工作</a>
 				</dd>
 				<%
 					}
 				 %>
-				<dd>
-					<a href="accountBind.jsp">帐号设置</a>
-				</dd>
+		
 				<dd class="logout">
 					<!-- <a rel="nofollow" href="login.jsp">退出</a> -->
 					<form action="logout" method="post">

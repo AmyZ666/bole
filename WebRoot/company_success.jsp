@@ -47,47 +47,33 @@ var youdao_conv_id = 271546;
 </head>
 <body>
 	<div id="body">
-		<div id="header">
-			<div class="wrapper">
-				<a class="logo" href="index.html"> <img width="229" height="43"
-					alt="拉勾招聘-专注互联网招聘" src="style/images/logo.png"> </a>
-				<ul id="navheader" class="reset">
-					<li><a href="index.html">首页</a>
-					</li>
-					<li class="current"><a href="companylist.html">公司</a>
-					</li>
-					<li><a target="_blank" href="">论坛</a>
-					</li>
-					<li><a rel="nofollow" href="">简历管理</a></li>
-					<li><a rel="nofollow" href="create.html">发布职位</a>
-					</li>
-				</ul>
-				<dl class="collapsible_menu">
-					<dt>
-						<span>jason&nbsp;</span> <span class="red dn" id="noticeDot-1"></span>
-						<i></i>
-					</dt>
-					<dd>
-						<a href="positions.html">我发布的职位</a>
-					</dd>
-					<dd>
-						<a href="">我收到的简历</a>
-					</dd>
-					<dd class="btm">
-						<a href="myhome.html">我的公司主页</a>
-					</dd>
-					<dd>
-						<a href="jianli.html">我要找工作</a>
-					</dd>
-					<dd>
-						<a href="accountBind.html">帐号设置</a>
-					</dd>
-					<dd class="logout">
-						<a rel="nofollow" href="login.html">退出</a>
-					</dd>
-				</dl>
-			</div>
+		<jsp:include page="lock.jsp"></jsp:include>
+	<div id="header">
+		<div class="wrapper">
+			<a class="logo" href="index.jsp"> <img width="229" height="43"
+				alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
+			<ul id="navheader" class="reset">
+				<li><a href="index.jsp">首页</a></li>
+				<li  class="current"><a href="companylist.jsp">公司</a></li>
+
+				<%
+					if(session.getAttribute("status").equals(1)){
+				 %>
+				<li><a rel="nofollow" href="">简历管理</a>
+				</li>
+				<li><a rel="nofollow" href="create.jsp">发布职位</a></li>
+				<%
+					}else{
+					
+				 %>
+				 <li><a rel="nofollow" href="#">我的简历</a></li>
+				 <%
+				 	}
+				  %>
+			</ul>
+			<jsp:include page="header.jsp" />
 		</div>
+	</div>
 		<!-- end #header -->
 		<div id="container">
 
@@ -102,8 +88,8 @@ var youdao_conv_id = 271546;
 					</dt>
 					<dd class="c_notice">
 						<h4>恭喜你，公司信息已填写完善，你可以发布职位啦！</h4>
-						<a class="greylink" href="create.html">发布新职位</a> <a
-							class="greylink" href="myhome.html"> 进入我的公司主页</a>
+						<a class="greylink" href="create.jsp">发布新职位</a> <a
+							class="greylink" href="myhome.jsp"> 进入我的公司主页</a>
 					</dd>
 				</dl>
 			</div>

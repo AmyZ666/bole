@@ -120,8 +120,8 @@ $(function(){
 					<ul class="elist clearfix">
 						<li class="clear"><span class="c9">2004-2008</span>
 							<div>
-								<h3>北京大学</h3>
-								<h4>黑客联盟，本科</h4>
+								<h3><s:property value="#pro.school_name"></s:property></h3>
+								<h4><s:property value="#pro.education"></s:property></h4>
 							</div></li>
 					</ul>
 				</div>
@@ -131,7 +131,7 @@ $(function(){
 
 			<div class="profile_box" id="selfDescription">
 				<h2>自我描述</h2>
-				<div class="descriptionShow">黑客</div>
+				<div class="descriptionShow"><s:property value="#pro.self_introduction"></s:property></div>
 				<!--end .descriptionShow-->
 			</div>
 			<!--end #selfDescription-->

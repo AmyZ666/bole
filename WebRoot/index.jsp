@@ -56,7 +56,7 @@ var youdao_conv_id = 271546;
 			<ul id="navheader" class="reset">
 				<li class="current"><a href="index.jsp">首页</a></li>
 				<li><a href="companylist.jsp">公司</a></li>
-				<li><a target="_blank" href="forum.jsp">论坛</a></li>
+
 				<%
 					if(session.getAttribute("status").equals(1)){
 				 %>
@@ -104,7 +104,7 @@ var youdao_conv_id = 271546;
 	<dt>热门搜索：</dt>
 
 	 <s:iterator value="#session.pros" var="pro"  status='st' >
-		 <dd><a href="list.jsp?<s:property value="#pro.id"></s:property>"><s:property value="#pro.name"></s:property></a></dd>
+		 <dd><a href="listSearch.action?pos_name=<s:property value="#pro.name"></s:property>"><s:property value="#pro.name"></s:property></a></dd>
 	 </s:iterator>
 </dl>			
 			<div id="home_banner">

@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE HTML>
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
@@ -74,25 +74,26 @@ var youdao_conv_id = 271546;
 			<jsp:include page="header.jsp" />
 		</div>
 	</div>
+	<s:iterator value="#session.jianli" var="pro"  status='st' >
 		<div id="container">
 
 			<div class="clearfix">
 				<div class="content_l">
 					<div class="fl" id="resume_name">
 						<div class="nameShow fl">
-							<h1 title="jason的简历">jason的简历</h1>
-							<span class="rename">重命名</span> | <a target="_blank"
-								href="h/resume/preview.html">预览</a>
+							<h1 title="jason的简历"><s:property value="#pro.name"></s:property>的简历</h1>
+							 <a target="_blank"
+								href="preview.jsp">预览</a>
 						</div>
 						<form class="fl dn" id="resumeNameForm">
-							<input type="text" value="jason的简历" name="resumeName"
+							<input type="text" value="<s:property value="#pro.name"></s:property>的简历" name="resumeName"
 								class="nameEdit c9"> <input type="submit" value="保存">
-							| <a target="_blank" href="h/resume/preview.html">预览</a>
+							| <a target="_blank" href="preview.jsp">预览</a>
 						</form>
 					</div>
 					<!--end #resume_name-->
 					<div class="fr c5" id="lastChangedTime">
-						最后一次更新：<span>2014-07-01 15:14 </span>
+						最后一次更新：<span><s:property value="#pro.update_time"></s:property> </span>
 					</div>
 					<!--end #lastChangedTime-->
 					<div id="resumeScore">
@@ -116,8 +117,8 @@ var youdao_conv_id = 271546;
 						<h2>基本信息</h2>
 						<span class="c_edit"></span>
 						<div class="basicShow">
-							<span>jason | 男 | 大专 | 3年工作经验<br> 18644444444 |
-								jason@qq.com<br> </span>
+							<span><s:property value="#pro.name"></s:property> |<s:property value="#pro.sex"></s:property> | <s:property value="#pro.education"></s:property> | <s:property value="#pro.exp"></s:property>工作经验<br> <s:property value="#pro.phone"></s:property> |
+								<s:property value="#pro.email"></s:property><br> </span>
 							<div class="m_portrait">
 								<div></div>
 								<img width="120" height="120" alt="jason"
@@ -318,7 +319,7 @@ var youdao_conv_id = 271546;
 														</dd>
 													</dl>
 												</div></td>
-											<td>
+											<!-- td>
 												<ul class="profile_radio clearfix reset">
 													<li class="current">全职<em></em> <input type="radio"
 														checked="" name="type" value="全职"></li>
@@ -326,7 +327,7 @@ var youdao_conv_id = 271546;
 														value="兼职"></li>
 													<li>实习<em></em> <input type="radio" name="type"
 														value="实习"></li>
-												</ul></td>
+												</ul></td> -->
 										</tr>
 										<tr>
 											<td><input type="text" placeholder="期望职位，如：产品经理"
@@ -1638,6 +1639,7 @@ $(function(){
 				id="backtop" style="display: none;"></a>
 		</div>
 		<!-- end #container -->
+		</s:iterator>
 	</div>
 	<!-- end #body -->
 	<jsp:include page="footer.jsp" />
