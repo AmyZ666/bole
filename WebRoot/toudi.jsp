@@ -1743,29 +1743,7 @@ div.BMap_cmLstItem {
 							<a id="mapPreview" href="javascript:;">查看完整地图</a>
 						</dd>
 					</dl>
-					<div id="myRecommend_jd">
-						<h2>
-							可能适合你的职位 <i>匹配度</i>
-						</h2>
-						<ul class="reset">
-							<li><a target="_blank" href="h/jobs/148004.html"> <span
-									class="f14">产品经理</span> <span class="c7">短讯神州</span> <em>92%</em>
-							</a></li>
-							<li><a target="_blank" href="h/jobs/46793.html"> <span
-									class="f14">产品经理</span> <span class="c7">爱拍</span> <em>89%</em>
-							</a></li>
-							<li><a target="_blank" href="h/jobs/99307.html"> <span
-									class="f14">产品经理</span> <span class="c7">一彩票</span> <em>88%</em>
-							</a></li>
-							<li><a target="_blank" href="h/jobs/147510.html"> <span
-									class="f14">产品经理</span> <span class="c7">林安集团</span> <em>88%</em>
-							</a></li>
-							<li><a target="_blank" href="h/jobs/146995.html"> <span
-									class="f14">产品经理</span> <span class="c7">鼎梵数码科技</span> <em>87%</em>
-							</a></li>
-						</ul>
-						<a target="_blank" class="more" href="h/jobs/mList.html">更多推荐职位&gt;&gt;</a>
-					</div>
+					
 					<!--end #myRecommend-->
 					<a class="eventAd" target="_blank"
 						href="h/subject/s_zhouyou.html?utm_source=BD__lagou&amp;utm_medium=&amp;utm_campaign=zhouyou">

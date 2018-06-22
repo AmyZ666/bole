@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta content="23635710066417756375" property="qc:admins">
 <meta name="description" content="伯乐网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在伯乐网">
 <meta name="keywords"
-	content="伯乐,伯乐网,伯乐招聘,拉钩, 拉钩网 ,互联网招聘,伯乐互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 伯乐官网, 伯乐百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招">
+	content="伯乐,伯乐网,伯乐招聘,伯乐, 伯乐网 ,互联网招聘,伯乐互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 伯乐官网, 伯乐百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招">
 <meta content="QIQ6KC1oZ6" name="baidu-site-verification">
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
@@ -53,9 +53,9 @@ var youdao_conv_id = 271546;
 			<a class="logo" href="index.jsp"> <img width="229" height="43"
 				alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
 			<ul id="navheader" class="reset">
-				<li class="current"><a href="index.jsp">首页</a></li>
+				<li><a href="index.jsp">首页</a></li>
 				<li><a href="companylist.jsp">公司</a></li>
-				<li><a target="_blank" href="forum.jsp">论坛</a></li>
+			
 				<%
 					if(session.getAttribute("status").equals(1)){
 				 %>
@@ -66,7 +66,7 @@ var youdao_conv_id = 271546;
 					}else{
 					
 				 %>
-				 <li><a rel="nofollow" href="#">我的简历</a></li>
+				 <li  class="current"><a rel="nofollow" href="#">我的简历</a></li>
 				 <%
 				 	}
 				  %>
