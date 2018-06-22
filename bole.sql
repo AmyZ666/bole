@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-06-21 21:53:00
+Date: 2018-06-22 15:56:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -145,42 +145,44 @@ CREATE TABLE `position` (
   `start_time` datetime DEFAULT NULL,
   `com_id` int(11) unsigned zerofill DEFAULT NULL,
   `hot_num` int(11) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `detail_address` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of position
 -- ----------------------------
-INSERT INTO `position` VALUES ('1', '运营总监', '北京', '15k-20k', '3-5年', '本科', '发展前景', '2018-06-13 08:34:32', '00000000001', '1000');
-INSERT INTO `position` VALUES ('2', '售前工程师（运维经验优先）', '北京', '6k-12k', '3-5年', '大专', '五险一金+商业保险+带薪年假+奖金等', '2018-05-01 08:44:15', '00000000002', '999');
-INSERT INTO `position` VALUES ('3', '手机游戏运营', '南京', '4k-8k', '1-3年', '本科', '工作氛围和谐,正面激励成长，福利好', '2017-09-26 08:47:25', '00000000003', '998');
-INSERT INTO `position` VALUES ('4', '葡萄酒内容运营专员', '广州', '5k-8k', '1-3年', '本科', '喝着世界美酒快乐的工作！', '2018-03-01 08:50:44', '00000000004', '997');
-INSERT INTO `position` VALUES ('5', '百度移动游戏UI designer', '北京', '7k-14k', '1-3年', '本科', '喜欢游戏，喜欢生活，游戏生活', '2018-06-18 08:51:48', '00000000001', '996');
-INSERT INTO `position` VALUES ('6', 'ios', '北京', '13k-26k', '1-3年', '本科', '中国第一智能手机广告平台', '2018-06-04 08:53:18', '00000000001', '995');
-INSERT INTO `position` VALUES ('7', 'java', '北京', '15k-25k', '1-3年', '本科', '项目快速发展，技术氛围浓厚，有业界大牛', '2018-05-28 08:54:33', '00000000001', '994');
-INSERT INTO `position` VALUES ('8', 'web前端', '上海', '6k-12k', '1-3年', '本科', '靠谱的工程师要来靠谱的公司', '2016-06-06 08:56:53', '00000000001', '993');
-INSERT INTO `position` VALUES ('9', 'java', '杭州', '15k-30k', '不限', '本科', '有技术挑战，有成长机会，有漂亮妹子', '2018-04-18 08:58:20', '00000000001', '992');
-INSERT INTO `position` VALUES ('10', '测试实习生', '上海', '3k-5k', '不限', '本科', '实习通过，毕业直接转正，实习期有餐贴', '1999-06-13 08:59:25', '00000000001', '991');
-INSERT INTO `position` VALUES ('11', '网页产品设计师', '北京', '8k-10k', '1-3年', '本科', '六险一金，饭补，班车，晋升机制，氛围好', '2017-07-13 09:01:30', '00000000001', '990');
-INSERT INTO `position` VALUES ('12', '产品经理（工商系统项目）', '北京', '10k-20k', '5-10年', '本科', '和一群聪明的人共事', '2017-06-13 09:02:47', '00000000001', '989');
-INSERT INTO `position` VALUES ('13', '团队经理', '北京', '10k-15k', '不限', '大专', '位置佳，环境优越，发展空间大，薪酬高', '2016-06-13 09:03:53', '00000000001', '988');
-INSERT INTO `position` VALUES ('14', '手游商务', '上海', '6k-10k', '1-3年', '大专', '一年两次调薪，免费早，晚餐，项目，年终奖', '2010-06-13 09:05:22', '00000000001', '987');
-INSERT INTO `position` VALUES ('15', '市场推广', '上海', '7k-12k', '1-3年', '大专', '年度16薪 市场营销发展方向', '2018-05-01 09:06:50', '00000000001', '986');
-INSERT INTO `position` VALUES ('16', '前端开发', '北京', '10k-20k', '3-5年', '本科', '借移动医疗大势享受坐直升飞机的职业发展', '2018-06-04 09:09:04', '00000000001', '985');
-INSERT INTO `position` VALUES ('17', '前端开发', '北京', '8k-16k', '3-5年', '本科', '第一家互联网私人银行招募各路牛人', '2018-06-13 09:10:11', '00000000001', '984');
-INSERT INTO `position` VALUES ('18', '高级web前端开发工程师', '上海', '8k-15k', '3-5年', '大专', '上市公司创业型团队 五险一金 精英团队', '2018-01-01 09:12:33', '00000000001', '983');
-INSERT INTO `position` VALUES ('19', '前端开发', '广州', '8k-9k', '1-3年', '不限', '高新，双休，五险一金！等你来了！', '2018-06-27 09:13:32', '00000000001', '982');
-INSERT INTO `position` VALUES ('20', '前端开发', '上海', '7k-14k', '1-3年', '大专', '全新的外贸业务开发模式，等你一起来创造！', '2016-02-13 09:20:43', '00000000001', '981');
-INSERT INTO `position` VALUES ('21', '前端开发', '上海', '4k-7k', '1-3年', '大专', '保险，双休，带薪年假等', '1990-06-13 09:25:08', '00000000001', '980');
-INSERT INTO `position` VALUES ('22', '前端开发', '杭州', '4k-7k', '1-3年', '大专', '保险，双休，带薪年假等', '2018-06-26 09:26:15', '00000000001', '979');
-INSERT INTO `position` VALUES ('23', '前端开发', '北京', '6k-12k', '1-3年', '不限', '前端主管', '2018-06-13 09:27:22', '00000000001', '978');
-INSERT INTO `position` VALUES ('24', '前端开发工程师', '上海', '8k-12k', '不限', '大专', '发展空间，与大牛一起工作', '2018-06-26 09:28:56', '00000000001', '977');
-INSERT INTO `position` VALUES ('25', '前端开发工程师实习生', '上海', '3k-6k', '不限', '大专', '快速成长的机会，优秀可转正', '2018-06-11 09:30:06', '00000000001', '976');
-INSERT INTO `position` VALUES ('26', 'js前端开发工程师-北京-01899', '北京', '10k-20k', '3-5年', '本科', '六险一金，饭补，班车，晋升机制，领导好', '2018-05-13 09:32:23', '00000000001', '975');
-INSERT INTO `position` VALUES ('27', '资深js前端开发工程师-北京-02398', '北京', '15k-25k', '3-5年', '本科', '六险一金，饭补，班车，晋升机制，氛围好', '2018-06-13 09:34:28', '00000000001', '974');
-INSERT INTO `position` VALUES ('28', '前端开发工程师', '北京', '10k-18k', '1-3年', '本科', '精英团队；有竞争力的薪酬', '2018-01-13 09:35:27', '00000000001', '973');
-INSERT INTO `position` VALUES ('29', '前端开发工程师', '苏州', '6k-12k', '1-3年', '大专', 'c轮融资，工作环境好，待遇优', '2018-06-05 09:36:35', '00000000001', '972');
-INSERT INTO `position` VALUES ('30', 'web前端开发工程师，主管', '深圳', '6k以上', '1-3年', '大专', '年底双薪，带薪年假，周末双休，年度旅游', '2018-06-13 09:38:12', '00000000001', '971');
+INSERT INTO `position` VALUES ('1', '运营总监', '北京', '15k-20k', '3-5年', '本科', '发展前景', '2018-06-13 08:34:32', '00000000001', '1000', null, null);
+INSERT INTO `position` VALUES ('2', '售前工程师（运维经验优先）', '北京', '6k-12k', '3-5年', '大专', '五险一金+商业保险+带薪年假+奖金等', '2018-05-01 08:44:15', '00000000002', '999', null, null);
+INSERT INTO `position` VALUES ('3', '手机游戏运营', '南京', '4k-8k', '1-3年', '本科', '工作氛围和谐,正面激励成长，福利好', '2017-09-26 08:47:25', '00000000003', '998', null, null);
+INSERT INTO `position` VALUES ('4', '葡萄酒内容运营专员', '广州', '5k-8k', '1-3年', '本科', '喝着世界美酒快乐的工作！', '2018-03-01 08:50:44', '00000000004', '997', null, null);
+INSERT INTO `position` VALUES ('5', '百度移动游戏UI designer', '北京', '7k-14k', '1-3年', '本科', '喜欢游戏，喜欢生活，游戏生活', '2018-06-18 08:51:48', '00000000001', '996', null, null);
+INSERT INTO `position` VALUES ('6', 'ios', '北京', '13k-26k', '1-3年', '本科', '中国第一智能手机广告平台', '2018-06-04 08:53:18', '00000000001', '995', null, null);
+INSERT INTO `position` VALUES ('7', 'java', '北京', '15k-25k', '1-3年', '本科', '项目快速发展，技术氛围浓厚，有业界大牛', '2018-05-28 08:54:33', '00000000001', '994', null, null);
+INSERT INTO `position` VALUES ('8', 'web前端', '上海', '6k-12k', '1-3年', '本科', '靠谱的工程师要来靠谱的公司', '2016-06-06 08:56:53', '00000000001', '993', null, null);
+INSERT INTO `position` VALUES ('9', 'java', '杭州', '15k-30k', '不限', '本科', '有技术挑战，有成长机会，有漂亮妹子', '2018-04-18 08:58:20', '00000000001', '992', null, null);
+INSERT INTO `position` VALUES ('10', '测试实习生', '上海', '3k-5k', '不限', '本科', '实习通过，毕业直接转正，实习期有餐贴', '1999-06-13 08:59:25', '00000000001', '991', null, null);
+INSERT INTO `position` VALUES ('11', '网页产品设计师', '北京', '8k-10k', '1-3年', '本科', '六险一金，饭补，班车，晋升机制，氛围好', '2017-07-13 09:01:30', '00000000001', '990', null, null);
+INSERT INTO `position` VALUES ('12', '产品经理（工商系统项目）', '北京', '10k-20k', '5-10年', '本科', '和一群聪明的人共事', '2017-06-13 09:02:47', '00000000001', '989', null, null);
+INSERT INTO `position` VALUES ('13', '团队经理', '北京', '10k-15k', '不限', '大专', '位置佳，环境优越，发展空间大，薪酬高', '2016-06-13 09:03:53', '00000000001', '988', null, null);
+INSERT INTO `position` VALUES ('14', '手游商务', '上海', '6k-10k', '1-3年', '大专', '一年两次调薪，免费早，晚餐，项目，年终奖', '2010-06-13 09:05:22', '00000000001', '987', null, null);
+INSERT INTO `position` VALUES ('15', '市场推广', '上海', '7k-12k', '1-3年', '大专', '年度16薪 市场营销发展方向', '2018-05-01 09:06:50', '00000000001', '986', null, null);
+INSERT INTO `position` VALUES ('16', '前端开发', '北京', '10k-20k', '3-5年', '本科', '借移动医疗大势享受坐直升飞机的职业发展', '2018-06-04 09:09:04', '00000000001', '985', null, null);
+INSERT INTO `position` VALUES ('17', '前端开发', '北京', '8k-16k', '3-5年', '本科', '第一家互联网私人银行招募各路牛人', '2018-06-13 09:10:11', '00000000001', '984', null, null);
+INSERT INTO `position` VALUES ('18', '高级web前端开发工程师', '上海', '8k-15k', '3-5年', '大专', '上市公司创业型团队 五险一金 精英团队', '2018-01-01 09:12:33', '00000000001', '983', null, null);
+INSERT INTO `position` VALUES ('19', '前端开发', '广州', '8k-9k', '1-3年', '不限', '高新，双休，五险一金！等你来了！', '2018-06-27 09:13:32', '00000000001', '982', null, null);
+INSERT INTO `position` VALUES ('20', '前端开发', '上海', '7k-14k', '1-3年', '大专', '全新的外贸业务开发模式，等你一起来创造！', '2016-02-13 09:20:43', '00000000001', '981', null, null);
+INSERT INTO `position` VALUES ('21', '前端开发', '上海', '4k-7k', '1-3年', '大专', '保险，双休，带薪年假等', '1990-06-13 09:25:08', '00000000001', '980', null, null);
+INSERT INTO `position` VALUES ('22', '前端开发', '杭州', '4k-7k', '1-3年', '大专', '保险，双休，带薪年假等', '2018-06-26 09:26:15', '00000000001', '979', null, null);
+INSERT INTO `position` VALUES ('23', '前端开发', '北京', '6k-12k', '1-3年', '不限', '前端主管', '2018-06-13 09:27:22', '00000000001', '978', null, null);
+INSERT INTO `position` VALUES ('24', '前端开发工程师', '上海', '8k-12k', '不限', '大专', '发展空间，与大牛一起工作', '2018-06-26 09:28:56', '00000000001', '977', null, null);
+INSERT INTO `position` VALUES ('25', '前端开发工程师实习生', '上海', '3k-6k', '不限', '大专', '快速成长的机会，优秀可转正', '2018-06-11 09:30:06', '00000000001', '976', null, null);
+INSERT INTO `position` VALUES ('26', 'js前端开发工程师-北京-01899', '北京', '10k-20k', '3-5年', '本科', '六险一金，饭补，班车，晋升机制，领导好', '2018-05-13 09:32:23', '00000000001', '975', null, null);
+INSERT INTO `position` VALUES ('27', '资深js前端开发工程师-北京-02398', '北京', '15k-25k', '3-5年', '本科', '六险一金，饭补，班车，晋升机制，氛围好', '2018-06-13 09:34:28', '00000000001', '974', null, null);
+INSERT INTO `position` VALUES ('28', '前端开发工程师', '北京', '10k-18k', '1-3年', '本科', '精英团队；有竞争力的薪酬', '2018-01-13 09:35:27', '00000000001', '973', null, null);
+INSERT INTO `position` VALUES ('29', '前端开发工程师', '苏州', '6k-12k', '1-3年', '大专', 'c轮融资，工作环境好，待遇优', '2018-06-05 09:36:35', '00000000001', '972', null, null);
+INSERT INTO `position` VALUES ('30', 'web前端开发工程师，主管', '深圳', '6k以上', '1-3年', '大专', '年底双薪，带薪年假，周末双休，年度旅游', '2018-06-13 09:38:12', '00000000001', '971', null, null);
 
 -- ----------------------------
 -- Table structure for pos_description
@@ -191,11 +193,35 @@ CREATE TABLE `pos_description` (
   `pos_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pos_description
 -- ----------------------------
+INSERT INTO `pos_description` VALUES ('1', '1', '挖掘公司互联网产品现有和预期的市场需求');
+INSERT INTO `pos_description` VALUES ('2', '1', '负责组织公司互联网新产品开发和产品改进');
+INSERT INTO `pos_description` VALUES ('3', '1', '发掘收集竞争对手信息，进行竞争对手分析，制定应对战略');
+INSERT INTO `pos_description` VALUES ('4', '1', '在产品运营中倾听用户声音，了解用户潜在需求，并在产品改进中满足');
+INSERT INTO `pos_description` VALUES ('5', '1', '在产品运营中整合已有的产品功能、用户资源、推广资源，策划运营活动');
+INSERT INTO `pos_description` VALUES ('6', '1', '与市场、运营、UI、开发、测试、公关、法务、客服等人员紧密合作，实现产品目标');
+INSERT INTO `pos_description` VALUES ('7', '2', '在产品发行过程中，进行推广，了解需求');
+INSERT INTO `pos_description` VALUES ('8', '2', '比较与对手公司的区别，和对手公司的差距，然后进行创新');
+INSERT INTO `pos_description` VALUES ('9', '2', '为了了解客户的意愿，客户的喜爱程度，更倾向于哪种产品');
+INSERT INTO `pos_description` VALUES ('10', '2', '挖掘公司互联网产品现有和预期的市场需求');
+INSERT INTO `pos_description` VALUES ('11', '2', '负责组织公司互联网新产品开发和产品改进');
+INSERT INTO `pos_description` VALUES ('12', '2', '发掘收集竞争对手信息，进行竞争对手分析，制定应对战略');
+INSERT INTO `pos_description` VALUES ('13', '3', '在产品运营中倾听用户声音，了解用户潜在需求，并在产品改进中满足');
+INSERT INTO `pos_description` VALUES ('14', '3', '在产品运营中整合已有的产品功能、用户资源、推广资源，策划运营活动');
+INSERT INTO `pos_description` VALUES ('15', '3', '与市场、运营、UI、开发、测试、公关、法务、客服等人员紧密合作，实现产品目标');
+INSERT INTO `pos_description` VALUES ('16', '3', '在产品发行过程中，进行推广，了解需求');
+INSERT INTO `pos_description` VALUES ('17', '3', '比较与对手公司的区别，和对手公司的差距，然后进行创新');
+INSERT INTO `pos_description` VALUES ('18', '3', '为了了解客户的意愿，客户的喜爱程度，更倾向于哪种产品');
+INSERT INTO `pos_description` VALUES ('19', '4', '与市场、运营、UI、开发、测试、公关、法务、客服等人员紧密合作，实现产品目标');
+INSERT INTO `pos_description` VALUES ('20', '4', '在产品发行过程中，进行推广，了解需求');
+INSERT INTO `pos_description` VALUES ('21', '4', '比较与对手公司的区别，和对手公司的差距，然后进行创新');
+INSERT INTO `pos_description` VALUES ('22', '4', '为了了解客户的意愿，客户的喜爱程度，更倾向于哪种产品');
+INSERT INTO `pos_description` VALUES ('23', '4', '挖掘公司互联网产品现有和预期的市场需求');
+INSERT INTO `pos_description` VALUES ('24', '4', '负责组织公司互联网新产品开发和产品改进');
 
 -- ----------------------------
 -- Table structure for pos_order
@@ -206,11 +232,35 @@ CREATE TABLE `pos_order` (
   `pos_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pos_order
 -- ----------------------------
+INSERT INTO `pos_order` VALUES ('1', '1', '本科及以上学历，英语四级以上，专业不限');
+INSERT INTO `pos_order` VALUES ('2', '1', '对互联网产品有敏锐的直觉和良好的市场分析能力');
+INSERT INTO `pos_order` VALUES ('3', '1', '有严密的逻辑分析能力，有良好的沟通协作能力');
+INSERT INTO `pos_order` VALUES ('4', '1', '有很强的责任心、学习能力、文字表达能力');
+INSERT INTO `pos_order` VALUES ('5', '1', '具有很强的团队协助精神，善于总结和分享经验');
+INSERT INTO `pos_order` VALUES ('6', '1', '具有互联网产品规划和产品设计经验者优先');
+INSERT INTO `pos_order` VALUES ('7', '2', '英语六级，研究生学历，专业对口');
+INSERT INTO `pos_order` VALUES ('8', '2', '责任心强，英语四级以上，本科学历');
+INSERT INTO `pos_order` VALUES ('9', '2', '精通计算机，口语很好，协作能力强');
+INSERT INTO `pos_order` VALUES ('10', '2', '本科及以上学历，英语四级以上，专业不限');
+INSERT INTO `pos_order` VALUES ('11', '2', '对互联网产品有敏锐的直觉和良好的市场分析能力');
+INSERT INTO `pos_order` VALUES ('12', '2', '有严密的逻辑分析能力，有良好的沟通协作能力');
+INSERT INTO `pos_order` VALUES ('13', '3', '有很强的责任心、学习能力、文字表达能力');
+INSERT INTO `pos_order` VALUES ('14', '3', '具有很强的团队协助精神，善于总结和分享经验');
+INSERT INTO `pos_order` VALUES ('15', '3', '具有互联网产品规划和产品设计经验者优先');
+INSERT INTO `pos_order` VALUES ('16', '3', '英语六级，研究生学历，专业对口');
+INSERT INTO `pos_order` VALUES ('17', '3', '责任心强，英语四级以上，本科学历');
+INSERT INTO `pos_order` VALUES ('18', '3', '精通计算机，口语很好，协作能力强');
+INSERT INTO `pos_order` VALUES ('19', '4', '责任心强，英语四级以上，本科学历');
+INSERT INTO `pos_order` VALUES ('20', '4', '精通计算机，口语很好，协作能力强');
+INSERT INTO `pos_order` VALUES ('21', '4', '本科及以上学历，英语四级以上，专业不限');
+INSERT INTO `pos_order` VALUES ('22', '4', '对互联网产品有敏锐的直觉和良好的市场分析能力');
+INSERT INTO `pos_order` VALUES ('23', '4', '有严密的逻辑分析能力，有良好的沟通协作能力');
+INSERT INTO `pos_order` VALUES ('24', '4', '有很强的责任心、学习能力、文字表达能力');
 
 -- ----------------------------
 -- Table structure for pos_other
@@ -221,11 +271,35 @@ CREATE TABLE `pos_other` (
   `pos_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pos_other
 -- ----------------------------
+INSERT INTO `pos_other` VALUES ('1', '1', '五险一金、商业综合医疗保险，节日慰问金');
+INSERT INTO `pos_other` VALUES ('2', '1', '生日礼金、结婚礼金、年度体检、旅游');
+INSERT INTO `pos_other` VALUES ('3', '1', '工作时间为5天工作制，享受国家法定节假日');
+INSERT INTO `pos_other` VALUES ('4', '1', '带薪年假7天、带薪病假、产假（陪产假）、婚假、丧假等');
+INSERT INTO `pos_other` VALUES ('5', '1', '每周定期举办足球、羽毛球、篮球及员工深度互动等文体活动');
+INSERT INTO `pos_other` VALUES ('6', '1', '餐补，带薪休假，年度旅游');
+INSERT INTO `pos_other` VALUES ('7', '2', '国家法定节假日，带薪产假，五险一金');
+INSERT INTO `pos_other` VALUES ('8', '2', '活动丰富，医疗保险，年度体检');
+INSERT INTO `pos_other` VALUES ('9', '2', '结婚礼金，五险一金，旅游，带薪休假');
+INSERT INTO `pos_other` VALUES ('10', '2', '五险一金、商业综合医疗保险，节日慰问金');
+INSERT INTO `pos_other` VALUES ('11', '2', '生日礼金、结婚礼金、年度体检、旅游');
+INSERT INTO `pos_other` VALUES ('12', '2', '工作时间为5天工作制，享受国家法定节假日');
+INSERT INTO `pos_other` VALUES ('13', '3', '带薪年假7天、带薪病假、产假（陪产假）、婚假、丧假等');
+INSERT INTO `pos_other` VALUES ('14', '3', '每周定期举办足球、羽毛球、篮球及员工深度互动等文体活动');
+INSERT INTO `pos_other` VALUES ('15', '3', '餐补，带薪休假，年度旅游');
+INSERT INTO `pos_other` VALUES ('16', '3', '国家法定节假日，带薪产假，五险一金');
+INSERT INTO `pos_other` VALUES ('17', '3', '活动丰富，医疗保险，年度体检');
+INSERT INTO `pos_other` VALUES ('18', '3', '结婚礼金，五险一金，旅游，带薪休假');
+INSERT INTO `pos_other` VALUES ('19', '4', '餐补，带薪休假，年度旅游');
+INSERT INTO `pos_other` VALUES ('20', '4', '国家法定节假日，带薪产假，五险一金');
+INSERT INTO `pos_other` VALUES ('21', '4', '活动丰富，医疗保险，年度体检');
+INSERT INTO `pos_other` VALUES ('22', '4', '结婚礼金，五险一金，旅游，带薪休假');
+INSERT INTO `pos_other` VALUES ('23', '4', '五险一金、商业综合医疗保险，节日慰问金');
+INSERT INTO `pos_other` VALUES ('24', '4', '生日礼金、结婚礼金、年度体检、旅游');
 
 -- ----------------------------
 -- Table structure for product
