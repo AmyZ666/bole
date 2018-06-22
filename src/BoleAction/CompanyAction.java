@@ -11,6 +11,7 @@ import test.HibernateSessionFactory;
 
 import model.company;
 import model.founder;
+import model.position;
 import model.pro_com;
 import model.weal;
 
@@ -22,13 +23,19 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 	public weal wl;
 	public founder fd;	
 	public pro_com pd;
+	public position pst;
 	
 	private Map session;
 	public void setSession(Map session){
 		
 		this.session=session;
+	}	
+	public position getPst() {
+		return pst;
 	}
-	
+	public void setPst(position pst) {
+		this.pst = pst;
+	}
 	public pro_com getPd() {
 		return pd;
 	}
@@ -165,6 +172,12 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 		//s.saveOrUpdate(c);
 		transaction.commit();
 		s.close();
+		return "success";
+	}
+	
+	public String create() throws Exception{
+	//	System.out.println(getPst().getName());
+		System.out.println("2333333333");
 		return "success";
 	}
 	

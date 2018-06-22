@@ -52,5 +52,9 @@
 			<result name="success">/toudi.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="create_occupate" class="BoleAction.CompanyAction" method="create">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 </struts>    

@@ -25,6 +25,8 @@ public class position {
 	private String domain;
 	private String stage;
 	private String size;
+	private String email;
+	private String detail_address;
 
 	@Id
 	@GeneratedValue
@@ -147,5 +149,22 @@ public class position {
 	public void setSize(String size) {
 		this.size = size;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDetail_address() {
+		return detail_address;
+	}
+
+	public void setDetail_address(String detail_address) {
+		this.detail_address = detail_address;
+	}
+	
 
 }
