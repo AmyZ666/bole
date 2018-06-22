@@ -1548,8 +1548,8 @@ div.BMap_cmLstItem {
 								</a>
 								</span><br> <span>简历更新于2014-07-01 15:53</span>
 							</div>
-							<span class="setBtns"> <a target="_blank" title="预览"
-								href="h/resume/preview.html">预览</a> | <a title="修改"
+							<span class="setBtns"> <a 
+								href="jianli.action?id=<%=session.getAttribute("id") %>">预览</a> | <a title="修改"
 								target="_blank" href="jianli.html">修改</a> </span>
 						</dd>
 						<div class="saoma saoma_btm">
@@ -1761,7 +1761,7 @@ div.BMap_cmLstItem {
 
 			<div id="tipOverlay"></div>
 			<!-------------------------------------弹窗lightbox  ----------------------------------------->
-			<div style="display:none;">
+			<%-- <div style="display:none;">
 				<!-- 设置默认投递简历 -->
 				<div style="height:280px;" class="popup" id="setResume">
 					<table width="100%">
@@ -2316,7 +2316,7 @@ div.BMap_cmLstItem {
 				<!--/#baiduMap-->
 			</div>
 			<!------------------------------------- end ----------------------------------------->
-
+ --%>
 			<script src="style/js/job_detail.js" type="text/javascript"></script>
 			<script src="style/js/count.js" type="text/javascript"></script>
 

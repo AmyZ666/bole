@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -45,9 +45,11 @@ $(function(){
 </head>
 
 <body>
+	<s:iterator value="#session.jianli" var="pro"  status='st' >
+	
 	<div id="previewWrapper">
 		<div class="preview_header">
-			<h1 title="jason的简历">jason的简历</h1>
+			<h1 title="jason的简历"><s:property value="#pro.name"></s:property>的简历</h1>
 			<a title="下载简历" class="inline cboxElement"
 				href="#downloadOnlineResume">下载该简历</a>
 		</div>
@@ -57,8 +59,8 @@ $(function(){
 			<div class="profile_box" id="basicInfo">
 				<h2>基本信息</h2>
 				<div class="basicShow">
-					<span>jason | 男 | 大专 | 3年工作经验 | 广州<br> 高级产品经理 ·
-						上海辉硕科技有限公司 | 本科 · 北京大学<br> 18644444444 | jason@qq.com<br>
+					<span><s:property value="#pro.name"></s:property> | <s:property value="#pro.sex"></s:property> | <s:property value="#pro.education"></s:property>-<s:property value="#pro.school_name"></s:property> | <s:property value="#pro.exp"></s:property>| <s:property value="#pro.address"></s:property><br>
+					 <s:property value="#pro.hope_city"></s:property> |<br> <s:property value="#pro.phone"></s:property> | <s:property value="#pro.email"></s:property><br>
 
 					</span>
 					<div class="m_portrait">
@@ -73,7 +75,7 @@ $(function(){
 
 			<div class="profile_box" id="expectJob">
 				<h2>期望工作</h2>
-				<div class="expectShow">广州，全职，月薪5k-10k，产品经理</div>
+				<div class="expectShow"><s:property value="#pro.hope_city"></s:property>，<s:property value="#pro.hope_salary"></s:property>，<s:property value="#pro.hope_position"></s:property></div>
 				<!--end .expectShow-->
 			</div>
 			<!--end #expectJob-->
@@ -154,7 +156,7 @@ $(function(){
 		<!--end .preview_content-->
 	</div>
 	<!--end #previewWrapper-->
-
+	</s:iterator>
 	<!-------------------------------------弹窗lightbox ----------------------------------------->
 	<div style="display:none;">
 		<!-- 下载简历 -->

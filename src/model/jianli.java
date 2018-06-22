@@ -13,13 +13,13 @@ public class jianli {
 	private int id;
 	private int user_id;
 	private Date update_time;
+	private String name;
 	private String sex;
 	private String education;
 	private String exp;
 	private String phone;
 	private String email;
 	private String hope_city;
-	private String hope_job_class;
 	private String hope_position;
 	private String hope_salary;
 	private String school_name;
@@ -103,13 +103,7 @@ public class jianli {
 		this.hope_city = hope_city;
 	}
 
-	public String getHope_job_class() {
-		return hope_job_class;
-	}
 
-	public void setHope_job_class(String hope_job_class) {
-		this.hope_job_class = hope_job_class;
-	}
 
 	public String getHope_position() {
 		return hope_position;
@@ -174,5 +168,14 @@ public class jianli {
 	public void setSelf_introduction(String self_introduction) {
 		this.self_introduction = self_introduction;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 
 }
