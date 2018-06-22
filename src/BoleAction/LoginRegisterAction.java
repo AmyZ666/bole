@@ -41,7 +41,7 @@ public class LoginRegisterAction extends ActionSupport {
 	}
 
 	public String login() throws Exception {
-		// System.out.println("233333333333333");
+		System.out.println("233333333333333");
 		// System.out.println(getUser().getEmail());
 		Session session = HibernateSessionFactory.getSession();
 		Transaction tx = session.beginTransaction();
