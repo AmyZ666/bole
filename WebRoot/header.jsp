@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}else{
 				 %>
 				<dd>
-					<a rel="nofollow" href="jianli.jsp">我的简历</a>
+					<a rel="nofollow" href="jianlic.action?id=<%=session.getAttribute("id") %>">我的简历</a>
 				</dd>
 				<dd>
 					<a href="listAll.jsp">我要找工作</a>

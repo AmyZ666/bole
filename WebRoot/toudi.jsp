@@ -1477,7 +1477,7 @@ div.BMap_cmLstItem {
 					}else{
 					
 				 %>
-				 <li><a rel="nofollow" href="#">我的简历</a></li>
+				 <li><a rel="nofollow" href="jianlic.action?id=<%=session.getAttribute("id") %>">我的简历</a></li>
 				 <%
 				 	}
 				  %>

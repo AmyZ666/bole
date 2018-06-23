@@ -67,7 +67,7 @@ var youdao_conv_id = 271546;
 				<%
 						} else {
 					%>
-				<li><a rel="nofollow" href="#">我的简历</a></li>
+				<li><a rel="nofollow" href="jianlic.action?id=<%=session.getAttribute("id") %>">我的简历</a></li>
 				<%
 						}
 					%>
