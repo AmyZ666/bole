@@ -185,7 +185,7 @@ var youdao_conv_id = 271546;
 				</s:else>
 					<div class="hot_pos_l">
 						<div class="mb10">
-							<a href="h/jobs/147822.html" target="_blank"><s:property value="#pos.name"></s:property></a> &nbsp; <span
+							<a href="toudi.action?pos_id=<s:property value='#pos.id'></s:property>" target="_blank"><s:property value="#pos.name"></s:property></a> &nbsp; <span
 								class="c9">[<s:property value="#pos.address"></s:property>]</span>
 						</div>
 						<span><em class="c7">月薪： </em><s:property value="#pos.salary"></s:property></span> <span><em
@@ -195,7 +195,7 @@ var youdao_conv_id = 271546;
 					</div>
 					<div class="hot_pos_r">
 						<div class="mb10 recompany">
-							<a href="h/c/399.html" target="_blank"><s:property value="#pos.com_name"></s:property></a>
+							<a href="toudi.action?pos_id=<s:property value='#pos.id'></s:property>" target="_blank"><s:property value="#pos.com_name"></s:property></a>
 						</div>
 						<span><em class="c7">领域：</em> <s:property value="#pos.domain"></s:property></span> <span><em
 							class="c7">创始人：</em><s:property value="#pos.com_founder"></s:property></span> <br /> <span><em class="c7">阶段：</em>
