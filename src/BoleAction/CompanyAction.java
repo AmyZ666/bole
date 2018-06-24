@@ -1,5 +1,6 @@
 package BoleAction;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -23,18 +24,18 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 	public weal wl;
 	public founder fd;	
 	public pro_com pd;
-	public position pst;
+	public position ps;
 	
 	private Map session;
 	public void setSession(Map session){
 		
 		this.session=session;
 	}	
-	public position getPst() {
-		return pst;
+	public position getPs() {
+		return ps;
 	}
-	public void setPst(position pst) {
-		this.pst = pst;
+	public void setPst(position ps) {
+		this.ps = ps;
 	}
 	public pro_com getPd() {
 		return pd;
@@ -176,8 +177,34 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 	}
 	
 	public String create() throws Exception{
-	//	System.out.println(getPst().getName());
-		System.out.println("2333333333");
+		System.out.println(getPs().getName());
+		position pst = new position();
+		
+		pst.setName(getPs().getName());
+		pst.setAddress(getPs().getAddress());
+		pst.setDetail_address(getPs().getDetail_address());
+		pst.setExp(getPs().getExp());
+		pst.setEmail(getPs().getEmail());
+		pst.setSalary(getPs().getSalary());
+		pst.setEducution(getPs().getEducution());
+		pst.setTempt(getPs().getTempt());
+		int id=(Integer)(session.get("id"));
+		pst.setCom_id(id);
+		pst.setCom_founder("toosimple");
+		pst.setCom_name("toosimple");
+		pst.setDomain("互联网");
+		pst.setSize("1024");
+		pst.setStage("已上市");
+		pst.setHot_num(0);
+		pst.setStart_time(new Date());
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		s.saveOrUpdate(pst);
+		
+		transaction.commit();
+		s.close();
 		return "success";
 	}
 	

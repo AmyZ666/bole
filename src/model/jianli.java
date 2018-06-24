@@ -25,9 +25,29 @@ public class jianli {
 	private String school_name;
 	private String school_education;
 	private String school_major;
-	private Date start_school;
-	private Date end_school;
+	/*private Date start_school;
+	private Date end_school;*/
 	private String self_introduction;
+	private String img;
+	private String produce;
+	private String pro_introduction;
+	
+	
+	public String getProduce() {
+		return produce;
+	}
+
+	public void setProduce(String produce) {
+		this.produce = produce;
+	}
+
+	public String getPro_introduction() {
+		return pro_introduction;
+	}
+
+	public void setPro_introduction(String pro_introduction) {
+		this.pro_introduction = pro_introduction;
+	}
 
 	@Id
 	@GeneratedValue
@@ -37,6 +57,14 @@ public class jianli {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public int getUser_id() {
@@ -145,7 +173,7 @@ public class jianli {
 		this.school_major = school_major;
 	}
 
-	public Date getStart_school() {
+	/*public Date getStart_school() {
 		return start_school;
 	}
 
@@ -160,7 +188,7 @@ public class jianli {
 	public void setEnd_school(Date end_school) {
 		this.end_school = end_school;
 	}
-
+*/
 	public String getSelf_introduction() {
 		return self_introduction;
 	}

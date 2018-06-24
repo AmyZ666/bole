@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -112,43 +113,49 @@ var youdao_conv_id = 271546;
 						</div>
 					</div>
 					<!--end #resumeScore-->
-
+		
+		
+			<form action="update_jianli" method="post">
+		
+		
 					<div class="profile_box" id="basicInfo">
 						<h2>基本信息</h2>
 						<span class="c_edit"></span>
 						<div class="basicShow">
-							<span><s:property value="#pro.name"></s:property> |<s:property value="#pro.sex"></s:property> | <s:property value="#pro.education"></s:property> | <s:property value="#pro.exp"></s:property>工作经验<br> <s:property value="#pro.phone"></s:property> |
-								<s:property value="#pro.email"></s:property><br> </span>
+						
+						<span><s:property value="#pro.name"></s:property> |<s:property value="#pro.sex"></s:property> | <s:property value="#pro.education"></s:property> | <s:property value="#pro.exp"></s:property>工作经验<br> <s:property value="#pro.phone"></s:property> |
+								<s:property value="#pro.email"></s:property><br> </span> 
+						
 							<div class="m_portrait">
 								<div></div>
-								<img width="120" height="120" alt="jason"
+								<img width="120" height="120" alt="jason" name="jl.img"
 									src="style/images/default_headpic.png">
 							</div>
 						</div>
 						<!--end .basicShow-->
 
 						<div class="basicEdit dn">
-							<form id="profileForm">
-								<table>
+					
+								<table id="profileForm">
 									<tbody>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="text" placeholder="姓名" value="jason"
-												name="name" id="name"></td>
+												name="jl.name" id="name"></td>
 											<td valign="top"></td>
 											<td>
 												<ul class="profile_radio clearfix reset">
 													<li class="current">男<em></em> <input type="radio"
-														checked="checked" name="gender" value="男"></li>
-													<li>女<em></em> <input type="radio" name="gender"
+														checked="checked" name="jl.sex" value="男"></li>
+													<li>女<em></em> <input type="radio" name="jl.sex"
 														value="女"></li>
 												</ul></td>
 										</tr>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="hidden" id="topDegree" value="大专"
-												name="topDegree"> <input type="button" value="大专"
-												id="select_topDegree"
+												name="jl.education"><input type="button" value="大专"
+												id="select_topDegree"  name="jl.education"  
 												class="profile_select_190 profile_select_normal">
 												<div class="boxUpDown boxUpDown_190 dn" id="box_topDegree"
 													style="display: none;">
@@ -159,10 +166,10 @@ var youdao_conv_id = 271546;
 														<li>博士</li>
 														<li>其他</li>
 													</ul>
-												</div></td>
+												</div></td> 
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="hidden" id="workyear" value=""
-												name="workyear"> <input type="button" value=""
+												name="jl.exp"> <input type="button" value=""
 												id="select_workyear"
 												class="profile_select_190 profile_select_normal">
 												<div class="boxUpDown boxUpDown_190 dn" id="box_workyear"
@@ -186,39 +193,23 @@ var youdao_conv_id = 271546;
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td colspan="3"><input type="text" placeholder="手机号码"
-												value="18644444444" name="tel" id="tel"></td>
+												value="18644444444" name="jl.phone" id="tel"></td>
 										</tr>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td colspan="3"><input type="text"
-												placeholder="接收面试通知的邮箱" value="jason@qq.com" name="email"
+												placeholder="接收面试通知的邮箱" value="jason@qq.com" name="jl.email"
 												id="email"></td>
 										</tr>
-										<tr>
-											<td valign="top"></td>
-											<td colspan="3"><input type="hidden" id="currentState"
-												value="" name="currentState"> <input type="button"
-												value="目前状态" id="select_currentState"
-												class="profile_select_410 profile_select_normal">
-												<div class="boxUpDown boxUpDown_410 dn"
-													id="box_currentState" style="display: none;">
-													<ul>
-														<li>我目前已离职，可快速到岗</li>
-														<li>我目前正在职，正考虑换个新环境</li>
-														<li>我暂时不想找工作</li>
-														<li>我是应届毕业生</li>
-													</ul>
-												</div></td>
-										</tr>
-										<tr>
+<!-- 										<tr>
 											<td></td>
 											<td colspan="3"><input type="submit" value="保 存"
 												class="btn_profile_save"> <a
 												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
+										</tr> -->
 									</tbody>
-								</table>
-							</form>
+ 								</table>
+						
 							<!--end #profileForm-->
 							<div class="new_portrait">
 								<div class="portrait_upload" id="portraitNo">
@@ -229,7 +220,7 @@ var youdao_conv_id = 271546;
 								</div>
 								<input type="file" value="" title="支持jpg、jpeg、gif、png格式，文件小于5M"
 									onchange="img_check(this,'h/resume/uploadPhoto.json','headPic');"
-									name="headPic" id="headPic" class="myfiles">
+									name="jl.img" id="headPic" class="myfiles">
 								<!-- <input type="hidden" id="headPicHidden" /> -->
 								<em> 尺寸：120*120px <br> 大小：小于5M </em> <span
 									style="display:none;" id="headPic_error" class="error"></span>
@@ -256,14 +247,14 @@ var youdao_conv_id = 271546;
 						</div>
 						<!--end .expectShow-->
 						<div class="expectEdit dn">
-							<form id="expectForm">
-								<table>
+					
+								<table id="expectForm">
 									<tbody>
 										<tr>
 											<td><input type="hidden" id="expectCity" value=""
-												name="expectCity"> <input type="button"
+												name="jl.hope_city"> <input type="button"
 												value="期望城市，如：北京" id="select_expectCity"
-												class="profile_select_287 profile_select_normal">
+												class="profile_select_287 profile_select_normal" >
 												<div class="boxUpDown boxUpDown_596 dn" id="box_expectCity"
 													style="display: none;">
 													<dl>
@@ -319,22 +310,13 @@ var youdao_conv_id = 271546;
 														</dd>
 													</dl>
 												</div></td>
-											<!-- td>
-												<ul class="profile_radio clearfix reset">
-													<li class="current">全职<em></em> <input type="radio"
-														checked="" name="type" value="全职"></li>
-													<li>兼职<em></em> <input type="radio" name="type"
-														value="兼职"></li>
-													<li>实习<em></em> <input type="radio" name="type"
-														value="实习"></li>
-												</ul></td> -->
 										</tr>
 										<tr>
 											<td><input type="text" placeholder="期望职位，如：产品经理"
-												value="" name="expectPosition" id="expectPosition">
+												value="" name="jl.hope_position" id="expectPosition">
 											</td>
 											<td><input type="hidden" id="expectSalary" value=""
-												name="expectSalary"> <input type="button"
+												name="jl.hope_salary"> <input type="button"
 												value="期望月薪" id="select_expectSalary"
 												class="profile_select_287 profile_select_normal">
 												<div class="boxUpDown boxUpDown_287 dn"
@@ -350,14 +332,14 @@ var youdao_conv_id = 271546;
 													</ul>
 												</div></td>
 										</tr>
-										<tr>
+<!-- 										<tr>
 											<td colspan="2"><input type="submit" value="保 存"
 												class="btn_profile_save"> <a
 												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
+										</tr> -->
 									</tbody>
 								</table>
-							</form>
+						
 							<!--end #expectForm-->
 						</div>
 						<!--end .expectEdit-->
@@ -374,647 +356,22 @@ var youdao_conv_id = 271546;
 					</div>
 					<!--end #expectJob-->
 
-					<div class="profile_box" id="workExperience">
-						<h2>
-							工作经历 <span> （投递简历时必填）</span>
-						</h2>
-						<span class="c_add dn"></span>
-						<div class="experienceShow dn">
-							<form class="experienceForm borderBtm dn">
-								<table>
-									<tbody>
-										<tr>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="公司名称"
-												name="companyName" class="companyName"></td>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="职位名称，如：产品经理"
-												name="positionName" class="positionName"></td>
-										</tr>
-										<tr>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="companyYearStart" value=""
-														name="companyYearStart"> <input type="button"
-														value="开始年份"
-														class="profile_select_139 profile_select_normal select_companyYearStart">
-													<div
-														class="box_companyYearStart boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="companyMonthStart" value=""
-														name="companyMonthStart"> <input type="button"
-														value="开始月份"
-														class="profile_select_139 profile_select_normal select_companyMonthStart">
-													<div style="display: none;"
-														class="box_companyMonthStart boxUpDown boxUpDown_139 dn">
-														<ul>
-															<li>01</li>
-															<li>02</li>
-															<li>03</li>
-															<li>04</li>
-															<li>05</li>
-															<li>06</li>
-															<li>07</li>
-															<li>08</li>
-															<li>09</li>
-															<li>10</li>
-															<li>11</li>
-															<li>12</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="companyYearEnd" value=""
-														name="companyYearEnd"> <input type="button"
-														value="结束年份"
-														class="profile_select_139 profile_select_normal select_companyYearEnd">
-													<div class="box_companyYearEnd  boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>至今</li>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="companyMonthEnd" value=""
-														name="companyMonthEnd"> <input type="button"
-														value="结束月份"
-														class="profile_select_139 profile_select_normal select_companyMonthEnd">
-													<div style="display: none;"
-														class="box_companyMonthEnd boxUpDown boxUpDown_139 dn">
-														<ul>
-															<li>01</li>
-															<li>02</li>
-															<li>03</li>
-															<li>04</li>
-															<li>05</li>
-															<li>06</li>
-															<li>07</li>
-															<li>08</li>
-															<li>09</li>
-															<li>10</li>
-															<li>11</li>
-															<li>12</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-										</tr>
-										<tr>
-											<td></td>
-											<td colspan="3"><input type="submit" value="保 存"
-												class="btn_profile_save"> <a
-												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
-									</tbody>
-								</table>
-								<input type="hidden" class="expId" value="">
-							</form>
-							<!--end .experienceForm-->
-
-							<ul class="wlist clearfix">
-							</ul>
-						</div>
-						<!--end .experienceShow-->
-						<div class="experienceEdit dn">
-							<form class="experienceForm">
-								<table>
-									<tbody>
-										<tr>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="公司名称"
-												name="companyName" class="companyName"></td>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="职位名称，如：产品经理"
-												name="positionName" class="positionName"></td>
-										</tr>
-										<tr>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="companyYearStart" value=""
-														name="companyYearStart"> <input type="button"
-														value="开始年份"
-														class="profile_select_139 profile_select_normal select_companyYearStart">
-													<div
-														class="box_companyYearStart boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="companyMonthStart" value=""
-														name="companyMonthStart"> <input type="button"
-														value="开始月份"
-														class="profile_select_139 profile_select_normal select_companyMonthStart">
-													<div style="display: none;"
-														class="box_companyMonthStart boxUpDown boxUpDown_139 dn">
-														<ul>
-															<li>01</li>
-															<li>02</li>
-															<li>03</li>
-															<li>04</li>
-															<li>05</li>
-															<li>06</li>
-															<li>07</li>
-															<li>08</li>
-															<li>09</li>
-															<li>10</li>
-															<li>11</li>
-															<li>12</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="companyYearEnd" value=""
-														name="companyYearEnd"> <input type="button"
-														value="结束年份"
-														class="profile_select_139 profile_select_normal select_companyYearEnd">
-													<div class="box_companyYearEnd  boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>至今</li>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="companyMonthEnd" value=""
-														name="companyMonthEnd"> <input type="button"
-														value="结束月份"
-														class="profile_select_139 profile_select_normal select_companyMonthEnd">
-													<div style="display: none;"
-														class="box_companyMonthEnd boxUpDown boxUpDown_139 dn">
-														<ul>
-															<li>01</li>
-															<li>02</li>
-															<li>03</li>
-															<li>04</li>
-															<li>05</li>
-															<li>06</li>
-															<li>07</li>
-															<li>08</li>
-															<li>09</li>
-															<li>10</li>
-															<li>11</li>
-															<li>12</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-										</tr>
-										<tr>
-											<td></td>
-											<td colspan="3"><input type="submit" value="保 存"
-												class="btn_profile_save"> <a
-												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
-									</tbody>
-								</table>
-								<input type="hidden" class="expId" value="">
-							</form>
-							<!--end .experienceForm-->
-						</div>
-						<!--end .experienceEdit-->
-
-						<div class="experienceAdd pAdd">
-							工作经历最能体现自己的工作能力，<br> 且完善后才可投递简历哦！ <span>添加工作经历</span>
-						</div>
-						<!--end .experienceAdd-->
-					</div>
-					<!--end #workExperience-->
-
-					<div class="profile_box" id="projectExperience">
-						<h2>项目经验</h2>
-						<span class="c_add dn"></span>
-						<div class="projectShow dn">
-							<ul class="plist clearfix">
-							</ul>
-						</div>
-						<!--end .projectShow-->
-						<div class="projectEdit dn">
-							<form class="projectForm">
-								<table>
-									<tbody>
-										<tr>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="项目名称"
-												name="projectName" class="projectName"></td>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="担任职务，如：产品负责人"
-												name="thePost" class="thePost"></td>
-										</tr>
-										<tr>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="projectYearStart" value=""
-														name="projectYearStart"> <input type="button"
-														value="开始年份"
-														class="profile_select_139 profile_select_normal select_projectYearStart">
-													<div
-														class="box_projectYearStart  boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="projectMonthStart" value=""
-														name="projectMonthStart"> <input type="button"
-														value="开始月份"
-														class="profile_select_139 profile_select_normal select_projectMonthStart">
-													<div style="display: none;"
-														class="box_projectMonthStart boxUpDown boxUpDown_139 dn">
-														<ul>
-															<li>01</li>
-															<li>02</li>
-															<li>03</li>
-															<li>04</li>
-															<li>05</li>
-															<li>06</li>
-															<li>07</li>
-															<li>08</li>
-															<li>09</li>
-															<li>10</li>
-															<li>11</li>
-															<li>12</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="projectYearEnd" value=""
-														name="projectYearEnd"> <input type="button"
-														value="结束年份"
-														class="profile_select_139 profile_select_normal select_projectYearEnd">
-													<div class="box_projectYearEnd  boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>至今</li>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="projectMonthEnd" value=""
-														name="projectMonthEnd"> <input type="button"
-														value="结束月份"
-														class="profile_select_139 profile_select_normal select_projectMonthEnd">
-													<div style="display: none;"
-														class="box_projectMonthEnd boxUpDown boxUpDown_139 dn">
-														<ul>
-															<li>01</li>
-															<li>02</li>
-															<li>03</li>
-															<li>04</li>
-															<li>05</li>
-															<li>06</li>
-															<li>07</li>
-															<li>08</li>
-															<li>09</li>
-															<li>10</li>
-															<li>11</li>
-															<li>12</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-										</tr>
-										<tr>
-											<td valign="top"></td>
-											<td colspan="3"><textarea
-													class="projectDescription s_textarea"
-													name="projectDescription" placeholder="项目描述"></textarea>
-												<div class="word_count">
-													你还可以输入 <span>500</span> 字
-												</div></td>
-										</tr>
-										<!-- <tr>
-									<td colspan="2">
-										<textarea placeholder="职责描述" name="ResponsDescription" class="ResponsDescription s_textarea"></textarea>
-										<div class="word_count">你还可以输入 <span>500</span> 字</div>
-									</td>
-	            				</tr> -->
-										<tr>
-											<td valign="top"></td>
-											<td colspan="3"><input type="submit" value="保 存"
-												class="btn_profile_save"> <a
-												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
-									</tbody>
-								</table>
-								<input type="hidden" value="" class="projectId">
-							</form>
-							<!--end .projectForm-->
-						</div>
-						<!--end .projectEdit-->
-						<div class="projectAdd pAdd">
-							项目经验是用人单位衡量人才能力的重要指标哦！<br> 来说说让你难忘的项目吧！ <span>添加项目经验</span>
-						</div>
-						<!--end .projectAdd-->
-					</div>
-					<!--end #projectExperience-->
-
 					<div class="profile_box" id="educationalBackground">
 						<h2>
 							教育背景<span>（投递简历时必填）</span>
 						</h2>
 						<span class="c_add dn"></span>
 						<div class="educationalShow dn">
-							<form class="educationalForm borderBtm dn">
-								<table>
+						
+								<table class="educationalForm borderBtm dn">
 									<tbody>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="text" placeholder="学校名称"
-												name="schoolName" class="schoolName"></td>
+												name="school_name" class="schoolName"></td>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="hidden" class="degree" value=""
-												name="degree"> <input type="button" value="学历"
+												name="school_education"> <input type="button" value="学历"
 												class="profile_select_287 profile_select_normal select_degree">
 												<div class="box_degree boxUpDown boxUpDown_287 dn"
 													style="display: none;">
@@ -1030,157 +387,37 @@ var youdao_conv_id = 271546;
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="text" placeholder="专业名称"
-												name="professionalName" class="professionalName"></td>
+												name="school_major" class="professionalName"></td>
 											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="schoolYearStart" value=""
-														name="schoolYearStart"> <input type="button"
-														value="开始年份"
-														class="profile_select_139 profile_select_normal select_schoolYearStart">
-													<div class="box_schoolYearStart boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="schoolYearEnd" value=""
-														name="schoolYearEnd"> <input type="button"
-														value="结束年份"
-														class="profile_select_139 profile_select_normal select_schoolYearEnd">
-													<div style="display: none;"
-														class="box_schoolYearEnd  boxUpDown boxUpDown_139 dn">
-														<ul>
-															<li>2021</li>
-															<li>2020</li>
-															<li>2019</li>
-															<li>2018</li>
-															<li>2017</li>
-															<li>2016</li>
-															<li>2015</li>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-										</tr>
-										<tr>
+											
+<!-- 										<tr>
 											<td></td>
 											<td colspan="3"><input type="submit" value="保 存"
 												class="btn_profile_save"> <a
 												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
+										</tr> -->
 									</tbody>
 								</table>
 								<input type="hidden" class="eduId" value="">
-							</form>
+						
 							<!--end .educationalForm-->
 
 							<ul class="elist clearfix">
 							</ul>
 						</div>
 						<!--end .educationalShow-->
+						
 						<div class="educationalEdit dn">
-							<form class="educationalForm">
-								<table>
+						
+								<table class="educationalForm">
 									<tbody>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="text" placeholder="学校名称"
-												name="schoolName" class="schoolName"></td>
+												name="jl.school_name" class="schoolName"></td>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="hidden" class="degree" value=""
-												name="degree"> <input type="button" value="学历"
+												name="jl.school_education"> <input type="button" value="学历"
 												class="profile_select_287 profile_select_normal select_degree">
 												<div class="box_degree boxUpDown boxUpDown_287 dn"
 													style="display: none;">
@@ -1196,133 +433,19 @@ var youdao_conv_id = 271546;
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="text" placeholder="专业名称"
-												name="professionalName" class="professionalName"></td>
+												name="jl.school_major" class="professionalName"></td>
 											<td valign="top"><span class="redstar">*</span></td>
-											<td>
-												<div class="fl">
-													<input type="hidden" class="schoolYearStart" value=""
-														name="schoolYearStart"> <input type="button"
-														value="开始年份"
-														class="profile_select_139 profile_select_normal select_schoolYearStart">
-													<div class="box_schoolYearStart boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="fl">
-													<input type="hidden" class="schoolYearEnd" value=""
-														name="schoolYearEnd"> <input type="button"
-														value="结束年份"
-														class="profile_select_139 profile_select_normal select_schoolYearEnd">
-													<div class="box_schoolYearEnd  boxUpDown boxUpDown_139 dn"
-														style="display: none;">
-														<ul>
-															<li>2014</li>
-															<li>2013</li>
-															<li>2012</li>
-															<li>2011</li>
-															<li>2010</li>
-															<li>2009</li>
-															<li>2008</li>
-															<li>2007</li>
-															<li>2006</li>
-															<li>2005</li>
-															<li>2004</li>
-															<li>2003</li>
-															<li>2002</li>
-															<li>2001</li>
-															<li>2000</li>
-															<li>1999</li>
-															<li>1998</li>
-															<li>1997</li>
-															<li>1996</li>
-															<li>1995</li>
-															<li>1994</li>
-															<li>1993</li>
-															<li>1992</li>
-															<li>1991</li>
-															<li>1990</li>
-															<li>1989</li>
-															<li>1988</li>
-															<li>1987</li>
-															<li>1986</li>
-															<li>1985</li>
-															<li>1984</li>
-															<li>1983</li>
-															<li>1982</li>
-															<li>1981</li>
-															<li>1980</li>
-															<li>1979</li>
-															<li>1978</li>
-															<li>1977</li>
-															<li>1976</li>
-															<li>1975</li>
-															<li>1974</li>
-															<li>1973</li>
-															<li>1972</li>
-															<li>1971</li>
-															<li>1970</li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div></td>
-										</tr>
-										<tr>
+							
+										<!-- <tr>
 											<td></td>
 											<td colspan="3"><input type="submit" value="保 存"
 												class="btn_profile_save"> <a
 												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
+										</tr> -->
 									</tbody>
 								</table>
 								<input type="hidden" class="eduId" value="">
-							</form>
+						
 							<!--end .educationalForm-->
 						</div>
 						<!--end .educationalEdit-->
@@ -1339,25 +462,25 @@ var youdao_conv_id = 271546;
 						<div class="descriptionShow dn"></div>
 						<!--end .descriptionShow-->
 						<div class="descriptionEdit dn">
-							<form class="descriptionForm">
-								<table>
+						
+								<table class="descriptionForm">
 									<tbody>
 										<tr>
 											<td colspan="2"><textarea
-													class="selfDescription s_textarea" name="selfDescription"
+													class="selfDescription s_textarea" name="jl.self_introduction"
 													placeholder=""></textarea>
 												<div class="word_count">
 													你还可以输入 <span>500</span> 字
 												</div></td>
 										</tr>
-										<tr>
+<!-- 										<tr>
 											<td colspan="2"><input type="submit" value="保 存"
 												class="btn_profile_save"> <a
 												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
+										</tr> -->
 									</tbody>
 								</table>
-							</form>
+			
 							<!--end .descriptionForm-->
 						</div>
 						<!--end .descriptionEdit-->
@@ -1377,30 +500,23 @@ var youdao_conv_id = 271546;
 						</div>
 						<!--end .workShow-->
 						<div class="workEdit dn">
-							<form class="workForm">
-								<table>
+								<table class="workForm">
 									<tbody>
 										<tr>
 											<td><input type="text" placeholder="请输入作品链接"
-												name="workLink" class="workLink"></td>
+												name="jl.produce" class="workLink"></td>
 										</tr>
 										<tr>
 											<td><textarea maxlength="100"
-													class="workDescription s_textarea" name="workDescription"
+													class="workDescription s_textarea" name="jl.pro_introduction"
 													placeholder="请输入说明文字"></textarea>
 												<div class="word_count">
 													你还可以输入 <span>100</span> 字
 												</div></td>
 										</tr>
-										<tr>
-											<td><input type="submit" value="保 存"
-												class="btn_profile_save"> <a
-												class="btn_profile_cancel" href="javascript:;">取 消</a></td>
-										</tr>
 									</tbody>
 								</table>
 								<input type="hidden" class="showId" value="">
-							</form>
 							<!--end .workForm-->
 						</div>
 						<!--end .workEdit-->
@@ -1409,194 +525,17 @@ var youdao_conv_id = 271546;
 						</div>
 						<!--end .workAdd-->
 					</div>
+					
+					<tr>
+					<td><input type="submit" value="保 存"
+					class="btn_profile_save"> <a
+					class="btn_profile_cancel" href="javascript:;">取 消</a></td>
+				</tr>
 					<!--end #worksShow-->
-					<input type="hidden" id="resumeId" value="268472">
+				<input type="hidden" id="resumeId" value="268472">
 				</div>
-				<!--end .content_l-->
-				<div class="content_r">
-					<div class="mycenterR" id="myInfo">
-						<h2>我的信息</h2>
-						<a target="_blank" href="collections.html">我收藏的职位</a> <br> <a
-							target="_blank" href="subscribe.html">我订阅的职位</a>
-					</div>
-					<!--end #myInfo-->
-
-					<div class="mycenterR" id="myResume">
-						<h2>
-							我的附件简历 <a title="上传附件简历" href="#uploadFile"
-								class="inline cboxElement">上传简历</a>
-						</h2>
-						<div class="resumeUploadDiv">暂无附件简历</div>
-					</div>
-					<!--end #myResume-->
-
-					<div class="mycenterR" id="resumeSet">
-						<h2>
-							投递简历设置 <span>修改设置</span>
-						</h2>
-						<!-- -1 (0=附件， 1=在线， 其他=未设置) -->
-						<div class="noSet set0 dn">
-							默认使用<span>附件简历</span>进行投递
-						</div>
-						<div class="noSet set1 dn">
-							默认使用<span>在线简历</span>进行投递
-						</div>
-						<div class="noSet">暂未设置默认投递简历</div>
-						<input type="hidden" class="defaultResume" value="-1">
-						<form class="dn" id="resumeSetForm">
-							<label><input type="radio" value="1" class="resume1"
-								name="resume">默认使用<span>在线简历</span>进行投递</label> <label><input
-								type="radio" value="0" class="resume0" name="resume">默认使用<span>附件简历</span>进行投递</label>
-							<span class="setTip error"></span>
-							<div class="resumeTip">设置后投递简历时将不再提醒</div>
-							<input type="submit" value="保 存" class="btn_profile_save">
-							<a class="btn_profile_cancel" href="javascript:;">取 消</a>
-						</form>
-					</div>
-					<!--end #resumeSet-->
-
-					<div class="mycenterR" id="myShare">
-						<h2>当前每日投递量：10个</h2>
-						<a target="_blank" href="h/share/invite.html">邀请好友，提升投递量</a>
-					</div>
-					<!--end #myShare-->
-
-
-					<div class="greybg qrcode mt20">
-						<img width="242" height="242" alt="伯乐微信公众号二维码"
-							src="style/images/qr_resume.png"> <span class="c7">微信扫一扫，轻松找工作</span>
-					</div>
-				</div>
-				<!--end .content_r-->
-			</div>
-
-			<input type="hidden" id="userid" name="userid" value="314873">
-
-			<!-------------------------------------弹窗lightbox ----------------------------------------->
-			<div style="display:none;">
-				<!-- 上传简历 -->
-				<div class="popup" id="uploadFile">
-					<table width="100%">
-						<tbody>
-							<tr>
-								<td align="center">
-									<form>
-										<a class="btn_addPic" href="javascript:void(0);"> <span>选择上传文件</span>
-											<input type="file"
-											onchange="file_check(this,'h/nearBy/updateMyResume.json','resumeUpload')"
-											class="filePrew" id="resumeUpload" name="newResume" size="3"
-											title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M" tabindex="3">
-										</a>
-									</form></td>
-							</tr>
-							<tr>
-								<td align="left">支持word、pdf、ppt、txt、wps格式文件<br>文件大小需小于10M</td>
-							</tr>
-							<tr>
-								<td align="left" style="color:#dd4a38; padding-top:10px;">注：若从其它网站下载的word简历，请将文件另存为.docx格式后上传</td>
-							</tr>
-							<tr>
-								<td align="center"><img width="55" height="16"
-									alt="loading" style="visibility: hidden;" id="loadingImg"
-									src="style/images/loading.gif">
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<!--/#uploadFile-->
-
-				<!-- 简历上传成功 -->
-				<div class="popup" id="uploadFileSuccess">
-					<h4>简历上传成功！</h4>
-					<table width="100%">
-						<tbody>
-							<tr>
-								<td align="center"><p>你可以将简历投给你中意的公司了。</p>
-								</td>
-							</tr>
-							<tr>
-								<td align="center"><a class="btn_s" href="javascript:;">确&nbsp;定</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<!--/#uploadFileSuccess-->
-
-				<!-- 没有简历请上传 -->
-				<div class="popup" id="deliverResumesNo">
-					<table width="100%">
-						<tbody>
-							<tr>
-								<td align="center"><p class="font_16">你在伯乐还没有简历，请先上传一份</p>
-								</td>
-							</tr>
-							<tr>
-								<td align="center">
-									<form>
-										<a class="btn_addPic" href="javascript:void(0);"> <span>选择上传文件</span>
-											<input type="file"
-											onchange="file_check(this,'h/nearBy/updateMyResume.json','resumeUpload1')"
-											class="filePrew" id="resumeUpload1" name="newResume" size="3"
-											title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M"> </a>
-									</form></td>
-							</tr>
-							<tr>
-								<td align="center">支持word、pdf、ppt、txt、wps格式文件，大小不超过10M</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<!--/#deliverResumesNo-->
-
-				<!-- 上传附件简历操作说明-重新上传 -->
-				<div class="popup" id="fileResumeUpload">
-					<table width="100%">
-						<tbody>
-							<tr>
-								<td>
-									<div class="f18 mb10">请上传标准格式的word简历</div></td>
-							</tr>
-							<tr>
-								<td>
-									<div class="f16">
-										操作说明：<br> 打开需要上传的文件 - 点击文件另存为 - 选择.docx - 保存
-									</div></td>
-							</tr>
-							<tr>
-								<td align="center"><a title="上传附件简历" href="#uploadFile"
-									class="inline btn cboxElement">重新上传</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<!--/#fileResumeUpload-->
-
-				<!-- 上传附件简历操作说明-重新上传 -->
-				<div class="popup" id="fileResumeUploadSize">
-					<table width="100%">
-						<tbody>
-							<tr>
-								<td>
-									<div class="f18 mb10">上传文件大小超出限制</div></td>
-							</tr>
-							<tr>
-								<td>
-									<div class="f16">
-										提示：<br> 单个附件不能超过10M，请重新选择附件简历！
-									</div></td>
-							</tr>
-							<tr>
-								<td align="center"><a title="上传附件简历" href="#uploadFile"
-									class="inline btn cboxElement">重新上传</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<!--/#deliverResumeConfirm-->
-
-			</div>
+					
+			</form>
 			<!------------------------------------- end ----------------------------------------->
 
 			<script src="style/js/Chart.min.js" type="text/javascript"></script>
@@ -1639,8 +578,10 @@ $(function(){
 				id="backtop" style="display: none;"></a>
 		</div>
 		<!-- end #container -->
-		</s:iterator>
-	</div>
+</div>
+</s:iterator> 
+</div>
+
 	<!-- end #body -->
 	<jsp:include page="footer.jsp" />
 

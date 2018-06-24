@@ -65,6 +65,10 @@
 			<result name="success">/jianli.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="update_jianli" class="BoleAction.UserAction" method="update_jianli">
+			<result name="success">/login.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 	
 	
