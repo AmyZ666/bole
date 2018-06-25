@@ -1293,9 +1293,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                  状态
                             </div>
                             <div class="col-xs-2">
-                            <form action="">
-                            	<input type="hidden" value="<s:property value='#com.id'/>">
-                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUse" change_cid="">审核</button>
+                            <form action="myhome.jsp" method="get">
+                            	<input type="hidden" name="com_id" value="<s:property value='#com.id'/>">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" >审核</button>
                               </form> 
                             </div>
                         </div>
@@ -1831,69 +1831,63 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </footer>
 
             </div>
-            <!--人员管理模块-->
+            <!--添加职员审核管理模块-->
             <div role="tabpanel" class="tab-pane" id="stud">
                 <div class="check-div form-inline">
-                    <div class="col-xs-5">
-                        <input type="text" class=" form-control input-sm" placeholder="输入文字搜索" style="	!height: 40px!important;">
+                	<div class="col-xs-8">
+                	</div>
+                	<form action="posSea" method="post">
+                    <div class="col-xs-4">
+                        <input type="text" name="name" class=" form-control input-sm" placeholder="输入文字搜索" style="	!height: 40px!important;">
                         <button class="btn btn-white btn-xs ">查 询 </button>
                     </div>
-                    <div class="col-xs-4 col-lg-4  col-md-5" style="padding-right: 40px;text-align: right;float: right;">
-                        <label for="daoru">导入人员信息表:&nbsp;</label>
-                        <button class="btn btn-white btn-xs " id="daoru">选取文件 </button>
-                        <button class="btn btn-white btn-xs ">导入 </button>
-                    </div>
+                   	</form>
 
                 </div>
                 <div class="data-div">
                     <div class="row tableHeader">
-                        <div class="col-xs-2 ">
-                            学号
+                        <div class="col-xs-3 ">
+                            公司名称
                         </div>
-                        <div class="col-xs-1 ">
-                            姓名
-                        </div>
-                        <div class="col-xs-2">
-                            院系
+                        <div class="col-xs-3 ">
+                            职位名称
                         </div>
                         <div class="col-xs-2">
-                            年年
-                        </div>
-                        <div class="col-xs-2 ">
-                            学习时长
+                            工资
                         </div>
                         <div class="col-xs-2">
-                            违约次数
+                            创始人
                         </div>
-                        <div class="col-xs-1">
+    
+                        <div class="col-xs-2">
                             操作
                         </div>
                     </div>
                     <div class="tablebody">
-
+						<s:iterator value="#session.adm_poss" var="pos"  status='st' >
                         <div class="row">
-                            <div class="col-xs-2 ">
-                                6426398978
+                            <div class="col-xs-3 ">
+                            <s:property value="#pos.com_name"/>
+                     
                             </div>
-                            <div class="col-xs-1">
-                                邓超
-                            </div>
-                            <div class="col-xs-2">
-                                计算机地区
+                            <div class="col-xs-3">
+                                <s:property value="#pos.name"/>
                             </div>
                             <div class="col-xs-2">
-                                2013年
+                                <s:property value="#pos.salary"/>
                             </div>
                             <div class="col-xs-2">
-                                15
+                                <s:property value="#pos.com_founder"/>
                             </div>
+                          
                             <div class="col-xs-2">
-                                2
-                            </div>
-                            <div class="col-xs-1">
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteObey">清除违约</button>
+                           		 <form action="admin_pos.jsp" method="get">
+                           		 	<input type="hidden" value="<s:property value='#pos.id'/>">
+                                	<button class="btn btn-danger btn-xs" >审核</button>
+                                </form>
                             </div>
                         </div>
+                        </s:iterator>
 
                     </div>
 

@@ -79,6 +79,59 @@ public class AdminAction  extends ActionSupport {
 		return "success";
 	}
 	
+	public String posSea() throws Exception {
+		String name;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		name=new String(request.getParameter("name"));
+		
+		Session session = HibernateSessionFactory.getSession();
+		Transaction tx = session.beginTransaction();
+		List<position> list;
+		if(name.equalsIgnoreCase("")){
+			 list = session
+						.createSQLQuery(
+								"select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id order by hot_num desc")
+						.addEntity(position.class).list();
+		}else{
+			 list = session
+						.createSQLQuery(
+								"select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id&&(p.name like '%"
+										+ name
+										+ "%'||c.name like '%"
+										+ name
+										+ "%') order by hot_num desc")
+						.addEntity(position.class).list();
+		}
+		
+		tx.commit();
+		session.close();
+
+		ArrayList<position> pross = new ArrayList<position>();
+		position pros;
+		for (int i = 0; i < list.size(); i++) {
+			pros = new position();
+			pros.setCom_id(list.get(i).getCom_id());
+			pros.setEducution(list.get(i).getEducution());
+			pros.setExp(list.get(i).getExp());
+			pros.setName(list.get(i).getName());
+			pros.setSalary(list.get(i).getSalary());
+			pros.setStart_time(list.get(i).getStart_time());
+			pros.setTempt(list.get(i).getTempt());
+			pros.setAddress(list.get(i).getAddress());
+			pros.setId(list.get(i).getId());
+			pros.setCom_founder(list.get(i).getCom_founder());
+			pros.setCom_name(list.get(i).getCom_name());
+			pros.setDomain(list.get(i).getDomain());
+			pros.setSize(list.get(i).getSize());
+			pros.setStage(list.get(i).getStage());
+			pross.add(pros);
+
+		}
+		ActionContext.getContext().getSession().put("adm_poss", pross);
+		System.out.println(name);
+		return "success";
+	}
+	
 	public String Ban() throws Exception {
 		int stauts;
 		HttpServletRequest request = ServletActionContext.getRequest();

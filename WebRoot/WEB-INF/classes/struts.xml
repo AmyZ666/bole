@@ -87,6 +87,10 @@
 			<result name="success">/admin.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="posSea" class="BoleAction.AdminAction" method="posSea">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		<action name="userCha" class="BoleAction.AdminAction" method="Cha">
 			<result name="success">/admin.jsp</result>
 			<result name="error">/error.jsp</result>
