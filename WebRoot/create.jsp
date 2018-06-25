@@ -1497,19 +1497,13 @@ div.BMap_cmLstItem {
 				<dl class="company_center_aside">
 					<dt>我收到的简历</dt>
 					<dd>
-						<a href="">待处理简历</a>
-					</dd>
-					<dd>
-						<a href="canInterviewResumes.jsp">待定简历</a>
+						<a href="http://desktop-j8dvg5j:8080/bole/autoResum.jsp">待处理简历</a>
 					</dd>
 					<dd>
 						<a href="haveNoticeResumes.jsp">已通知面试简历</a>
 					</dd>
 					<dd>
 						<a href="haveRefuseResumes.jsp">不合适简历</a>
-					</dd>
-					<dd class="btm">
-						<a href="autoFilterResumes.jsp">自动过滤简历</a>
 					</dd>
 				</dl>
 				<dl class="company_center_aside">
