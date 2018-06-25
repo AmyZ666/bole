@@ -69,6 +69,18 @@
 			<result name="success">/login.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="userBan" class="BoleAction.AdminAction" method="Ban">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="userDel" class="BoleAction.AdminAction" method="Del">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="userSea" class="BoleAction.AdminAction" method="Sea">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 	
 	

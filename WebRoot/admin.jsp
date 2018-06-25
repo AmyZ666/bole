@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -47,7 +48,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 $(".toggle-btn").click(function() {
                     $("#leftMeun").toggleClass("show");
                     $("#rightContent").toggleClass("pd0px");
-                })
+                });
+                
+                $(".btn").click(function () {
+				$('.change_uid').attr("value",$(this).attr("change_uid"));
+				$('.drop_uid').attr("value",$(this).attr("drop_uid"));
+				$('.drop_project_id').attr("value",$(this).attr("drop_project_id"));
+				$('.look_user_id').attr("value",$(this).attr("look_user_id"));
+				$('.delete_user_id').attr("value",$(this).attr("delete_user_id"));
+				})
             })
         </script>
         <!--[if lt IE 9]>
@@ -63,6 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </head>
 
     <body>
+    <s:action name="jianli"></s:action>
         <div id="wrap">
             <!-- 左侧菜单栏目块 -->
             <div class="leftMeun" id="leftMeun">
@@ -640,12 +650,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="col-xs-8">
                         
                     </div>
-                  
+                  	<form action="userSea" method="post">
                     <div class="col-xs-4">
-                        <input type="text" class="form-control input-sm" placeholder="输入文字搜索">
-                        <button class="btn btn-white btn-xs ">查 询 </button>
+                        <input type="text" class="form-control input-sm" placeholder="输入文字搜索" name="name">
+                        <button type="submit" class="btn btn-white btn-xs ">查 询 </button> 
+                        <!-- <input type="submit" style="width:30px;" value="查询"> -->
                     </div>
-                    
+                    </form>
                 </div>
                 <div class="data-div">
                     <div class="row tableHeader">
@@ -663,26 +674,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             操作
                         </div>
                     </div>
+                    <s:iterator value="#session.user_sea" var="user"  status='st' >
                     <div class="tablebody">
 
                         <div class="row">
                             <div class="col-xs-3 ">
-                                amyz
+                                <s:property value="#user.userName"/>
                             </div>
                             <div class="col-xs-3">
-                                6545qq.com
+                                <s:property value="#user.email"/>
                             </div>
                          
                             <div class="col-xs-2">
                                 状态
                             </div>
                             <div class="col-xs-2">
-                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button>
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser" change_uid="<s:property value='#user.id'/>">修改</button>
+                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser" drop_uid="<s:property value='#user.id'/>">删除</button>
                             </div>
                         </div>
 
                     </div>
+                    </s:iterator>
 
                 </div>
                 <!--页码块-->
@@ -805,58 +818,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                             <div class="modal-body">
                                 <div class="container-fluid">
-                                    <form class="form-horizontal">
-                                        <div class="form-group ">
-                                            <label for="sName" class="col-xs-3 control-label">用户名：</label>
-                                            <div class="col-xs-8 ">
-                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
-                                            <div class="col-xs-8 ">
-                                                <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                            </div>
-                                        </div>
+                                    <form class="form-horizontal" action="userBan" method="post">
+                                        
+                                        
+                                       
+                                        
                                         <div class="form-group">
                                             <label for="situation" class="col-xs-3 control-label">状态：</label>
                                             <div class="col-xs-8">
                                                 <label class="control-label" for="anniu">
-                                                    <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio" name="stauts" id="normal" value="1">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <label class="control-label" for="meun">
-                                                    <input type="radio" name="situation" id="forbid"> 禁用</label>
+                                                    <input type="radio" name="stauts" id="forbid" value="0"> 禁用</label>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button type="button" class="btn btn-xs btn-green">保 存</button>
+                             
+                                <input type="submit" class="btn btn-xs btn-green" value="保存">
+                                <input style="display:none;" name="change_uid" value="change_uid" class="change_uid">
+                                </form>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -869,6 +853,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="modal fade" id="deleteUser" role="dialog" aria-labelledby="gridSystemModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
+                        	<form action="userDel">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
@@ -878,11 +863,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     确定要删除该用户？删除后不可恢复！
                                 </div>
                             </div>
+                            <input style="display:none;" name="drop_uid" value="drop_uid" class="drop_uid"></input>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button type="button" class="btn  btn-xs btn-danger">保 存</button>
+                                <!-- <button type="button" class="btn  btn-xs btn-danger">保 存</button> -->
+                                <input type="submit"  class="btn  btn-xs btn-danger" value="删除">
+                                <input style="display:none;" name="drop_uid" value="drop_uid" class="drop_uid">
                             </div>
                         </div>
+                        </form>
                         <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-dialog -->
