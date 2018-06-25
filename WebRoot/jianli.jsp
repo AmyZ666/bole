@@ -140,8 +140,8 @@ var youdao_conv_id = 271546;
 									<tbody>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="姓名" value="jason"
-												name="jl.name" id="name"></td>
+											<td><input type="text" placeholder="姓名" value="<s:property value='#pro.name'></s:property>"
+												name="jl.name" ></td>
 											<td valign="top"></td>
 											<td>
 												<ul class="profile_radio clearfix reset">
@@ -154,7 +154,7 @@ var youdao_conv_id = 271546;
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="hidden" id="topDegree" value="大专"
-												name="jl.education"><input type="button" value="大专"
+												name="jl.education"><input type="button"  value="<s:property value='#pro.education'></s:property>"
 												id="select_topDegree"  name="jl.education"  
 												class="profile_select_190 profile_select_normal">
 												<div class="boxUpDown boxUpDown_190 dn" id="box_topDegree"
@@ -168,7 +168,7 @@ var youdao_conv_id = 271546;
 													</ul>
 												</div></td> 
 											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="hidden" id="workyear" value=""
+											<td><input type="hidden" id="workyear"  value="<s:property value='#pro.exp'></s:property>"
 												name="jl.exp"> <input type="button" value=""
 												id="select_workyear"
 												class="profile_select_190 profile_select_normal">
@@ -193,12 +193,12 @@ var youdao_conv_id = 271546;
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td colspan="3"><input type="text" placeholder="手机号码"
-												value="18644444444" name="jl.phone" id="tel"></td>
+												 value="<s:property value='#pro.phone'></s:property>" name="jl.phone" id="tel" ></td>
 										</tr>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td colspan="3"><input type="text"
-												placeholder="接收面试通知的邮箱" value="jason@qq.com" name="jl.email"
+												placeholder="接收面试通知的邮箱" value= value="<s:property value='#pro.email'></s:property>" name="jl.email"
 												id="email"></td>
 										</tr>
 <!-- 										<tr>
@@ -228,13 +228,13 @@ var youdao_conv_id = 271546;
 							<!--end .new_portrait-->
 						</div>
 						<!--end .basicEdit-->
-						<input type="hidden" id="nameVal" value="jason"> <input
-							type="hidden" id="genderVal" value="男"> <input
-							type="hidden" id="topDegreeVal" value="大专"> <input
-							type="hidden" id="workyearVal" value="3年"> <input
-							type="hidden" id="currentStateVal" value=""> <input
-							type="hidden" id="emailVal" value="jason@qq.com"> <input
-							type="hidden" id="telVal" value="18644444444"> <input
+						<input type="hidden" id="nameVal"  value="<s:property value='#pro.name'></s:property>"  > <input
+							type="hidden" id="genderVal"  value="<s:property value='#pro.sex'></s:property>"  > <input
+							type="hidden" id="topDegreeVal"  value="<s:property value='#pro.education'></s:property>"  > <input
+							type="hidden" id="workyearVal"  value="<s:property value='#pro.exp'></s:property>" > <input
+							type="hidden" id="currentStateVal" value=""  > <input
+							type="hidden" id="emailVal"  value="<s:property value='#pro.email'></s:property>"  > <input
+							type="hidden" id="telVal"  value="<s:property value='#pro.phone'></s:property>"  > <input
 							type="hidden" id="pageType" value="1">
 					</div>
 					<!--end #basicInfo-->
@@ -251,8 +251,8 @@ var youdao_conv_id = 271546;
 								<table id="expectForm">
 									<tbody>
 										<tr>
-											<td><input type="hidden" id="expectCity" value=""
-												name="jl.hope_city"> <input type="button"
+											<td><input type="hidden" id="expectCity" value="<s:property value='#pro.phone'></s:property>"  
+												name="jl.hope_city" > <input type="button"
 												value="期望城市，如：北京" id="select_expectCity"
 												class="profile_select_287 profile_select_normal" >
 												<div class="boxUpDown boxUpDown_596 dn" id="box_expectCity"
@@ -367,7 +367,7 @@ var youdao_conv_id = 271546;
 									<tbody>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="学校名称"
+											<td><input type="text" placeholder="学校名称"  
 												name="school_name" class="schoolName"></td>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="hidden" class="degree" value=""
@@ -413,7 +413,7 @@ var youdao_conv_id = 271546;
 									<tbody>
 										<tr>
 											<td valign="top"><span class="redstar">*</span></td>
-											<td><input type="text" placeholder="学校名称"
+											<td><input type="text" placeholder="学校名称"  value="<s:property value='#pro.school_name'></s:property>"
 												name="jl.school_name" class="schoolName"></td>
 											<td valign="top"><span class="redstar">*</span></td>
 											<td><input type="hidden" class="degree" value=""
