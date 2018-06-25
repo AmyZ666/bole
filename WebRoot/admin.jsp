@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </head>
 
     <body>
-    <s:action name="jianli"></s:action>
+   
         <div id="wrap">
             <!-- 左侧菜单栏目块 -->
             <div class="leftMeun" id="leftMeun">
@@ -818,7 +818,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                             <div class="modal-body">
                                 <div class="container-fluid">
-                                    <form class="form-horizontal" action="userBan" method="post">
+                                    <form class="form-horizontal" action="userCha" method="post">
                                         
                                         
                                        
@@ -883,23 +883,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div role="tabpanel" class="tab-pane" id="chan">
                
                 <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="admin_pwd" method="post">
                         <div class="form-group">
                             <label for="sKnot" class="col-xs-4 control-label">原密码：</label>
                             <div class="col-xs-5">
-                                <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="" style="margin-top: 7px;">
+                                <input type="password" name="yuan" class="form-control input-sm duiqi" id="sKnot" placeholder="" style="margin-top: 7px;">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sKnot" class="col-xs-4 control-label">新密码：</label>
                             <div class="col-xs-5">
-                                <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="" style="margin-top: 7px;">
+                                <input type="password" name="xin" class="form-control input-sm duiqi" id="sKnot" placeholder="" style="margin-top: 7px;">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sKnot" class="col-xs-4 control-label">重复密码：</label>
                             <div class="col-xs-5">
-                                <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="" style="margin-top: 7px;">
+                                <input type="password" name="chong" class="form-control input-sm duiqi" id="sKnot" placeholder="" style="margin-top: 7px;">
                             </div>
                         </div>
                         <div class="form-group text-right">
@@ -1142,7 +1142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <!--公司审核管理模块-->
             <div role="tabpanel" class="tab-pane" id="regu" style="padding-top: 50px;">
-                <div class="data-div">
+                <%-- <div class="data-div">
                     <div class="tablebody col-lg-10 col-lg-offset-1">
                         <div class="row">
                             <div class="col-xs-3" style="padding-right: 0;">签到超时时间</div>
@@ -1234,9 +1234,116 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <button type="button" class="btn btn-xs btn-green">保 存</button>
                         </div>
                     </div>
+                </div> --%>
+                <form action="comSea" method="post">
+                <div class="check-div form-inline">
+                	
+                    <div class="col-xs-8">
+                        
+                    </div>
+                  	
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control input-sm" placeholder="输入文字搜索" name="name">
+                        <button type="submit" class="btn btn-white btn-xs ">查 询 </button> 
+                        <!-- <input type="submit" style="width:30px;" value="查询"> -->
+                    </div>
+                    
+                </div>
+                </form>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-2 ">
+                            公司名
+                        </div>
+                        <div class="col-xs-2">
+                            网站
+                        </div>
+
+                        <div class="col-xs-2">
+                            地址
+                        </div>
+                        <div class="col-xs-2">
+                            领域
+                        </div>
+                        <div class="col-xs-2">
+                            状态
+                        </div>
+                         <div class="col-xs-2">
+                            操作
+                        </div>
+                    </div>
+                    <s:iterator value="#session.com_sea" var="com"  status='st' >
+                    <div class="tablebody">
+
+                        <div class="row">
+                            <div class="col-xs-2 ">
+                                <s:property value="#com.name"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <s:property value="#com.website"/>
+                            </div>
+                         
+                            <div class="col-xs-2">
+                                 <s:property value="#com.address"/>
+                            </div>
+                            <div class="col-xs-2">
+                                 <s:property value="#com.domain"/>
+                            </div>
+                            <div class="col-xs-2">
+                                 状态
+                            </div>
+                            <div class="col-xs-2">
+                            <form action="">
+                            	<input type="hidden" value="<s:property value='#com.id'/>">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUse" change_cid="">审核</button>
+                              </form> 
+                            </div>
+                        </div>
+
+                    </div>
+                    </s:iterator>
+
                 </div>
             </div>
-            <!--时间段管理模块-->
+            <!--公司管理模块-->
+            <div class="modal fade" id="reviseUse" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改用户</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal" action="comCha" method="post">
+                                        
+                                        
+                                       
+                                        
+                                        <div class="form-group">
+                                            <label for="situation" class="col-xs-3 control-label">状态：</label>
+                                            <div class="col-xs-8">
+                                                <label class="control-label" for="anniu">
+                                                    <input type="radio" name="stauts" id="normal" value="1">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label class="control-label" for="meun">
+                                                    <input type="radio" name="stauts" id="forbid" value="0"> 禁用</label>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                             
+                                <input type="submit" class="btn btn-xs btn-green" value="保存">
+                                <input style="display:none;" name="change_uid" value="change_uid" class="change_uid">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
             <div role="tabpanel" class="tab-pane" id="time">
                 <div class="check-div form-inline">
                     <span href="#sitt" aria-controls="sitt" role="tab" data-toggle="tab" style="cursor: pointer;"><span class="glyphicon glyphicon glyphicon-chevron-left"></span>&nbsp;&nbsp;返回上一页</span>
@@ -1315,7 +1422,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </li>
                     </ul>
                 </footer>
-
+				  <!--弹出修改用户窗口-->
+                
+                <!-- /.modal -->
                 <!--弹出增加时间段窗口-->
                 <div class="modal fade" id="addTime" role="dialog" aria-labelledby="gridSystemModalLabel">
                     <div class="modal-dialog" role="document">

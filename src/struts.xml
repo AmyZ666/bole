@@ -69,6 +69,8 @@
 			<result name="success">/login.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		<!--Admin  -->
 		<action name="userBan" class="BoleAction.AdminAction" method="Ban">
 			<result name="success">/admin.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -78,6 +80,18 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="userSea" class="BoleAction.AdminAction" method="Sea">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="comSea" class="BoleAction.AdminAction" method="comSea">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="userCha" class="BoleAction.AdminAction" method="Cha">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="admin_pwd" class="BoleAction.AdminAction" method="Pwd">
 			<result name="success">/admin.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>

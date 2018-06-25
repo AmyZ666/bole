@@ -26,6 +26,7 @@
     	<mapping class="model.pos_description"/>
     	<mapping class="model.pro_com" />
     	<mapping class="model.jianli" />
+    	
 </session-factory>
 
 </hibernate-configuration>
