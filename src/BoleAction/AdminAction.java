@@ -1,5 +1,5 @@
 package BoleAction;
-
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +10,7 @@ import model.company;
 import model.position;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
@@ -18,7 +19,7 @@ import test.HibernateSessionFactory;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-
+import javax.persistence.Entity;
 public class AdminAction  extends ActionSupport {
 	
 	public String comSea() throws Exception {
@@ -65,18 +66,44 @@ public class AdminAction  extends ActionSupport {
 
 		}
 		ActionContext.getContext().getSession().put("com_sea", pross);
-		
+		ActionContext.getContext().getSession().put("admin_left_id", 3);
 		return "success";
 	}
 	
 	public String Pwd() throws Exception {
 		String yuan,xin,chong;
+		ActionContext.getContext().getSession().put("admin_left_id", 2);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		yuan=new String(request.getParameter("yuan"));
 		xin=new String(request.getParameter("xin"));
 		chong=new String(request.getParameter("chong"));
 		System.out.println(yuan+xin+chong);
-		return "success";
+		if(xin.equals(chong)){
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = session.beginTransaction();
+
+			
+			
+			List<User> list ;
+			list= session.createSQLQuery("select * from user where status=1").addEntity(User.class).list();
+			
+			
+			if(list.get(0).getPassWord().equals(yuan)){
+				Query query = session.createQuery("update User u  set u.passWord = '"+xin+"' where id = '"+list.get(0).getId()+"'");  
+		        query.executeUpdate();
+		        ActionContext.getContext().getSession().put("admin_left_pwd", 3);
+			}else{
+				ActionContext.getContext().getSession().put("admin_left_pwd", 1);
+			}
+			tx.commit();
+			session.close();
+			
+			return "success";
+		}else{
+			ActionContext.getContext().getSession().put("admin_left_pwd", 2);
+			return "success";
+		}
+		
 	}
 	
 	public String posSea() throws Exception {
@@ -128,6 +155,7 @@ public class AdminAction  extends ActionSupport {
 
 		}
 		ActionContext.getContext().getSession().put("adm_poss", pross);
+		ActionContext.getContext().getSession().put("admin_left_id", 4);
 		System.out.println(name);
 		return "success";
 	}
@@ -146,6 +174,19 @@ public class AdminAction  extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		id=new Integer(request.getParameter("drop_uid").toString());
 		System.out.println("删除用户"+id);
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		User user = new User();
+		user.setId(id);
+		
+		s.delete(user);
+		
+		transaction.commit();
+		s.close();
+		
+		ActionContext.getContext().getSession().put("admin_left_id", 1);
 		return "success";
 	}
 	
@@ -158,6 +199,20 @@ public class AdminAction  extends ActionSupport {
 		id=new Integer(request.getParameter("change_uid").toString());
 		System.out.println(stauts);
 		System.out.println("修改"+id);
+
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		//hql更新部分列 
+		Query query = s.createQuery("update User u  set u.status = '"+stauts+"' where id = '"+id+"'");  
+        query.executeUpdate();
+		
+		//s.saveOrUpdate(c);
+		transaction.commit();
+		s.close();
+		
+		ActionContext.getContext().getSession().put("admin_left_id", 1);
+	
 		return "success";
 	}
 	
@@ -176,9 +231,9 @@ public class AdminAction  extends ActionSupport {
 		
 		
 		if(name.equalsIgnoreCase("")){
-			list= session.createSQLQuery("select * from user").addEntity(User.class).list();
+			list= session.createSQLQuery("select * from user where status!=1").addEntity(User.class).list();
 		}else{
-			list = session.createSQLQuery("select * from user where userName like '%"+name+"%'").addEntity(User.class).list();
+			list = session.createSQLQuery("select * from user where userName like '%"+name+"%' and status!=1").addEntity(User.class).list();
 		}
 		
 		tx.commit();
@@ -197,6 +252,7 @@ public class AdminAction  extends ActionSupport {
 
 		}
 		ActionContext.getContext().getSession().put("user_sea", pross);
+		ActionContext.getContext().getSession().put("admin_left_id", 1);
 		return "success";
 	}
 	

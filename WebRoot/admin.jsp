@@ -72,7 +72,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </head>
 
     <body>
-   
+   		<%
+   			if(session.getAttribute("admin_left_id")==null){
+   				session.setAttribute("admin_left_id", 1);
+   			}
+   			if(session.getAttribute("admin_left_pwd")==null){
+   				session.setAttribute("admin_left_pwd", 4);
+   			}
+   			if(session.getAttribute("admin_left_pwd").equals(1)){
+   				out.print("<script>alert('原密码错误！');</script>");
+   				session.setAttribute("admin_left_pwd", 4);
+   			}else if(session.getAttribute("admin_left_pwd").equals(2)){
+   				out.print("<script>alert('新密码与重复密码不一致！');</script>");
+   				session.setAttribute("admin_left_pwd", 4);
+   			}else if(session.getAttribute("admin_left_pwd").equals(3)){
+   				out.print("<script>alert('管理员密码修改成功！');</script>");
+   				session.setAttribute("admin_left_pwd", 4);
+   			}
+   		 %>
         <div id="wrap">
             <!-- 左侧菜单栏目块 -->
             <div class="leftMeun" id="leftMeun">
@@ -89,12 +106,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="meun-title">账号管理</div>
                 <!-- <div class="meun-item meun-item-active" href="#sour" aria-controls="sour" role="tab" data-toggle="tab"><img src="admin/images/icon_source.png">资源管理</div>
                 <div class="meun-item" href="#char" aria-controls="char" role="tab" data-toggle="tab"><img src="admin/images/icon_chara_grey.png">权限管理</div> -->
-                <div class="meun-item meun-item-active" href="#user" aria-controls="user" role="tab" data-toggle="tab"><img src="admin/images/icon_user_grey.png">用户管理</div>
-                <div class="meun-item" href="#chan" aria-controls="chan" role="tab" data-toggle="tab"><img src="admin/images/icon_change_grey.png">修改密码</div>
+                
+                <div class="meun-item
+                <%
+                	if(session.getAttribute("admin_left_id").equals(1)){
+                 %>
+                  meun-item-active
+                  <%
+                  	}
+                   %>
+                  " href="#user" aria-controls="user" role="tab" data-toggle="tab"><img src="admin/images/icon_user_grey.png">用户管理</div>
+                <div class="meun-item
+                <%
+                	if(session.getAttribute("admin_left_id").equals(2)){
+                 %>
+                  meun-item-active
+                  <%
+                  	}
+                   %>
+                " href="#chan" aria-controls="chan" role="tab" data-toggle="tab"><img src="admin/images/icon_change_grey.png">修改密码</div>
                 <div class="meun-title">公司管理</div>
                 <!-- <div class="meun-item" href="#scho" aria-controls="scho" role="tab" data-toggle="tab"><img src="admin/images/icon_house_grey.png">公司管理</div> -->
-                <div class="meun-item" href="#regu" aria-controls="regu" role="tab" data-toggle="tab"><img src="admin/images/icon_rule_grey.png">公司注册审核</div>
-                <div class="meun-item" href="#stud" aria-controls="stud" role="tab" data-toggle="tab"><img src="admin/images/icon_card_grey.png">添加职位审核</div>
+                <div class="meun-item
+                <%
+                	if(session.getAttribute("admin_left_id").equals(3)){
+                 %>
+                  meun-item-active
+                  <%
+                  	}
+                   %>
+                " href="#regu" aria-controls="regu" role="tab" data-toggle="tab"><img src="admin/images/icon_rule_grey.png">公司注册审核</div>
+                <div class="meun-item
+                <%
+                	if(session.getAttribute("admin_left_id").equals(4)){
+                 %>
+                  meun-item-active
+                  <%
+                  	}
+                   %>
+                " href="#stud" aria-controls="stud" role="tab" data-toggle="tab"><img src="admin/images/icon_card_grey.png">添加职位审核</div>
                 <!-- <div class="meun-item" href="#sitt" aria-controls="sitt" role="tab" data-toggle="tab"><img src="admin/images/icon_char_grey.png">座位管理</div> -->
             </div>
             <!-- 右侧具体内容栏目 -->
@@ -645,7 +695,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             </div>
             <!--用户管理模块-->
-            <div role="tabpanel" class="tab-pane active" id="user">
+            <div role="tabpanel" class="tab-pane
+                <%
+                	if(session.getAttribute("admin_left_id").equals(1)){
+                 %>
+                  active
+                  <%
+                  	}
+                   %>
+
+" id="user">
                 <div class="check-div form-inline">
                     <div class="col-xs-8">
                         
@@ -686,7 +745,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                          
                             <div class="col-xs-2">
-                                状态
+                                <s:if test="#user.status==0">
+                                	正常
+                                </s:if>
+                                <s:else>
+                                	禁用
+                                </s:else>
                             </div>
                             <div class="col-xs-2">
                                 <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser" change_uid="<s:property value='#user.id'/>">修改</button>
@@ -827,9 +891,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <label for="situation" class="col-xs-3 control-label">状态：</label>
                                             <div class="col-xs-8">
                                                 <label class="control-label" for="anniu">
-                                                    <input type="radio" name="stauts" id="normal" value="1">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio" name="stauts" id="normal" value="0">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <label class="control-label" for="meun">
-                                                    <input type="radio" name="stauts" id="forbid" value="0"> 禁用</label>
+                                                    <input type="radio" name="stauts" id="forbid" value="2" checked> 禁用</label>
                                             </div>
                                         </div>
                                     
@@ -880,7 +944,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             </div>
             <!-- 修改密码模块 -->
-            <div role="tabpanel" class="tab-pane" id="chan">
+            <div role="tabpanel" class="tab-pane
+             <%
+                	if(session.getAttribute("admin_left_id").equals(2)){
+                 %>
+                  active
+                  <%
+                  	}
+                   %>
+            " 
+            id="chan">
                
                 <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
                     <form class="form-horizontal" action="admin_pwd" method="post">
@@ -1141,7 +1214,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             </div>
             <!--公司审核管理模块-->
-            <div role="tabpanel" class="tab-pane" id="regu" style="padding-top: 50px;">
+            <div role="tabpanel" class="tab-pane
+             <%
+                	if(session.getAttribute("admin_left_id").equals(3)){
+                 %>
+                  active
+                  <%
+                  	}
+                   %>
+            " id="regu" style="padding-top: 50px;">
                 <%-- <div class="data-div">
                     <div class="tablebody col-lg-10 col-lg-offset-1">
                         <div class="row">
@@ -1307,41 +1388,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <!--公司管理模块-->
             <div class="modal fade" id="reviseUse" role="dialog" aria-labelledby="gridSystemModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="gridSystemModalLabel">修改用户</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container-fluid">
-                                    <form class="form-horizontal" action="comCha" method="post">
-                                        
-                                        
-                                       
-                                        
-                                        <div class="form-group">
-                                            <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                            <div class="col-xs-8">
-                                                <label class="control-label" for="anniu">
-                                                    <input type="radio" name="stauts" id="normal" value="1">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label class="control-label" for="meun">
-                                                    <input type="radio" name="stauts" id="forbid" value="0"> 禁用</label>
-                                            </div>
-                                        </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                             
-                                <input type="submit" class="btn btn-xs btn-green" value="保存">
-                                <input style="display:none;" name="change_uid" value="change_uid" class="change_uid">
-                                </form>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
+                 
                     <!-- /.modal-dialog -->
                 </div>
             <div role="tabpanel" class="tab-pane" id="time">
@@ -1523,316 +1570,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <!-- /.modal -->
 
             </div>
-            <!--座位管理模块-->
-            <div role="tabpanel" class="tab-pane" id="sitt">
-
-                <div class="check-div form-inline" style="">
-                    <div class="col-lg-4 col-xs-7 col-md-6">
-                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addBuilding">添加楼宇 </button>
-                        <label for="paixu">楼宇:&nbsp;</label>
-                        <select class=" form-control">
-                            <option>第一教学楼</option>
-                            <option>逸夫楼</option>
-                            <option>综合楼</option>
-                            <option>图书馆</option>
-                        </select>
-                        <button class="btn btn-white btn-xs ">修 改</button>
-                    </div>
-                    <div class="col-lg-4 col-lg-offset-4 col-xs-4 col-md-5 " style="padding-right: 40px;text-align: right;">
-                        <input type="text" class=" form-control input-sm " placeholder="输入文字搜索">
-                        <button class="btn btn-white btn-xs ">查 询 </button>
-                    </div>
-                </div>
-                <div class="data-div">
-                    <div class="row tableHeader">
-                        <div class="col-xs-2 "style="padding-left: 20px;">
-                            楼层
-                        </div>
-                        <div class="col-xs-3"style="padding-left: 20px;">
-                            区域
-                        </div>
-                        <div class="col-xs-2" style="padding-left: 2px;">
-                            座位数
-                        </div>
-                        <div class="col-xs-2">
-                            空余座位
-                        </div>
-                        <div class="col-xs-3">
-                            操作
-                        </div>
-                    </div>
-                    <div class="tablebody">
-
-                        <div class="sitTable">
-                            <table class="table  table-responsive">
-                                <tr>
-                                    <td valign="middle" class="col-xs-2" rowspan="3">图书馆第一层</td>
-                                    <td class="col-xs-3">第一自习室</td>
-                                    <td class="col-xs-2">2</td>
-                                    <td class="col-xs-2" style="padding-left: 40px!important;">3</td>
-                                    <td class="col-xs-3"style="padding-left: 50px!important;">
-                                        <a class="linkCcc" href="#sitDetail" aria-controls="char" role="tab" data-toggle="tab">座位信息</a>
-                                        <a class="linkCcc" href="#time" aria-controls="char" role="tab" data-toggle="tab">时间段设置</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-xs-3">第一自习室</td>
-                                    <td class="col-xs-2">2</td>
-                                    <td class="col-xs-2" style="padding-left: 40px!important;">3</td>
-                                    <td class="col-xs-3"style="padding-left: 50px!important;">
-                                        <a class="linkCcc" href="#sitDetail" aria-controls="char" role="tab" data-toggle="tab">座位信息</a>
-                                        <a class="linkCcc" href="#time" aria-controls="char" role="tab" data-toggle="tab">时间段设置</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-xs-3">第一自习室</td>
-                                    <td class="col-xs-2">2</td>
-                                    <td class="col-xs-2" style="padding-left: 40px!important;">3</td>
-                                    <td class="col-xs-3"style="padding-left: 50px!important;">
-                                        <a class="linkCcc" href="#sitDetail" aria-controls="char" role="tab" data-toggle="tab">座位信息</a>
-                                        <a class="linkCcc" href="#time" aria-controls="char" role="tab" data-toggle="tab">时间段设置</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!--页码块-->
-                <footer class="footer">
-                    <ul class="pagination">
-                        <li>
-                            <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                            页
-                        </li>
-                        <li class="gray">
-                            共20页
-                        </li>
-                        <li>
-                            <i class="glyphicon glyphicon-menu-left">
-                            </i>
-                        </li>
-                        <li>
-                            <i class="glyphicon glyphicon-menu-right">
-                            </i>
-                        </li>
-                    </ul>
-                </footer>
-
-                <!--弹出添加楼宇窗口-->
-                <div class="modal fade" id="addBuilding" role="dialog" aria-labelledby="gridSystemModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="gridSystemModalLabel">添加楼宇</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container-fluid">
-                                    <form class="form-horizontal">
-                                        <div class="form-group ">
-                                            <label for="sName" class="col-xs-3 control-label">楼层：</label>
-                                            <div class="col-xs-8 ">
-                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sLink" class="col-xs-3 control-label">区域：</label>
-                                            <div class="col-xs-8 ">
-                                                <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sOrd" class="col-xs-3 control-label">座位数：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button type="button" class="btn btn-xs btn-green">保 存</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- /.modal -->
-
-                <!--弹出修改用户窗口-->
-                <div class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="gridSystemModalLabel">修改用户</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container-fluid">
-                                    <form class="form-horizontal">
-                                        <div class="form-group ">
-                                            <label for="sName" class="col-xs-3 control-label">用户名：</label>
-                                            <div class="col-xs-8 ">
-                                                <input type="email" class="form-control input-sm" id="sName" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
-                                            <div class="col-xs-8 ">
-                                                <input type="" class="form-control input-sm" id="sLink" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm" id="sOrd" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm" id="sKnot" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">地区：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm" id="sKnot" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">权限：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm" id="sKnot" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                            <div class="col-xs-8">
-                                                <label class="control-label" for="anniu">
-                                                    <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label class="control-label" for="meun">
-                                                    <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-xs btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button type="button" class="btn btn-xs btn-green">保 存</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- /.modal -->
-
-                <!--弹出删除用户警告窗口-->
-                <div class="modal fade" id="deleteUser" role="dialog" aria-labelledby="gridSystemModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container-fluid">
-                                    确定要删除该用户？删除后不可恢复！
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button type="button" class="btn btn-green btn-xs">保 存</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- /.modal -->
-            </div>
-            <!--座位详情模块-->
-            <div role="tabpanel" class="tab-pane" id="sitDetail">
-                <div class="check-div form-inline">
-                    <span href="#sitt" aria-controls="sitt" role="tab" data-toggle="tab" style="cursor: pointer;"><span class="glyphicon glyphicon glyphicon-chevron-left"></span>&nbsp;&nbsp;返回上一页</span>
-                </div>
-                <div class="data-div">
-                    <div class="row tableHeader">
-                        <div class="col-xs-6 ">
-                            座位编码
-                        </div>
-                        <div class="col-xs-6 ">
-                            座位名称
-                        </div>
-
-                    </div>
-                    <div class="tablebody">
-
-                        <div class="row">
-                            <div class="col-xs-6 ">
-                                sad2345fas345533
-                            </div>
-                            <div class="col-xs-6">
-                                王座
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <!--页码块-->
-                <footer class="footer">
-                    <ul class="pagination">
-                        <li>
-                            <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                            页
-                        </li>
-                        <li class="gray">
-                            共20页
-                        </li>
-                        <li>
-                            <i class="glyphicon glyphicon-menu-left">
-                            </i>
-                        </li>
-                        <li>
-                            <i class="glyphicon glyphicon-menu-right">
-                            </i>
-                        </li>
-                    </ul>
-                </footer>
-
-            </div>
+          
             <!--添加职员审核管理模块-->
-            <div role="tabpanel" class="tab-pane" id="stud">
+            <div role="tabpanel" class="tab-pane
+             <%
+                	if(session.getAttribute("admin_left_id").equals(4)){
+                 %>
+                  active
+                  <%
+                  	}
+                   %>
+            " id="stud">
                 <div class="check-div form-inline">
                 	<div class="col-xs-8">
                 	</div>
@@ -1847,10 +1595,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="data-div">
                     <div class="row tableHeader">
                         <div class="col-xs-3 ">
-                            公司名称
+                            职位名称
                         </div>
                         <div class="col-xs-3 ">
-                            职位名称
+                            公司名称
                         </div>
                         <div class="col-xs-2">
                             工资
@@ -1867,11 +1615,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<s:iterator value="#session.adm_poss" var="pos"  status='st' >
                         <div class="row">
                             <div class="col-xs-3 ">
-                            <s:property value="#pos.com_name"/>
+                            <s:property value="#pos.name"/>
                      
                             </div>
                             <div class="col-xs-3">
-                                <s:property value="#pos.name"/>
+                                <s:property value="#pos.com_name"/>
                             </div>
                             <div class="col-xs-2">
                                 <s:property value="#pos.salary"/>

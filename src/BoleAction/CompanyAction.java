@@ -167,7 +167,7 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 		Transaction transaction = s.beginTransaction();
 		
 		//hql更新部分列 
-		Query query = s.createQuery("update company t set t.introduce = '"+introduce+"' where id = id");  
+		Query query = s.createQuery("update company t set t.introduce = '"+introduce+"' where id = '"+id+"'");  
         query.executeUpdate();
 		
 		//s.saveOrUpdate(c);
