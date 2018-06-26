@@ -76,7 +76,7 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 		c.setSize(getCom().getSize());
 		c.setStage(getCom().getStage());
 		c.setShort_introduce(getCom().getShort_introduce());
-		
+		c.setStatus(1);
 		Session s = HibernateSessionFactory.getSession();
 		Transaction transaction = s.beginTransaction();
 		s.saveOrUpdate(c);

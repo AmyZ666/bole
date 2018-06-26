@@ -27,6 +27,7 @@ public class position {
 	private String size;
 	private String email;
 	private String detail_address;
+	private int status;
 
 	@Id
 	@GeneratedValue
@@ -165,6 +166,15 @@ public class position {
 	public void setDetail_address(String detail_address) {
 		this.detail_address = detail_address;
 	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 	
 
 }

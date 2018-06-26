@@ -24,6 +24,7 @@ public class company {
 	private String size;
 	private String invest_stage;
 	private String invest_name;
+	private int status;
 
 	@Id
 	@GeneratedValue
@@ -138,4 +139,13 @@ public class company {
 	public void setInvest_name(String invest_name) {
 		this.invest_name = invest_name;
 	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 }

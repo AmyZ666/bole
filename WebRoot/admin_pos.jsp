@@ -1459,7 +1459,7 @@ div.BMap_cmLstItem {
 </head>
 <body>
 	<div id="body">
-		<jsp:include page="lock.jsp"></jsp:include>
+	
 	
 		<!-- end #header -->
 		<s:iterator value="#session.poss_all" var="pos"  status='st'>
@@ -1517,40 +1517,21 @@ div.BMap_cmLstItem {
 						</dd>
 
 						<!-- 用户是否激活 0-否；1-是 -->
-						<dd class="resume resume_web">
-							<div>
-								<span> 你已有可投递的在线简历：<a title="jason的简历" target="_blank"
-									href="jianli.html"><strong>jason的简历</strong>
-								</a>
-								</span><br> <span>简历更新于2014-07-01 15:53</span>
-							</div>
-							<span class="setBtns"> <a 
-								href="jianli.action?id=<%=session.getAttribute("id") %>">预览</a> | <a title="修改"
-								target="_blank" href="jianli.html">修改</a> </span>
-						</dd>
-						<div class="saoma saoma_btm">
-							<div class="dropdown_menu">
-								<div class="drop_l">
-									<img width="131" height="131"
-										src="style/images/b533f6e729e74b418fcd6862bbde95dc_318969.jpg">
-									<span>[仅限本人使用]</span>
-								</div>
-								<div class="drop_r">
-									<div class="drop_title"></div>
-									<p>
-										想知道HR在看简历嘛？<br> 想在微信中收到面试通知？<br> <span>&lt;&lt;
-											扫一扫，给你解决</span>
-									</p>
-								</div>
-							</div>
-						</div>
 						<dd>
 							<!-- 用户是否激活 0-否；1-是 -->
 
-							<a title="投个简历" class="btn fr btn_apply inline cboxElement"
-								href="#setResumeApply">投个简历</a>
+							<a class="btn fr"
+								href="admin_back_pos.action?pos_id=<s:property value="#pos.id"></s:property>&status=2" style="background-color:red">驳回审核</a>
 
-						</dd>
+						</dd> 
+					
+						<dd>
+							<!-- 用户是否激活 0-否；1-是 -->
+
+							<a  class="btn fr"
+								href="admin_back_pos.action?pos_id=<s:property value="#pos.id"></s:property>&status=0">通过审核</a>
+
+						</dd> 
 					</dl>
 					<div id="weibolist"></div>
 				</div>
@@ -1721,10 +1702,10 @@ div.BMap_cmLstItem {
 					</dl>
 					
 					<!--end #myRecommend-->
-					<a class="eventAd" target="_blank"
+				<!-- 	<a class="eventAd" target="_blank"
 						href="h/subject/s_zhouyou.html?utm_source=BD__lagou&amp;utm_medium=&amp;utm_campaign=zhouyou">
 						<img width="280" height="135" src="style/images/zhouyou.jpg">
-					</a>
+					</a> -->
 				</div>
 			</div>
 			<input type="hidden" id="userid" name="userid"
@@ -2325,24 +2306,7 @@ var options = {
 　　}
 </script>
 <script src="style/js/common.js" type="text/javascript"></script> -->
-			<script>
-$(function(){
-	$('#weibolist .cookietxte').text('推荐本职位给好友');
-	$(document).bind('cbox_complete', function(){ 
-		hbzxJQ("#gaosutapt .pttui a").trigger("click"); 
-		hbzxJQ("#mepingpt .pttui a").trigger("click"); 
-	});
-	$('#cboxOverlay').bind('click',function(){
-		top.location.reload();
-	});
-	$('#colorbox').on('click','#cboxClose',function(){
-		if($(this).siblings('#cboxLoadedContent').children('div').attr('id') == 'deliverResumesSuccess' || $(this).siblings('#cboxLoadedContent').children('div').attr('id') == 'uploadFileSuccess'){
-			top.location.reload();
-		}
-	});
-			popQR();
-	})
-</script>
+
 
 			<script
 				src="http://api.map.baidu.com/api?v=2.0&amp;ak=A2c1a1ff1fe0750e3290660295aac602"

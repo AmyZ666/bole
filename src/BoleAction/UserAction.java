@@ -74,6 +74,7 @@ public class UserAction  extends ActionSupport implements SessionAware{
 			pros.setSchool_name(list.get(i).getSchool_name());
 			pros.setSelf_introduction(list.get(i).getSelf_introduction());
 			pros.setSex(list.get(i).getSex());
+			pros.setPro_introduction(list.get(i).getPro_introduction());
 	//		pros.setStart_school(list.get(i).getStart_school());
 			pros.setUpdate_time(list.get(i).getUpdate_time());
 			System.out.println(list.get(i).getName());

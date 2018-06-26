@@ -1371,12 +1371,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                  <s:property value="#com.domain"/>
                             </div>
                             <div class="col-xs-2">
-                                 状态
+                                 <s:if test="#com.status==0">
+                                 	通过审核
+                                 </s:if>
+                                 <s:elseif test="#com.status==1">
+                                 	未审核
+                                 </s:elseif>
+                                 <s:else>
+                                 	驳回审核
+                                 </s:else>
                             </div>
                             <div class="col-xs-2">
-                            <form action="myhome.jsp" method="get">
+                            <form action="admin_com" method="get">
                             	<input type="hidden" name="com_id" value="<s:property value='#com.id'/>">
-                                <button class="btn btn-success btn-xs" data-toggle="modal" >审核</button>
+                                <button class="btn btn-success btn-xs" data-toggle="modal" 
+                                <s:if test="#com.status==0">
+                                	style="background-color:#2ecc71"
+                                </s:if>
+                                <s:elseif test="#com.status==2">
+                                	style="background-color:blue"
+                                </s:elseif>
+                                <s:else>
+                                	style="background-color:red"
+                                </s:else>
+                                	 
+                                >审核</button>
                               </form> 
                             </div>
                         </div>
@@ -1600,11 +1619,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div class="col-xs-3 ">
                             公司名称
                         </div>
-                        <div class="col-xs-2">
-                            工资
-                        </div>
+    
                         <div class="col-xs-2">
                             创始人
+                        </div>
+                        <div class="col-xs-2">
+                            状态
                         </div>
     
                         <div class="col-xs-2">
@@ -1621,17 +1641,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="col-xs-3">
                                 <s:property value="#pos.com_name"/>
                             </div>
-                            <div class="col-xs-2">
-                                <s:property value="#pos.salary"/>
-                            </div>
+                            
                             <div class="col-xs-2">
                                 <s:property value="#pos.com_founder"/>
                             </div>
+                            <div class="col-xs-2">
+                                <s:if test="#pos.status==0">
+                                	通过审核
+                                </s:if>
+                                <s:elseif test="#pos.status==2">
+                                	未审核
+                                </s:elseif>
+                                <s:else>
+                                	驳回审核
+                                </s:else>
+                            </div>
                           
                             <div class="col-xs-2">
-                           		 <form action="admin_pos.jsp" method="get">
-                           		 	<input type="hidden" value="<s:property value='#pos.id'/>">
-                                	<button class="btn btn-danger btn-xs" >审核</button>
+                           		 <form action="admin_pos" method="get">
+                           		 	<input type="hidden" name="pos_id" value="<s:property value='#pos.id'/>">
+                                	<button class="btn btn-danger btn-xs" 
+                                	<s:if test="#pos.status==0">
+                                	style="background-color:#2ecc71"
+                                </s:if>
+                                <s:elseif test="#pos.status==2">
+                                	style="background-color:blue"
+                                </s:elseif>
+                                <s:else>
+                                	style="background-color:red"
+                                </s:else>
+                                	 >审核</button>
                                 </form>
                             </div>
                         </div>

@@ -11,10 +11,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link  media="handheld" rel="alternate">
 <!-- end 云适配 -->
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>拉勾网-最专业的互联网招聘平台</title>
+<title>伯乐网-最专业的互联网招聘平台</title>
 <meta content="23635710066417756375" property="qc:admins">
-<meta name="description" content="拉勾网是3W旗下的互联网领域垂直招聘网站">
-<meta name="keywords" content="拉勾,拉勾网,拉勾招聘,拉钩, 拉钩网 ,互联网招聘,拉勾互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 拉勾官网, 拉勾百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招">
+<meta name="description" content="伯乐网是3W旗下的互联网领域垂直招聘网站">
+<meta name="keywords" content="伯乐,伯乐网,伯乐招聘,伯乐, 伯乐网 ,互联网招聘,伯乐互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 伯乐官网, 伯乐百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招">
 <meta content="QIQ6KC1oZ6" name="baidu-site-verification">
 
 <!-- <div class="web_root"  style="display:none">http://www.lagou.com</div> -->
@@ -40,52 +40,52 @@ var youdao_conv_id = 271546;
 <script src="style/js/ajaxCross.json" charset="UTF-8"></script></head>
 <body>
 <div id="body">
+	<%
+		if(session.getAttribute("auto_id")==null){
+			session.setAttribute("auto_id", 1);
+		}
+	 %>
+		<jsp:include page="lock.jsp"></jsp:include>
 	<div id="header">
-    	<div class="wrapper">
-    		<a class="logo" href="index.html">
-    			<img width="229" height="43" alt="拉勾招聘-专注互联网招聘" src="style/images/logo.png">
-    		</a>
-    		<ul id="navheader" class="reset">
-    			<li><a href="index.html">首页</a></li>
-    			<li><a href="companylist.html">公司</a></li>
-    			<li><a target="_blank" href="">论坛</a></li>
-    				    			<li><a rel="nofollow" href="jianli.html">我的简历</a></li>
-	    						    		</ul>
-        	        	<dl class="collapsible_menu">
-            	<dt>
-           			<span>jason&nbsp;</span> 
-            		<span class="red dn" id="noticeDot-0"></span>
-            		<i></i>
-            	</dt>
-                                	<dd><a rel="nofollow" href="jianli.html">我的简历</a></dd>
-                	                	<dd><a href="collections.html">我收藏的职位</a></dd>
-                	                	                	<dd><a href="delivery.html">我投递的职位 <span id="noticeNo" class="red dn">(0)</span></a></dd>
-                	                	<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
-                	<dd><a href="create.html">我要招人</a></dd>
-                                                <dd><a href="accountBind.html">帐号设置</a></dd>
-                                <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
-            </dl>
-                                    <div class="dn" id="noticeTip">
-            	<span class="bot"></span>
-				<span class="top"></span>
-				<a target="_blank" href="delivery.html"><strong>0</strong>条新投递反馈</a>
-				<a class="closeNT" href="javascript:;"></a>
-            </div>
-                    </div>
-    </div><!-- end #header -->
+		<div class="wrapper">
+			<a class="logo" href="index.jsp"> <img width="229" height="43"
+				alt="伯乐招聘-专注互联网招聘" src="style/images/logoko111.png"> </a>
+			<ul id="navheader" class="reset">
+				<li class="current"><a href="index.jsp">首页</a></li>
+				<li><a href="companylist.jsp">公司</a></li>
+
+				<%
+					if(session.getAttribute("status").equals(1)){
+				 %>
+				<li><a rel="nofollow" href="">简历管理</a>
+				</li>
+				<li><a rel="nofollow" href="create.jsp">发布职位</a></li>
+				<%
+					}else{
+					
+				 %>
+				 <li><a rel="nofollow" href="jianlic.action?id=<%=session.getAttribute("id") %>">我的简历</a></li>
+				 <%
+				 	}
+				  %>
+			</ul>
+			<jsp:include page="header.jsp" />
+		</div>
+	</div>
+
     <div id="container">
                 	<div class="sidebar">
-        		            	<a class="btn_create" href="create.html">发布新职位</a>
+        		            	<a class="btn_create" href="create.jsp">发布新职位</a>
             	                <dl class="company_center_aside">
 		<dt>我收到的简历</dt>
 		<dd>
-		<a href="">待处理简历</a> 
+		<a href="back_jianli.action?status=0&com_id=<%=session.getAttribute("id") %>">待处理简历</a> 
 			</dd>
 	<dd>
-		<a href="haveNoticeResumes.html">已通知面试简历</a>
+		<a href="back_jianli.action?status=1&com_id=<%=session.getAttribute("id") %>">已通知面试简历</a>
 	</dd>
 	<dd>
-		<a href="haveRefuseResumes.html">不合适简历</a>
+		<a href="back_jianli.action?status=2&com_id=<%=session.getAttribute("id") %>">不合适简历</a>
 	</dd>
 </dl>
 <dl class="company_center_aside">
@@ -103,13 +103,11 @@ var youdao_conv_id = 271546;
                     <dt>
                         <h1>
                             <em></em>
-                                                                                    自动过滤简历  <span>（共1份）</span>                        </h1>
+                                                                                    自动过滤简历  <span></span>                        </h1>
                     </dt>
                     <dd>
                     	<form action="autoFilterResumes.html" method="get" id="filterForm">
-	                    			                    	<div class="filter_tip">
-		                        	系统将自动过滤学历、城市、工作年限 <span>不符合</span> 要求的简历，自动过滤的简历若 <span>15</span> 日内未作处理，拉勾将自动发送拒绝邮件至用户邮箱。
-		                        </div>
+	                    			
 		                    	<div class="filter_actions ">
 		                        	
           <input type="hidden" value="0" name="filterStatus" id="filterStatus">
@@ -225,7 +223,7 @@ var youdao_conv_id = 271546;
     
     <!--预览通知面试弹窗-->	
     <div class="popup" id="noticeInterviewPreview">
-    	<div class="f18">拉勾网：产品经理面试通知 </div>
+    	<div class="f18">伯乐网：产品经理面试通知 </div>
         <div class="c9">发给：<span>vivi@lagou.com</span></div>
 		<div id="emailText"></div>      
         <input type="button" value="提交" class="btn fl">
@@ -363,8 +361,8 @@ var youdao_conv_id = 271546;
 		<div class="wrapper">
 			<a rel="nofollow" target="_blank" href="about.html">联系我们</a>
 		    <a target="_blank" href="http://www.lagou.com/af/zhaopin.html">互联网公司导航</a>
-		    <a rel="nofollow" target="_blank" href="http://e.weibo.com/lagou720">拉勾微博</a>
-		    <a rel="nofollow" href="javascript:void(0)" class="footer_qr">拉勾微信<i></i></a>
+		    <a rel="nofollow" target="_blank" href="http://e.weibo.com/lagou720">伯乐微博</a>
+		    <a rel="nofollow" href="javascript:void(0)" class="footer_qr">伯乐微信<i></i></a>
 			<div class="copyright">&copy;2013-2014 Lagou <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">京ICP备14023790号-2</a></div>
 		</div>
 	</div>

@@ -58,7 +58,7 @@ public class ListAction extends ActionSupport {
 								+ name
 								+ "%'||c.name like '%"
 								+ name
-								+ "%') order by hot_num desc")
+								+ "%')&& p.status=0 order by hot_num desc")
 				.addEntity(position.class).list();
 		tx.commit();
 		session.close();
@@ -81,6 +81,7 @@ public class ListAction extends ActionSupport {
 			pros.setDomain(list.get(i).getDomain());
 			pros.setSize(list.get(i).getSize());
 			pros.setStage(list.get(i).getStage());
+			pros.setStatus(list.get(i).getStatus());
 			pross.add(pros);
 
 		}
@@ -95,7 +96,7 @@ public class ListAction extends ActionSupport {
 
 		List<position> list = session
 				.createSQLQuery(
-						"select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id order by hot_num desc")
+						"select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id&&p.status=0 order by hot_num desc")
 				.addEntity(position.class).list();
 		tx.commit();
 		session.close();
@@ -104,6 +105,7 @@ public class ListAction extends ActionSupport {
 		position pros;
 		for (int i = 0; i < list.size(); i++) {
 			pros = new position();
+			
 			pros.setCom_id(list.get(i).getCom_id());
 			pros.setEducution(list.get(i).getEducution());
 			pros.setExp(list.get(i).getExp());
@@ -118,6 +120,7 @@ public class ListAction extends ActionSupport {
 			pros.setDomain(list.get(i).getDomain());
 			pros.setSize(list.get(i).getSize());
 			pros.setStage(list.get(i).getStage());
+			pros.setStatus(list.get(i).getStatus());
 			pross.add(pros);
 
 		}

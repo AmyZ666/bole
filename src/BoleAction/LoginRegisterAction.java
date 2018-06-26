@@ -151,6 +151,7 @@ public class LoginRegisterAction extends ActionSupport {
 			pros.setDomain(list.get(i).getDomain());
 			pros.setSize(list.get(i).getSize());
 			pros.setStage(list.get(i).getStage());
+			pros.setStatus(list.get(i).getStatus());
 			pross.add(pros);
 
 		}
@@ -171,6 +172,7 @@ public class LoginRegisterAction extends ActionSupport {
 			pros.setDomain(list2.get(i).getDomain());
 			pros.setSize(list2.get(i).getSize());
 			pros.setStage(list2.get(i).getStage());
+			pros.setStatus(list.get(i).getStatus());
 			pross2.add(pros);
 
 		}

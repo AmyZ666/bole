@@ -99,6 +99,18 @@
 			<result name="success">/admin.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="admin_pos" class="BoleAction.AdminAction" method="Pos">
+			<result name="success">/admin_pos.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="admin_com" class="BoleAction.AdminAction" method="Com">
+			<result name="success">/admin_myhome.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="admin_back_pos" class="BoleAction.AdminAction" method="Back_pos">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 	
 	

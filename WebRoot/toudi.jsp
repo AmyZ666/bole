@@ -1488,7 +1488,7 @@ div.BMap_cmLstItem {
 		<!-- end #header -->
 		<s:iterator value="#session.poss_all" var="pos"  status='st'>
 		<s:iterator value="#session.others" var="oth"  status='sta'>
-		<s:if test="#pos.id==#oth.pos_id">
+		 <s:if test="#pos.id==#oth.pos_id">
 		<s:if test="#sta.index==0">
 		
 		
@@ -2462,7 +2462,7 @@ $(function(){
 		</div>
 		<!-- end #container -->
 		</s:if>
-		</s:if>
+		</s:if> 
 		</s:iterator>
 		</s:iterator>
 	</div>
