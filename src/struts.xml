@@ -1,42 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+	<constant name="struts.multipart.maxSize" value="10000000000" />
+	<constant name="struts.custom.i18n.resources" value="messageResource" />
+
+	<!--设置Struts应用的解码集 -->
+	<constant name="struts.i18n.encoding" value="utf-8" />
 	<package name="zjw" extends="struts-default">
-		<action name="login" class="BoleAction.LoginRegisterAction" method="login">
+		<action name="login" class="BoleAction.LoginRegisterAction"
+			method="login">
 			<result name="input">/login.jsp</result>
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="register" class="BoleAction.LoginRegisterAction" method="register">
+		<action name="register" class="BoleAction.LoginRegisterAction"
+			method="register">
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="logout" class="BoleAction.LoginRegisterAction" method="logout">
+		<action name="logout" class="BoleAction.LoginRegisterAction"
+			method="logout">
 			<result name="success">/login.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="position" class="BoleAction.LoginRegisterAction" method="Position">
-			
+		<action name="position" class="BoleAction.LoginRegisterAction"
+			method="Position">
+
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="company1" class="BoleAction.CompanyAction" method="company1">
+		<action name="company1" class="BoleAction.CompanyAction"
+			method="company1">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">10000000000000</param>
+				<param name="allowedTypes">image/gif,image/png,image/jpeg,image/jpg,imagepeg</param>
+				
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<!-- 出现错误自动会返回input结果，进入结果视图 -->
+			<result name="input">/error.jsp</result>
 			<result name="success">/company2.jsp</result>
-			<result name="error">/error.jsp</result>
 		</action>
-		<action name="company2" class="BoleAction.CompanyAction" method="company2">
+		<action name="company2" class="BoleAction.CompanyAction"
+			method="company2">
 			<result name="success">/company3.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="company3" class="BoleAction.CompanyAction" method="company3">
+		<action name="company3" class="BoleAction.CompanyAction"
+			method="company3">
 			<result name="success">/company4.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="company4" class="BoleAction.CompanyAction" method="company4">
+		<action name="company4" class="BoleAction.CompanyAction"
+			method="company4">
 			<result name="success">/company5.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="company5" class="BoleAction.CompanyAction" method="company5">
+		<action name="company5" class="BoleAction.CompanyAction"
+			method="company5">
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
@@ -52,11 +73,12 @@
 			<result name="success">/toudi.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="create_occupate" class="BoleAction.CompanyAction" method="create">
+		<action name="create_occupate" class="BoleAction.CompanyAction"
+			method="create">
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
 		<action name="jianli" class="BoleAction.UserAction" method="jianli">
 			<result name="success">/preview.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -65,7 +87,8 @@
 			<result name="success">/jianli.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="update_jianli" class="BoleAction.UserAction" method="update_jianli">
+		<action name="update_jianli" class="BoleAction.UserAction"
+			method="update_jianli">
 			<result name="success">/login.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
@@ -73,7 +96,7 @@
 			<result name="success">/getmian.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<!--Admin  -->
+		<!--Admin -->
 		<action name="userBan" class="BoleAction.AdminAction" method="Ban">
 			<result name="success">/admin.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -110,21 +133,23 @@
 			<result name="success">/admin_myhome.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="admin_back_pos" class="BoleAction.AdminAction" method="Back_pos">
+		<action name="admin_back_pos" class="BoleAction.AdminAction"
+			method="Back_pos">
 			<result name="success">/admin.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="back_jianli" class="BoleAction.AdminAction" method="Back_jianli">
+		<action name="back_jianli" class="BoleAction.AdminAction"
+			method="Back_jianli">
 			<result name="success">/autoResum.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
 		<action name="back_mian" class="BoleAction.AdminAction" method="Mian">
 			<result name="success">/autoResum.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
- 		<action name="company" class="BoleAction.CompanyAction" method="companylist">
+
+		<action name="company" class="BoleAction.CompanyAction" method="companylist">
 			<result name="success">/companylist.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
@@ -137,6 +162,6 @@
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>
-	
-	
+
+
 </struts>    

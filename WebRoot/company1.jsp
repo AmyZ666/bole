@@ -93,7 +93,7 @@
 						</h2>
 					</dt>
 					<dd>
-						<form id="stepForm" action="company1" method="post">
+						<form id="stepForm" action="company1" method="post"  enctype="multipart/form-data">
 							<div class="c_text_1">基本信息为必填项，是求职者加速了解公司的窗口，认真填写吧！</div>
 							<img width="668" height="56" class="c_steps" alt="第一步"
 								src="style/images/step1.png">
@@ -108,11 +108,12 @@
 		 					<input type="text" placeholder="请输入公司简称，如:伯乐" value="" name="com.short_name" id="name" class="valid">
 							<h3>公司LOGO</h3>
 							<!--非必填改必填-->
+							<input type="file" name="uploadImage">
 							<div class="c_logo c_logo_pos">
 								<a title="上传公司LOGO" class="inline cboxElement"
 									href="#logoUploader">
 									<div id="logoNo">
-										<span>上传公司LOGO</span> <br> 尺寸：190*190px <br> 大小：小于5M
+										<span>
 									</div>
 									<div class="dn" id="logoShow">
 										<img width="190" height="190" alt="公司logo" src="" name="com.logo"> <span>更换公司LOGO<br>190px*190px
