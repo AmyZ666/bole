@@ -13,11 +13,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="alternate" media="handheld" />
 <!-- end 云适配 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>全国-公司列表-拉勾网-最专业的互联网招聘平台</title>
+<title>全国-公司列表-伯乐网-最专业的互联网招聘平台</title>
 <meta property="qc:admins" content="23635710066417756375" />
-<meta content="全国condition-condition-公司列表-拉勾网-最专业的互联网招聘平台"
+<meta content="全国condition-condition-公司列表-伯乐网-最专业的互联网招聘平台"
 	name="description">
-<meta content="全国condition-公司列表-拉勾网-最专业的互联网招聘平台" name="keywords">
+<meta content="全国condition-公司列表-伯乐网-最专业的互联网招聘平台" name="keywords">
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 
 <!-- <div class="web_root"  style="display:none">h</div> -->
@@ -223,7 +223,7 @@ var youdao_conv_id = 271546;
 							<div class="subpos">
 								<span>订阅</span> 职位
 							</div>
-							<div class="c7">拉勾网会根据你的筛选条件，定期将符合你要求的职位信息发给你</div>
+							<div class="c7">伯乐网会根据你的筛选条件，定期将符合你要求的职位信息发给你</div>
 							<div class="count">
 								已有 <em>3</em> <em>4</em> <em>2</em> <em>1</em> <em>0</em> 人订阅
 							</div> <i>我也要订阅职位</i> </a>
@@ -262,12 +262,9 @@ $(function(){
 	<div id="footer">
 		<div class="wrapper">
 			<a href="h/about.html" target="_blank" rel="nofollow">联系我们</a> <a
-				href="h/af/zhaopin.html" target="_blank">互联网公司导航</a> <a
-				href="http://e.weibo.com/lagou720" target="_blank" rel="nofollow">拉勾微博</a>
-			<a class="footer_qr" href="javascript:void(0)" rel="nofollow">拉勾微信<i></i>
-			</a>
+				href="h/af/zhaopin.html" target="_blank">互联网公司导航</a> 
 			<div class="copyright">
-				&copy;2013-2014 Lagou <a target="_blank"
+				&copy;2017-2018 Bole <a target="_blank"
 					href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">京ICP备14023790号-2</a>
 			</div>
 		</div>

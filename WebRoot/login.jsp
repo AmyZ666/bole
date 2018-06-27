@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>登录-伯乐网-最专业的互联网招聘平台</title>
 <meta property="qc:admins" content="23635710066417756375" />
 <meta content="伯乐网是3W旗下的互联网领域垂直招聘网站,互联网职业机会尽在伯乐网" name="description">
-<meta content="伯乐,伯乐网,伯乐招聘,拉钩, 拉钩网 ,互联网招聘,伯乐互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 伯乐官网, 伯乐百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
+<meta content="伯乐,伯乐网,伯乐招聘,伯乐, 伯乐网 ,互联网招聘,伯乐互联网招聘, 移动互联网招聘, 垂直互联网招聘, 微信招聘, 微博招聘, 伯乐官网, 伯乐百科,跳槽, 高薪职位, 互联网圈子, IT招聘, 职场招聘, 猎头招聘,O2O招聘, LBS招聘, 社交招聘, 校园招聘, 校招,社会招聘,社招" name="keywords">
 
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 
@@ -76,64 +76,5 @@ var youdao_conv_id = 271546;
         </div>
         <div class="login_box_btm"></div>
     </div><script type="text/javascript">
- <%-- $(function(){
-	//验证表单
-	 	$("#loginForm").validate({
-	 		/* onkeyup: false,
-	    	focusCleanup:true, */
-	        rules: {
-	    	   	email: {
-	    	    	required: true,
-	    	    	email: true
-	    	   	},
-	    	   	password: {
-	    	    	required: true
-	    	   	}
-	    	},
-	    	messages: {
-	    	   	email: {
-	    	    	required: "请输入登录邮箱地址",
-	    	    	email: "请输入有效的邮箱地址，如：vivi@lagou.com"
-	    	   	},
-	    	   	password: {
-	    	    	required: "请输入密码"
-	    	   	}
-	    	},
-	    	submitHandler:function(form){
-	    		if($('#remember').prop("checked")){
-	      			$('#remember').val(1);
-	      		}else{
-	      			$('#remember').val(null);
-	      		}
-	    		var email = $('#email').val();
-	    		var password = $('#password').val();
-	    		var remember = $('#remember').val();
-	    		
-	    		var callback = $('#callback').val();
-	    		var authType = $('#authType').val();
-	    		var signature = $('#signature').val();
-	    		var timestamp = $('#timestamp').val();
-	    		
-	    		$(form).find(":submit").attr("disabled", true);
-	            $.ajax({
-	            	type:'POST',
-	            	data:{email:email,password:password,autoLogin:remember, callback:callback, authType:authType, signature:signature, timestamp:timestamp},
-	            	url:ctx+'/user/login.json'
-	            }).done(function(result) {
-					if(result.success){
-					 	if(result.content.loginToUrl){
-							window.location.href=result.content.loginToUrl;
-	            		}else{
-	            			window.location.href=ctx+'/';
-	            		} 
-					}else{
-						$('#beError').text(result.msg).show();
-					}
-					$(form).find(":submit").attr("disabled", false);
-	            }); 
-	        }  
-		});
-})
-</script> --%>
 </body>
 </html>
