@@ -53,14 +53,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%
 					if(session.getAttribute("status").equals(1)){
 				 %>
+				
 				<dd>
-					<a href="positions.jsp">我发布的职位</a>
-				</dd>
-				<dd>
-					<a href="">我收到的简历</a>
+					<a href="back_jianli.action?status=0&com_id=<%=session.getAttribute("id") %>">我收到的简历</a>
 				</dd>
 				<dd class="btm">
-					<a href="myhome.jsp">我的公司主页</a>
+					<a href="myhome.action?id=<%=session.getAttribute("id") %>">我的公司主页</a>
 				</dd>
 				<dd>
 					<a href="create.jsp">我要招人</a>

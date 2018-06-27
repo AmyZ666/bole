@@ -61,7 +61,7 @@ var youdao_conv_id = 271546;
 				<%
 						if (session.getAttribute("status").equals(1)) {
 					%>
-				<li><a rel="nofollow" href="">简历管理</a>
+				<li><a rel="nofollow" href="back_jianli.action?status=0&com_id=<%=session.getAttribute("id") %>">简历管理</a>
 				</li>
 				<li><a rel="nofollow" href="create.jsp">发布职位</a></li>
 				<%

@@ -1458,6 +1458,11 @@ div.BMap_cmLstItem {
 <link rel="stylesheet" href="style/css/window.css">
 </head>
 <body>
+<%
+		if(session.getAttribute("auto_id")==null){
+			session.setAttribute("auto_id", 1);
+		}
+	 %>
 	<div id="body">
 		<jsp:include page="lock.jsp"></jsp:include>
 		<div id="header">
@@ -1474,7 +1479,7 @@ div.BMap_cmLstItem {
 					<%
 						if (session.getAttribute("status").equals(1)) {
 					%>
-					<li><a rel="nofollow" href="">简历管理</a></li>
+					<li><a rel="nofollow" href="back_jianli.action?status=0&com_id=<%=session.getAttribute("id") %>">简历管理</a></li>
 					<li class="current"><a rel="nofollow" href="create.jsp">发布职位</a>
 					</li>
 					<%
@@ -1493,19 +1498,19 @@ div.BMap_cmLstItem {
 		<div id="container">
 
 			<div class="sidebar">
-				<a class="btn_create" href="create.jsp">发布新职位</a>
-				<dl class="company_center_aside">
-					<dt>我收到的简历</dt>
-					<dd>
-						<a href="http://desktop-j8dvg5j:8080/bole/autoResum.jsp">待处理简历</a>
-					</dd>
-					<dd>
-						<a href="haveNoticeResumes.jsp">已通知面试简历</a>
-					</dd>
-					<dd>
-						<a href="haveRefuseResumes.jsp">不合适简历</a>
-					</dd>
-				</dl>
+        		            	<a class="btn_create" href="create.jsp">发布新职位</a>
+            	                <dl class="company_center_aside">
+		<dt>我收到的简历</dt>
+		<dd>
+		<a href="back_jianli.action?status=0&com_id=<%=session.getAttribute("id") %>">待处理简历</a> 
+			</dd>
+	<dd>
+		<a href="back_jianli.action?status=1&com_id=<%=session.getAttribute("id") %>">已通知面试简历</a>
+	</dd>
+	<dd>
+		<a href="back_jianli.action?status=2&com_id=<%=session.getAttribute("id") %>">不合适简历</a>
+	</dd>
+</dl>
 				<dl class="company_center_aside">
 					<dt>我发布的职位</dt>
 					<dd>

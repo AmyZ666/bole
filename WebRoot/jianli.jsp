@@ -60,7 +60,7 @@ var youdao_conv_id = 271546;
 				<%
 					if(session.getAttribute("status").equals(1)){
 				 %>
-				<li><a rel="nofollow" href="">简历管理</a>
+				<li><a rel="nofollow" href="back_jianli.action?status=0&com_id=<%=session.getAttribute("id") %>">简历管理</a>
 				</li>
 				<li><a rel="nofollow" href="create.jsp">发布职位</a></li>
 				<%
@@ -97,7 +97,7 @@ var youdao_conv_id = 271546;
 						最后一次更新：<span><s:property value="#pro.update_time"></s:property> </span>
 					</div>
 					<!--end #lastChangedTime-->
-					<div id="resumeScore">
+					<%-- <div id="resumeScore">
 						<div class="score fl">
 							<canvas height="120" width="120" id="doughnutChartCanvas"
 								style="width: 120px; height: 120px;"></canvas>
@@ -111,7 +111,7 @@ var youdao_conv_id = 271546;
 							<span rel="workExperience"><a>马上去完善</a>
 							</span>
 						</div>
-					</div>
+					</div> --%>
 					<!--end #resumeScore-->
 		
 		

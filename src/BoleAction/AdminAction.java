@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import model.JianToCom;
 import model.User;
@@ -27,6 +28,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import javax.persistence.Entity;
 public class AdminAction  extends ActionSupport {
 	
+	public String logout() throws Exception {
+		HttpSession session = null;
+		ActionContext.getContext().getSession().clear();
+
+		return "success";
+	}
 	
 	public String Mian() throws Exception {
 		String status,id;

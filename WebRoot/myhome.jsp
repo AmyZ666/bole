@@ -50,18 +50,17 @@ var youdao_conv_id = 271546;
 					</li>
 					<li class="current"><a href="companylist.jsp">公司</a>
 					</li>
-					<li><a target="_blank" href="forum.jsp">论坛</a>
-					</li>
+				
 					<%
 						if (session.getAttribute("status").equals(1)) {
 					%>
-					<li><a rel="nofollow" href="">简历管理</a></li>
+					<li><a rel="nofollow" href="back_jianli.action?status=0&com_id=<%=session.getAttribute("id") %>">简历管理</a></li>
 					<li><a rel="nofollow" href="create.jsp">发布职位</a>
 					</li>
 					<%
 						} else {
 					%>
-					<li><a rel="nofollow" href="#">我的简历</a>
+					<li><a rel="nofollow" href="jianlic.action?id=<%=session.getAttribute("id") %>">我的简历</a>
 					</li>
 					<%
 						}
