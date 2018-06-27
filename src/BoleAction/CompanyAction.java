@@ -19,6 +19,7 @@ import model.pro_com;
 import model.weal;
 
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CompanyAction extends ActionSupport implements SessionAware{
@@ -226,9 +227,23 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 		
 		for(int i = 0; i < list.size(); i ++){
 			com = new company();
-			
+			com.setId(list.get(i).getId());
+			com.setName(list.get(i).getName());
+			com.setShort_name(list.get(i).getShort_name());
+			com.setLogo(list.get(i).getLogo());
+			com.setWebsite(list.get(i).getWebsite());
+			com.setAddress(list.get(i).getAddress());
+			com.setStart_date(list.get(i).getStart_date());
+			com.setShort_introduce(list.get(i).getShort_introduce());
+			com.setIntroduce(list.get(i).getIntroduce());
+			com.setDomain(list.get(i).getDomain());
+			com.setStage(list.get(i).getStage());
+			com.setSize(list.get(i).getSize());
+			com.setInvest_name(list.get(i).getInvest_name());
+			com.setInvest_stage(list.get(i).getInvest_stage());
+			comp.add(com);
 		}
-		
+		ActionContext.getContext().getSession().put("comp_all", comp);
 		return "success";
 	}
 	
