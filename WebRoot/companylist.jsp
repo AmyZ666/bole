@@ -54,8 +54,8 @@ var youdao_conv_id = 271546;
 					</li>
 					<li class="current"><a href="companylist.jsp">公司</a>
 					</li>
-					<li><a target="_blank" href="forum.jsp">论坛</a>
-					</li>
+<!-- 					<li><a target="_blank" href="forum.jsp">论坛</a>
+					</li> -->
 					<%
 						if (session.getAttribute("status").equals(1)) {
 					%>
@@ -193,7 +193,7 @@ var youdao_conv_id = 271546;
 							<li 
 							<s:if test="st.index%3==0">
 							style="clear:both;"
-							</s:if>><a href="company.action"
+							</s:if>><a href="myhome.action?id=<s:property value='#com.id'></s:property>"
 								target="_blank">
 									<h3 title="CCIC"><s:property value='#com.name'></s:property></h3>
 									<div class="comLogo">
@@ -204,7 +204,7 @@ var youdao_conv_id = 271546;
 											<li><s:property value='#com.address'></s:property>，D轮及以上</li>
 										</ul>
 									</div> 
-								</a> <a href="h/jobs/148928.html" target="_blank"> <s:property value='#com.website'></s:property></a> 
+								</a> <a href="<s:property value='#com.website'></s:property>" target="_blank"> <s:property value='#com.website'></s:property></a> 
 								<ul class="reset ctags">
 									<li><s:property value='#com.stage'></s:property></li>
 									<li><s:property value='#com.size'></s:property></li>

@@ -39,6 +39,7 @@ var youdao_conv_id = 271546;
 <script src="style/js/conv.js" type="text/javascript"></script>
 <script src="style/js/ajaxCross.json" charset="UTF-8"></script></head>
 <body>
+<s:action name="myhome"></s:action>
 <div id="body">
 	<jsp:include page="lock.jsp"></jsp:include>
 		<div id="header">
@@ -73,55 +74,36 @@ var youdao_conv_id = 271546;
     <div id="container">
         <!-- <script src="style/js/swfobject_modified.js" type="text/javascript"></script> -->
         <div class="clearfix">
-        				
+        
+        	<s:iterator value="#session.comp_sea" var="com"  status='st' >	
+        	
+        		
             <div class="content_l">           
 	                <div class="c_detail">
 	                	<div style="background-color:#fff;" class="c_logo">
-		                	<a title="上传公司LOGO" id="logoShow" class="inline cboxElement" href="#logoUploader">
-		                				                			<img width="190" height="190" alt="公司logo" src="style/images/logo_default.png">
-	                        		                        	
-	                        	<span>更换公司图片<br>190px*190px 小于5M</span>
+		                	<a title="公司LOGO" id="logoShow" class="inline cboxElement" href="#logoUploader">
+		                	<img src="style/images/<s:property value='#com.logo'></s:property>" width="190"
+											height="190" alt="CCIC" />
 	                        </a>
 		                </div>
-		                
-		                <!--  			                <div class="c_logo" style="background-color:#fff;">
-			                	<div id="logoShow">
-			                		<img src="style/images/logo_default.png" width="190" height="190" alt="公司logo" />
-		                        	<span>更换公司图片<br />190px*190px 小于5M</span>
-		                        </div>
-		                        <input onchange="img_check(this,'http://www.lagou.com/cd/saveProfileLogo.json',25927,'logo');" type="file" id="logo" name="logo" title="支持jpg、jpeg、gif、png格式，文件小于5M" />
-			                     
-			                </div>
-		                    <span class="error" id="logo_error" style="display:none;"></span>
-						     -->
-		                
 	                    <div class="c_box companyName">
-	                    		                   			<h2 title="平潭协创进出口贸易有限公司">平潭协创进出口贸易有限公司</h2>
+	                    		                   			<h2 title="<s:property value='#com.name'></s:property>"><s:property value='#com.name'></s:property></h2>
 	                   			                        
 	                        	                        	<em class="unvalid"></em>
-                        		<span class="va dn">伯乐未认证企业</span>
-	                        	<a target="_blank" class="applyC" href="http://www.lagou.com/c/auth.html">申请认证</a>
+	                        	<a target="_blank" class="applyC" >伯乐认证</a>
 	                        	                        <div class="clear"></div>
 	                       	
-	                       		                   			<h1 title="福建平潭协创进出口贸易有限公司" class="fullname">福建平潭协创进出口贸易有限公司</h1>
+	                       		                   			<h1 title="<s:property value='#com.name'></s:property>" class="fullname"><s:property value='#com.name'></s:property></h1>
 	                        	                        
-	                        <form class="clear editDetail dn" id="editDetailForm">
-	                            <input type="text" placeholder="请输入公司简称" maxlength="15" value="平潭协创进出口贸易有限公司" name="companyShortName" id="companyShortName">
-	                            <input type="text" placeholder="一句话描述公司优势，核心价值，限50字" maxlength="50" value="测试的发打发打发大范德萨发" name="companyFeatures" id="companyFeatures">
-	                            <input type="hidden" value="25927" id="companyId" name="companyId">
-	                            <input type="submit" value="保存" id="saveDetail" class="btn_small">
-	                            <a id="cancelDetail" class="btn_cancel_s" >取消</a>
-		                    </form>
-	                            
 	                        <div class="clear oneword"><img width="17" height="15" src="style/images/quote_l.png">&nbsp; <span>测试的发打发打发大范德萨发</span> &nbsp;<img width="17" height="15" src="style/images/quote_r.png"></div>
 	                        <h3 class="dn">已选择标签</h3>
 	                        <ul style="overflow:auto" id="hasLabels" class="reset clearfix">
-	                        			                        	<li><span>年终分红</span></li>
-		                        		                        	<li><span>五险一金</span></li>
-		                        		                        	<li><span>弹性工作</span></li>
-		                        		                        	<li><span>岗位晋升</span></li>
-		                        	                            <li class="link">编辑</li>
+	                        			                        	<li><span><s:property value='#com.short_introduce'></s:property></span></li>
+
 	                        </ul>
+	                        
+	                        </s:iterator>	
+	                        
 	                        <div class="dn" id="addLabels">
 	                        	<a id="changeLabels" class="change" href="javascript:void(0)">换一换</a>
 	                        	<input type="hidden" value="1" id="labelPageNo">
@@ -133,7 +115,7 @@ var youdao_conv_id = 271546;
 	                            <a id="cancelLabels" class="btn_cancel_s" href="javascript:void(0)">取消</a>
 	                        </div>
 	                    </div>
-	                    <a title="编辑基本信息" class="c_edit" id="editCompanyDetail" href="javascript:void(0);"></a>
+
 	                	<div class="clear"></div>
 	                </div>
                 

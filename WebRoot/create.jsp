@@ -1469,8 +1469,8 @@ div.BMap_cmLstItem {
 					</li>
 					<li><a href="companylist.jsp">公司</a>
 					</li>
-					<li><a target="_blank" href="forum.jsp">论坛</a>
-					</li>
+<!-- 					<li><a target="_blank" href="forum.jsp">论坛</a>
+					</li> -->
 					<%
 						if (session.getAttribute("status").equals(1)) {
 					%>
