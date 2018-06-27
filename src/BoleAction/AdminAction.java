@@ -35,9 +35,9 @@ public class AdminAction  extends ActionSupport {
 		id=request.getParameter("com_id");
 		status=request.getParameter("status");
 		int auto_id;
-		if(status.equals(0)){
+		if(status.equals("0")){
 			ActionContext.getContext().getSession().put("auto_id", 1);
-		}else if(status.equals(1)){
+		}else if(status.equals("1")){
 			ActionContext.getContext().getSession().put("auto_id", 2);
 		}else{
 			ActionContext.getContext().getSession().put("auto_id", 3);
@@ -47,7 +47,7 @@ public class AdminAction  extends ActionSupport {
 		Transaction transaction = s.beginTransaction();
 		List<JianToCom> list = s.createSQLQuery("select * from jiantocom where com_id='"+id+"' and status='"+status+"'").addEntity(JianToCom.class).list();
 		List<jianli> list1 = s.createSQLQuery("select * from jianli").addEntity(jianli.class).list();
-		List<position> list2= s.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id&&c.id='"+id+"'").addEntity(position.class).list();
+		List<position> list2= s.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id").addEntity(position.class).list();
 		
 		transaction.commit();
 		s.close();
@@ -62,10 +62,12 @@ public class AdminAction  extends ActionSupport {
 			jtc=new JianToCom();
 			jtc.setId(list.get(i).getId());
 			jtc.setCom_id(list.get(i).getCom_id());
-
+			jtc.setPos_id(list.get(i).getPos_id());
 			jtc.setStatus(list.get(i).getStatus());
+			jtc.setCommit_time(list.get(i).getCommit_time());
 			jtc.setUser_id(list.get(i).getUser_id());
 			jtc.setYesorno(list.get(i).getYesorno());
+			System.out.println("commit_time"+list.get(i).getCommit_time());
 			jtcc.add(jtc);
 		}
 		for(int i=0;i<list1.size();i++){
@@ -89,6 +91,7 @@ public class AdminAction  extends ActionSupport {
 			ji.setSex(list1.get(i).getSex());
 			ji.setUpdate_time(list1.get(i).getUpdate_time());
 			ji.setUser_id(list1.get(i).getUser_id());
+
 			jis.add(ji);
 		}
 		for (int i = 0; i < list2.size(); i++) {
@@ -109,6 +112,7 @@ public class AdminAction  extends ActionSupport {
 			pros.setSize(list2.get(i).getSize());
 			pros.setStage(list2.get(i).getStage());
 			pros.setStatus(list2.get(i).getStatus());
+		
 			pross.add(pros);
 
 		}

@@ -14,8 +14,9 @@ public class JianToCom {
 	private int user_id;
 	private int com_id;
 	private int status;
-
+	private int pos_id;
 	private int yesorno;
+	private Date commit_time;
 	
 	@Id
 	@GeneratedValue
@@ -51,6 +52,19 @@ public class JianToCom {
 	public void setYesorno(int yesorno) {
 		this.yesorno = yesorno;
 	}
+	public int getPos_id() {
+		return pos_id;
+	}
+	public void setPos_id(int pos_id) {
+		this.pos_id = pos_id;
+	}
+	public Date getCommit_time() {
+		return commit_time;
+	}
+	public void setCommit_time(Date commit_time) {
+		this.commit_time = commit_time;
+	}
+	
 	
 	
 }

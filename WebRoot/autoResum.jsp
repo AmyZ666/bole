@@ -123,19 +123,17 @@ var youdao_conv_id = 271546;
                                                                                        }
                                                                                         %><span></span>                        </h1>
                     </dt>
-                    <s:iterator value="#session.jis" var="ji"  status='sta' >
-                    <s:iterator value="#session.pross_re" var="re"  status='stb' >
-                    <s:iterator value="#session.jtcc" var="jtc"  status='stc' >
-                    <s:if test="#ji.id==#jtc.user_id&&#jtc.pos_id==#re.id">
+                    
+                     
                     <dd>
-                    	<form action="autoFilterResumes.html" method="get" id="filterForm">
-	                    			
-		                    	<div class="filter_actions ">
-		                        	
-          <input type="hidden" value="0" name="filterStatus" id="filterStatus">
-     <input type="hidden" value="" name="positionId" id="positionId">
- </div><!-- end .filter_options -->	                        	                        		                        <ul class="reset resumeLists">
-		                            			                            <li data-id="1686182" class="onlineResume">
+                    	
+                    	<s:iterator value="#session.jis" var="ji"  status='sta' >
+                    <s:iterator value="#session.poss_re" var="re"  status='stb' >
+                    <s:iterator value="#session.jtcc" var="jtc"  status='stc' >
+                   
+                 <s:if test="#ji.id==#jtc.user_id&&#jtc.pos_id==#re.id">
+	                    		<ul class="reset resumeLists">
+		                            	 <li data-id="1686182" class="onlineResume">
 			                                <label class="checkbox">
 			                                    <input type="checkbox">
 			                                    <i></i>
@@ -151,10 +149,10 @@ var youdao_conv_id = 271546;
 		                                        		</a>
 				                           	 							                           	 			<em></em>
 			                                        </h3>
-			                                        <span class="fr">投递时间：<s:property value="#jtc.commitTime"></s:property></span>
+			                                        <span class="fr">投递时间：<s:date name="#jtc.commit_time"  format="yyyy-MM-dd hh:mm:ss" nice="false"  /></span>
 			                                        <div> 
-			                                        	<s:property value="#ji.name"></s:property> 			                                        	 / <s:property value="#ji.sex"></s:property> 			                                        	/ <s:property value="#ji.education"></s:property>		                                        	/ <s:property value="#ji.exp"></s:property>  			                                        	/ <s:property value="#ji.adress"></s:property>			                                            			                                        		<br>
-			                                            	<s:property value="#re.name"></s:property> 	 · <s:property value="#ji.name"></s:property> 	<s:property value="#re.com_name"></s:property> 	 | 本科 · <s:property value="#re.school_name"></s:property>
+			                                        	<s:property value="#ji.name"></s:property> 			                                        	 / <s:property value="#ji.sex"></s:property> 			               /<s:property value="#ji.hope_city"></s:property>	                         	/ <s:property value="#ji.exp"></s:property>工作经验  			                                        	/ 			                                        <s:property value="#ji.education"></s:property>	                                            			                                        		
+			                                            	· <s:property value="#ji.school_name"></s:property>
 			                                            			                                        </div>
 			                                        <div class="jdpublisher">
 				                                        <span>
@@ -162,21 +160,24 @@ var youdao_conv_id = 271546;
 				                                       						                                        </span>
 			                                        </div>
 			                                    </div>
+			                                    <s:if test="#jtc.status==0">
 			                                    <div class="links">
 			                                       	<a data-deliverid="1686182" data-name="jason" data-positionid="149594" data-email="888888888@qq.com" class="resume_notice" href="javascript:void(0)">通知面试</a>
  													<a data-deliverid="1686182" class="resume_refuse" href="javascript:void(0)">不合适</a>
  													<a data-deliverid="1686182" class="resume_caninterview" href="javascript:void(0)">待定</a>
                                                 
 			                                    </div>
+			                                    </s:if>
 			                                </div>
 			                            </li>
 		                            		                    	</ul><!-- end .resumeLists -->
-		                    		                    				            </form>
+		                            		                    	 </s:if> 
+                    </s:iterator>
+                    </s:iterator>
+                    </s:iterator>
+		                    		                    				           
                     </dd>
-                    </s:if>
-                    </s:iterator>
-                    </s:iterator>
-                    </s:iterator>
+                    
                 </dl>
             </div><!-- end .content -->
 
