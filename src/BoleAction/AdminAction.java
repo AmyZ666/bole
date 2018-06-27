@@ -28,6 +28,24 @@ import javax.persistence.Entity;
 public class AdminAction  extends ActionSupport {
 	
 	
+	public String Mian() throws Exception {
+		String status,id;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		status=request.getParameter("yesorno");
+		id=request.getParameter("jtc_id");
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		//hql更新部分列 
+		Query query = s.createQuery("update JianToCom t set t.status = '"+status+"' where id = '"+id+"'");  
+        query.executeUpdate();
+        transaction.commit();
+        
+		s.close();
+		System.out.println("yesorno:"+status+"id"+id);
+		return "success";
+	}
+	
 	public String Back_jianli() throws Exception {
 		String id;
 		String status;
@@ -42,7 +60,7 @@ public class AdminAction  extends ActionSupport {
 		}else{
 			ActionContext.getContext().getSession().put("auto_id", 3);
 		}
-		System.out.println(123456);
+
 		Session s = HibernateSessionFactory.getSession();
 		Transaction transaction = s.beginTransaction();
 		List<JianToCom> list = s.createSQLQuery("select * from jiantocom where com_id='"+id+"' and status='"+status+"'").addEntity(JianToCom.class).list();
@@ -54,7 +72,7 @@ public class AdminAction  extends ActionSupport {
 		ArrayList<JianToCom> jtcc = new ArrayList<JianToCom>();
 		ArrayList<jianli> jis = new ArrayList<jianli>();
 		ArrayList<position> pross = new ArrayList<position>();
-		System.out.println(123456);
+
 		JianToCom jtc;
 		jianli ji;
 		position pros;
@@ -67,7 +85,7 @@ public class AdminAction  extends ActionSupport {
 			jtc.setCommit_time(list.get(i).getCommit_time());
 			jtc.setUser_id(list.get(i).getUser_id());
 			jtc.setYesorno(list.get(i).getYesorno());
-			System.out.println("commit_time"+list.get(i).getCommit_time());
+		
 			jtcc.add(jtc);
 		}
 		for(int i=0;i<list1.size();i++){
@@ -121,7 +139,7 @@ public class AdminAction  extends ActionSupport {
 		
 		ActionContext.getContext().getSession().put("jtcc", jtcc);
 		ActionContext.getContext().getSession().put("jis", jis);
-		System.out.println(123456);
+		
 		return "success";
 	}
 	public String Back_pos() throws Exception {

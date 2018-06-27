@@ -1649,7 +1649,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <s:if test="#pos.status==0">
                                 	通过审核
                                 </s:if>
-                                <s:elseif test="#pos.status==2">
+                                <s:elseif test="#pos.status==1">
                                 	未审核
                                 </s:elseif>
                                 <s:else>

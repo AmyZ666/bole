@@ -35,7 +35,14 @@ public class UserAction  extends ActionSupport implements SessionAware{
 	public void setJl(jianli jl) {
 		this.jl = jl;
 	}
-
+	
+	public String Mian() throws Exception{
+		String id;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		id=request.getParameter("id");
+		return "success";
+	}
+	
 	public String jianli() throws Exception{
 		
 		int id;
