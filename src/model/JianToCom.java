@@ -14,7 +14,8 @@ public class JianToCom {
 	private int user_id;
 	private int com_id;
 	private int status;
-	private Date commite_time;
+
+	private int yesorno;
 	
 	@Id
 	@GeneratedValue
@@ -42,11 +43,13 @@ public class JianToCom {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public Date getCommite_time() {
-		return commite_time;
+	
+
+	public int getYesorno() {
+		return yesorno;
 	}
-	public void setCommite_time(Date commite_time) {
-		this.commite_time = commite_time;
+	public void setYesorno(int yesorno) {
+		this.yesorno = yesorno;
 	}
 	
 	

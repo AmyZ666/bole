@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE HTML>
 <html xmlns:wb="http://open.weibo.com/wb"><head>
 </script><script type="text/javascript" async="" src="style/js/conversion.js"></script><script src="style/js/allmobilize.min.js" charset="utf-8" id="allmobilize"></script><style type="text/css"></style>
@@ -123,6 +123,10 @@ var youdao_conv_id = 271546;
                                                                                        }
                                                                                         %><span></span>                        </h1>
                     </dt>
+                    <s:iterator value="#session.jis" var="ji"  status='sta' >
+                    <s:iterator value="#session.pross_re" var="re"  status='stb' >
+                    <s:iterator value="#session.jtcc" var="jtc"  status='stc' >
+                    <s:if test="#ji.id==#jtc.user_id&&#jtc.pos_id==#re.id">
                     <dd>
                     	<form action="autoFilterResumes.html" method="get" id="filterForm">
 	                    			
@@ -143,18 +147,18 @@ var youdao_conv_id = 271546;
 			                                    			                                    <div class="resumeIntro">
 			                                        <h3 class="unread">
 			                                        				                                        	<a target="_blank" title="预览jason的简历" href="resumeView.html?deliverId=1686182">
-			                                        			                                            		jason的简历
+			                                        			                                            		<s:property value="#ji.name"></s:property>的简历
 		                                        		</a>
 				                           	 							                           	 			<em></em>
 			                                        </h3>
-			                                        <span class="fr">投递时间：2014-07-01 17:08</span>
+			                                        <span class="fr">投递时间：<s:property value="#jtc.commitTime"></s:property></span>
 			                                        <div> 
-			                                        	jason  			                                        	 / 男 			                                        	/ 大专 			                                        	/ 3年  			                                        	/ 广州 			                                            			                                        		<br>
-			                                            	高级产品经理 · 上海辉硕科技有限公司 | 本科 · 北京大学
+			                                        	<s:property value="#ji.name"></s:property> 			                                        	 / <s:property value="#ji.sex"></s:property> 			                                        	/ <s:property value="#ji.education"></s:property>		                                        	/ <s:property value="#ji.exp"></s:property>  			                                        	/ <s:property value="#ji.adress"></s:property>			                                            			                                        		<br>
+			                                            	<s:property value="#re.name"></s:property> 	 · <s:property value="#ji.name"></s:property> 	<s:property value="#re.com_name"></s:property> 	 | 本科 · <s:property value="#re.school_name"></s:property>
 			                                            			                                        </div>
 			                                        <div class="jdpublisher">
 				                                        <span>
-				                                        	应聘职位：<a title="随便写" target="_blank" href="http://www.lagou.com/jobs/149594.html">随便写</a>
+				                                        	应聘职位：<a title="随便写" target="_blank" href="http://www.lagou.com/jobs/149594.html"><s:property value="#re.name"></s:property></a>
 				                                       						                                        </span>
 			                                        </div>
 			                                    </div>
@@ -169,6 +173,10 @@ var youdao_conv_id = 271546;
 		                            		                    	</ul><!-- end .resumeLists -->
 		                    		                    				            </form>
                     </dd>
+                    </s:if>
+                    </s:iterator>
+                    </s:iterator>
+                    </s:iterator>
                 </dl>
             </div><!-- end .content -->
 

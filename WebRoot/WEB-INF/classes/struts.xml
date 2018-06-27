@@ -112,7 +112,7 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="back_jianli" class="BoleAction.AdminAction" method="Back_jianli">
-			<result name="success">/admin.jsp</result>
+			<result name="success">/autoResum.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>

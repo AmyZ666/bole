@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import model.JianToCom;
 import model.User;
 import model.company;
+import model.jianli;
 import model.pos_description;
 import model.pos_order;
 import model.pos_other;
@@ -28,14 +29,95 @@ public class AdminAction  extends ActionSupport {
 	
 	
 	public String Back_jianli() throws Exception {
-		String id,status;
+		String id;
+		String status;
 		HttpServletRequest request = ServletActionContext.getRequest();
 		id=request.getParameter("com_id");
 		status=request.getParameter("status");
-		
+		int auto_id;
+		if(status.equals(0)){
+			ActionContext.getContext().getSession().put("auto_id", 1);
+		}else if(status.equals(1)){
+			ActionContext.getContext().getSession().put("auto_id", 2);
+		}else{
+			ActionContext.getContext().getSession().put("auto_id", 3);
+		}
+		System.out.println(123456);
 		Session s = HibernateSessionFactory.getSession();
 		Transaction transaction = s.beginTransaction();
-		List<JianToCom> list_order = s.createSQLQuery("select * from jiantocom where com_id='"+id+"' and status='"+status+"'").addEntity(pos_order.class).list();
+		List<JianToCom> list = s.createSQLQuery("select * from jiantocom where com_id='"+id+"' and status='"+status+"'").addEntity(JianToCom.class).list();
+		List<jianli> list1 = s.createSQLQuery("select * from jianli").addEntity(jianli.class).list();
+		List<position> list2= s.createSQLQuery("select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder from position p,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id&&c.id='"+id+"'").addEntity(position.class).list();
+		
+		transaction.commit();
+		s.close();
+		ArrayList<JianToCom> jtcc = new ArrayList<JianToCom>();
+		ArrayList<jianli> jis = new ArrayList<jianli>();
+		ArrayList<position> pross = new ArrayList<position>();
+		System.out.println(123456);
+		JianToCom jtc;
+		jianli ji;
+		position pros;
+		for(int i=0;i<list.size();i++){
+			jtc=new JianToCom();
+			jtc.setId(list.get(i).getId());
+			jtc.setCom_id(list.get(i).getCom_id());
+
+			jtc.setStatus(list.get(i).getStatus());
+			jtc.setUser_id(list.get(i).getUser_id());
+			jtc.setYesorno(list.get(i).getYesorno());
+			jtcc.add(jtc);
+		}
+		for(int i=0;i<list1.size();i++){
+			ji= new jianli();
+			ji.setEducation(list1.get(i).getEducation());
+			ji.setEmail(list1.get(i).getEmail());
+			ji.setExp(list1.get(i).getExp());
+			ji.setHope_city(list1.get(i).getHope_city());
+			ji.setHope_position(list1.get(i).getHope_position());
+			ji.setHope_salary(list1.get(i).getHope_salary());
+			ji.setId(list1.get(i).getId());
+			ji.setImg(list1.get(i).getImg());
+			ji.setName(list1.get(i).getName());
+			ji.setPhone(list1.get(i).getPhone());
+			ji.setPro_introduction(list1.get(i).getPro_introduction());
+			ji.setProduce(list1.get(i).getProduce());
+			ji.setSchool_education(list1.get(i).getSchool_education());
+			ji.setSchool_major(list1.get(i).getSchool_major());
+			ji.setSchool_name(list1.get(i).getSchool_name());
+			ji.setSelf_introduction(list1.get(i).getSelf_introduction());
+			ji.setSex(list1.get(i).getSex());
+			ji.setUpdate_time(list1.get(i).getUpdate_time());
+			ji.setUser_id(list1.get(i).getUser_id());
+			jis.add(ji);
+		}
+		for (int i = 0; i < list2.size(); i++) {
+			pros = new position();
+			
+			pros.setCom_id(list2.get(i).getCom_id());
+			pros.setEducution(list2.get(i).getEducution());
+			pros.setExp(list2.get(i).getExp());
+			pros.setName(list2.get(i).getName());
+			pros.setSalary(list2.get(i).getSalary());
+			pros.setStart_time(list2.get(i).getStart_time());
+			pros.setTempt(list2.get(i).getTempt());
+			pros.setAddress(list2.get(i).getAddress());
+			pros.setId(list2.get(i).getId());
+			pros.setCom_founder(list2.get(i).getCom_founder());
+			pros.setCom_name(list2.get(i).getCom_name());
+			pros.setDomain(list2.get(i).getDomain());
+			pros.setSize(list2.get(i).getSize());
+			pros.setStage(list2.get(i).getStage());
+			pros.setStatus(list2.get(i).getStatus());
+			pross.add(pros);
+
+		}
+		System.out.println(123456);
+		ActionContext.getContext().getSession().put("poss_re", pross);
+		
+		ActionContext.getContext().getSession().put("jtcc", jtcc);
+		ActionContext.getContext().getSession().put("jis", jis);
+		System.out.println(123456);
 		return "success";
 	}
 	public String Back_pos() throws Exception {
