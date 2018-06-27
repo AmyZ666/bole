@@ -103,7 +103,25 @@ var youdao_conv_id = 271546;
                     <dt>
                         <h1>
                             <em></em>
-                                                                                    自动过滤简历  <span></span>                        </h1>
+                                                                                    <%
+                                                                                    if(session.getAttribute("auto_id").equals(1)){
+                                                                                     %>
+                                                                                     待处理简历
+                                                                                     <%
+                                                                                     		
+                                                                                     	}else if(session.getAttribute("auto_id").equals(2)){
+                                                                                     	
+                                                                                      %>
+                                                                                      已通知面试简历
+                                                                                      <%
+                                                                                      		
+                                                                                      	}else{
+                                                                                      	
+                                                                                       %>
+                                                                                       不合适简历
+                                                                                       <%
+                                                                                       }
+                                                                                        %><span></span>                        </h1>
                     </dt>
                     <dd>
                     	<form action="autoFilterResumes.html" method="get" id="filterForm">
@@ -144,10 +162,7 @@ var youdao_conv_id = 271546;
 			                                       	<a data-deliverid="1686182" data-name="jason" data-positionid="149594" data-email="888888888@qq.com" class="resume_notice" href="javascript:void(0)">通知面试</a>
  													<a data-deliverid="1686182" class="resume_refuse" href="javascript:void(0)">不合适</a>
  													<a data-deliverid="1686182" class="resume_caninterview" href="javascript:void(0)">待定</a>
-                                                    <a data-resumename="jason的简历" data-positionname="随便写" data-deliverid="1686182" data-positionid="149594" data-resumekey="1ccca806e13637f7b1a4560f80f08057" data-forwardcount="1" class="resume_forward" href="javascript:void(0)">
-                                                    	转发
-                                                    	                                                    	<span>(1人)</span>
-                                                    	                                                    </a>
+                                                
 			                                    </div>
 			                                </div>
 			                            </li>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import model.JianToCom;
 import model.User;
 import model.company;
 import model.pos_description;
@@ -25,6 +26,18 @@ import com.opensymphony.xwork2.ActionSupport;
 import javax.persistence.Entity;
 public class AdminAction  extends ActionSupport {
 	
+	
+	public String Back_jianli() throws Exception {
+		String id,status;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		id=request.getParameter("com_id");
+		status=request.getParameter("status");
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		List<JianToCom> list_order = s.createSQLQuery("select * from jiantocom where com_id='"+id+"' and status='"+status+"'").addEntity(pos_order.class).list();
+		return "success";
+	}
 	public String Back_pos() throws Exception {
 		String id,status;
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -32,6 +45,17 @@ public class AdminAction  extends ActionSupport {
 		status=request.getParameter("status");
 		System.out.println(id);
 		System.out.println(status);
+		
+		Session s = HibernateSessionFactory.getSession();
+		Transaction transaction = s.beginTransaction();
+		
+		//hql更新部分列 
+		Query query = s.createQuery("update position t set t.status = '"+status+"' where id = '"+id+"'");  
+        query.executeUpdate();
+		
+		//s.saveOrUpdate(c);
+		transaction.commit();
+		s.close();
 		
 		return "success";
 	}

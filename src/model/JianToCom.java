@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +14,7 @@ public class JianToCom {
 	private int user_id;
 	private int com_id;
 	private int status;
+	private Date commite_time;
 	
 	@Id
 	@GeneratedValue
@@ -39,5 +42,12 @@ public class JianToCom {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	public Date getCommite_time() {
+		return commite_time;
+	}
+	public void setCommite_time(Date commite_time) {
+		this.commite_time = commite_time;
+	}
+	
 	
 }
