@@ -115,6 +115,10 @@
 			<result name="success">/autoResum.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+ 		<action name="company" class="BoleAction.CompanyAction" method="companylist">
+			<result name="success">/companylist.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 	
 	

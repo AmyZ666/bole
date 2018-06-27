@@ -1,6 +1,8 @@
 package BoleAction;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -205,6 +207,28 @@ public class CompanyAction extends ActionSupport implements SessionAware{
 		
 		transaction.commit();
 		s.close();
+		return "success";
+	}
+	
+	public String companylist() throws Exception{
+		Session session = HibernateSessionFactory.getSession();
+		Transaction tx = session.beginTransaction();
+		
+		List<company> list = session
+				.createSQLQuery(
+						"select c.* from company c order by id desc")
+				.addEntity(company.class).list();
+		tx.commit();
+		session.close();
+		
+		ArrayList<company> comp = new ArrayList<company>();
+		company com;
+		
+		for(int i = 0; i < list.size(); i ++){
+			com = new company();
+			
+		}
+		
 		return "success";
 	}
 	

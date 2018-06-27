@@ -42,6 +42,7 @@ var youdao_conv_id = 271546;
 <script type="text/javascript" src="style/js/conv.js"></script>
 </head>
 <body>
+	<s:action name="company"></s:action>   
 	<div id="body">
 		<jsp:include page="lock.jsp"></jsp:include>
 		<div id="header">
@@ -215,7 +216,7 @@ var youdao_conv_id = 271546;
 							</dd>
 						</dl>
 						<ul class="hc_list reset">
-							<li style="clear:both;"><a href="h/c/25829.html"
+							<li style="clear:both;"><a href="company.action"
 								target="_blank">
 									<h3 title="CCIC">CCIC</h3>
 									<div class="comLogo">
@@ -529,10 +530,6 @@ var youdao_conv_id = 271546;
 							<div class="count">
 								已有 <em>3</em> <em>4</em> <em>2</em> <em>1</em> <em>0</em> 人订阅
 							</div> <i>我也要订阅职位</i> </a>
-					</div>
-					<div class="greybg qrcode mt20">
-						<img src="style/images/companylist_qr.png" width="242"
-							height="242" alt="拉勾微信公众号二维码" /> <span class="c7">扫描拉勾二维码，微信轻松搜工作</span>
 					</div>
 					<!-- <a href="h/speed/speed3.html" target="_blank" class="adSpeed"></a> -->
 					<a href="h/subject/jobguide.html" target="_blank" class="eventAd">
