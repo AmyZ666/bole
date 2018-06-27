@@ -132,6 +132,10 @@
 			<result name="success">/myhome.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="del_mian" class="BoleAction.UserAction" method="del_mian">
+			<result name="success">/getmian.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 	
 	

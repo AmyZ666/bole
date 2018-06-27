@@ -40,7 +40,7 @@ var youdao_conv_id = 271546;
 <script src="style/js/ajaxCross.json" charset="UTF-8"></script></head>
 <body>
 <div id="body">
-		<s:action name="getmian?id=<%=session.getAttribute("id") %>"></s:action>
+	
 		<jsp:include page="lock.jsp"></jsp:include>
 	<div id="header">
 		<div class="wrapper">
@@ -75,7 +75,7 @@ var youdao_conv_id = 271546;
             	                <dl class="company_center_aside">
 		<dt>我收到的面试通知</dt>
 		<dd>
-		<a href="#">面试提醒</a> 
+		<a href="getmian.action?id=<%=session.getAttribute("id") %>">面试提醒</a> 
 			</dd>
 	
 </dl>
@@ -92,11 +92,10 @@ var youdao_conv_id = 271546;
                      
                     <dd>
                     	
-                    	<s:iterator value="#session.jis" var="ji"  status='sta' >
-                    <s:iterator value="#session.poss_re" var="re"  status='stb' >
-                    <s:iterator value="#session.jtcc" var="jtc"  status='stc' >
+                    	<s:iterator value="#session.poss_mi" var="mi"  status='sta' >
                    
-                 <s:if test="#ji.id==#jtc.user_id&&#jtc.pos_id==#re.id">
+                   
+            
 	                    		<ul class="reset resumeLists">
 		                            	 <li data-id="1686182" class="onlineResume">
 			                                <label class="checkbox">
@@ -104,42 +103,43 @@ var youdao_conv_id = 271546;
 			                                    <i></i>
 			                                </label>
 			                                <div class="resumeShow">
-			                                				                                    <a title="预览在线简历" target="_blank" class="resumeImg" href="resumeView.html?deliverId=1686182">
+			                                				                      <!--               <a title="预览在线简历" target="_blank" class="resumeImg" href="resumeView.html?deliverId=1686182">
 			                                    	<img src="style/images/default_headpic.png">
-			                                    </a>
+			                                    </a> -->
 			                                    			                                    <div class="resumeIntro">
 			                                        <h3 class="unread">
 			                                        				                                        	<a target="_blank" title="预览jason的简历" href="resumeView.html?deliverId=1686182">
-			                                        			                                            		<s:property value="#ji.name"></s:property>的简历
+			                                        			                                            		<s:property value="#mi.name"></s:property>
 		                                        		</a>
 				                           	 							                           	 			<em></em>
 			                                        </h3>
-			                                        <span class="fr">投递时间：<s:date name="#jtc.commit_time"  format="yyyy-MM-dd hh:mm:ss" nice="false"  /></span>
+			                                       
 			                                        <div> 
-			                                        	<s:property value="#ji.name"></s:property> 			                                        	 / <s:property value="#ji.sex"></s:property> 			               /<s:property value="#ji.hope_city"></s:property>	                         	/ <s:property value="#ji.exp"></s:property>工作经验  			                                        	/ 			                                        <s:property value="#ji.education"></s:property>	                                            			                                        		
-			                                            	· <s:property value="#ji.school_name"></s:property>
+			                                        	月薪：<s:property value="#mi.salay"></s:property> 			                                        	 / 经验：<s:property value="#mi.exp"></s:property>
+			                                        	 /最低学历：<s:property value="#mi.educution"></s:property>	 <br> 
+			                                           	 职位诱惑：<s:property value="#mi.tempt"></s:property>  <br>                                      			                                        		
+			                                            公司：	<s:property value="#mi.com_name"></s:property> 
 			                                            			                                        </div>
 			                                        <div class="jdpublisher">
-				                                        <span>
-				                                        	应聘职位：<a title="随便写" target="_blank" href="http://www.lagou.com/jobs/149594.html"><s:property value="#re.name"></s:property></a>
-				                                       						                                        </span>
+				                                       
 			                                        </div>
 			                                    </div>
-			                                    <s:if test="#jtc.status==0">
+			                                   
 			                                    <div class="links">
-			                                       	<a data-deliverid="1686182" data-name="jason" data-positionid="149594" data-email="888888888@qq.com" class="resume_notice" href="back_mian.action?yesorno=1&jtc_id=<s:property value="#jtc.id"></s:property>">通知面试</a>
- 													<a data-deliverid="1686182" class="resume_refuse" href="back_mian.action?yesorno=2&jtc_id=<s:property value="#jtc.id"></s:property>">不合适</a>
+			                                       	<a data-deliverid="1686182" data-name="jason" data-positionid="149594" 
+			                                       	data-email="888888888@qq.com" class="resume_notice" 
+			                                       	href="del_mian.action?pos_id=<s:property value="#mi.id"></s:property>&user_id=<%=session.getAttribute("id") %>">删除提醒</a>
+ 													
  												
                                                 
 			                                    </div>
-			                                    </s:if>
+			                                 
 			                                </div>
 			                            </li>
 		                            		                    	</ul><!-- end .resumeLists -->
-		                            		                    	 </s:if> 
+		                            		                   
                     </s:iterator>
-                    </s:iterator>
-                    </s:iterator>
+                  
 		                    		                    				           
                     </dd>
                     

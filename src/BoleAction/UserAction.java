@@ -7,11 +7,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import model.JianToCom;
+import model.User;
 import model.jianli;
 import model.position;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -36,10 +39,64 @@ public class UserAction  extends ActionSupport implements SessionAware{
 		this.jl = jl;
 	}
 	
+	public String del_mian() throws Exception{
+		String user_id,pos_id;
+		int id;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		user_id=request.getParameter("user_id");
+		pos_id=request.getParameter("pos_id");
+		
+		Session session = HibernateSessionFactory.getSession();
+		Transaction tx = session.beginTransaction();
+		Query query = session.createQuery("update JianToCom t set t.status = 4 where user_id = '"+user_id+"' and pos_id='"+pos_id+"'");  
+        query.executeUpdate();
+		tx.commit();
+		session.close();
+		System.out.println("É¾³ý³É¹¦");
+		return "success";
+	}
+	
 	public String Mian() throws Exception{
 		String id;
 		HttpServletRequest request = ServletActionContext.getRequest();
 		id=request.getParameter("id");
+		
+		Session session = HibernateSessionFactory.getSession();
+		Transaction tx = session.beginTransaction();
+		
+		List<position> list = session
+				.createSQLQuery(
+						"select p.*,c.stage,c.domain,c.size,c.name as com_name,f.name as com_founder  from position p,JianToCom j,company c,founder f where p.com_id=c.id&&p.com_id=f.com_id&&c.id=f.com_id&&j.user_id='"+id+"'&&j.status=1&&j.com_id=c.id&&j.pos_id=p.id")
+				.addEntity(position.class).list();
+		
+		tx.commit();
+		session.close();
+		ArrayList<position> pross = new ArrayList<position>();
+		position pros;
+		for (int i = 0; i < list.size(); i++) {
+			pros = new position();
+			
+			pros.setCom_id(list.get(i).getCom_id());
+			pros.setEducution(list.get(i).getEducution());
+			pros.setExp(list.get(i).getExp());
+			pros.setName(list.get(i).getName());
+			pros.setSalary(list.get(i).getSalary());
+			pros.setStart_time(list.get(i).getStart_time());
+			pros.setTempt(list.get(i).getTempt());
+			pros.setAddress(list.get(i).getAddress());
+			pros.setId(list.get(i).getId());
+			pros.setCom_founder(list.get(i).getCom_founder());
+			pros.setCom_name(list.get(i).getCom_name());
+			pros.setDomain(list.get(i).getDomain());
+			pros.setSize(list.get(i).getSize());
+			pros.setStage(list.get(i).getStage());
+			pros.setStatus(list.get(i).getStatus());
+			System.out.println("mian:"+list.get(i).getName());
+			pross.add(pros);
+
+		}
+		
+		ActionContext.getContext().getSession().put("poss_mi", pross);
 		return "success";
 	}
 	
