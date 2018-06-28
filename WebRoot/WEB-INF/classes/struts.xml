@@ -78,6 +78,12 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		<action name="getJian" class="BoleAction.ToudiAction"
+			method="getJian">
+			<result name="success">/preview.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 
 		<action name="jianli" class="BoleAction.UserAction" method="jianli">
 			<result name="success">/preview.jsp</result>

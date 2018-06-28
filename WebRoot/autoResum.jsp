@@ -144,7 +144,7 @@ var youdao_conv_id = 271546;
 			                                    </a>
 			                                    			                                    <div class="resumeIntro">
 			                                        <h3 class="unread">
-			                                        				                                        	<a target="_blank" title="预览jason的简历" href="getJian.action?id=">
+			                                        				                                        	<a target="_blank" title="预览jason的简历" href="getJian.action?id=<s:property value="#ji.id"></s:property>">
 			                                        			                                            		<s:property value="#ji.name"></s:property>的简历
 		                                        		</a>
 				                           	 							                           	 			<em></em>

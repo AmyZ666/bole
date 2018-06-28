@@ -49,9 +49,7 @@ $(function(){
 	
 	<div id="previewWrapper">
 		<div class="preview_header">
-			<h1 title="jason的简历"><s:property value="#pro.name"></s:property>的简历</h1>
-			<a title="下载简历" class="inline cboxElement"
-				href="#downloadOnlineResume">下载该简历</a>
+			
 		</div>
 		<!--end .preview_header-->
 
