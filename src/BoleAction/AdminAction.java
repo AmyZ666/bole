@@ -35,6 +35,10 @@ public class AdminAction  extends ActionSupport {
 		return "success";
 	}
 	
+	public String login() throws Exception {
+		return "success";
+	}
+	
 	public String Mian() throws Exception {
 		String status,id;
 		HttpServletRequest request = ServletActionContext.getRequest();

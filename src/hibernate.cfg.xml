@@ -27,6 +27,7 @@
     	<mapping class="model.pro_com" />
     	<mapping class="model.jianli" />
     	<mapping class="model.JianToCom" />
+    	<mapping class="model.posi" />
     	
 </session-factory>
 

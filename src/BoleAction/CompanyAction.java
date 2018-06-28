@@ -20,6 +20,7 @@ import test.HibernateSessionFactory;
 
 import model.company;
 import model.founder;
+import model.posi;
 import model.position;
 import model.pro_com;
 import model.weal;
@@ -243,7 +244,7 @@ public class CompanyAction extends ActionSupport implements SessionAware {
 
 	public String create() throws Exception {
 		System.out.println(getPs().getName());
-		position pst = new position();
+		posi pst = new posi();
 
 		pst.setName(getPs().getName());
 		pst.setAddress(getPs().getAddress());
@@ -255,7 +256,7 @@ public class CompanyAction extends ActionSupport implements SessionAware {
 		pst.setTempt(getPs().getTempt());
 		int id = (Integer) (session.get("id"));
 		pst.setCom_id(id);
-		pst.setCom_founder("toosimple");
+
 		pst.setCom_name("toosimple");
 		pst.setDomain("»¥ÁªÍø");
 		pst.setSize("1024");
