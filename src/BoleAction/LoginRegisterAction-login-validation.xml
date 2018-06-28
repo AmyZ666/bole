@@ -2,7 +2,7 @@
 <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
 "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
-<!-- <field name="user.email">
+ <field name="user.email">
 	<field-validator type="requiredstring">
 		<param name="trim">true</param>
 		<message>请填写邮箱</message>
@@ -20,5 +20,5 @@
 	<param name="maxLength">32</param> 
 	<message>为了您账号的安全，请设置6个字母以上的密码（最长可设置32个字母）</message> 
 	</field-validator>
-</field> -->
+</field> 
 </validators>

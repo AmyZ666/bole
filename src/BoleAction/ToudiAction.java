@@ -21,6 +21,13 @@ import model.position;
 
 public class ToudiAction extends ActionSupport{
 	
+	
+	public String getJian() throws Exception{
+		String id;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		id=request.getParameter("id");
+		return "success";
+	}
 	public String Toudi() throws Exception{
 		ListAction.List();
 		String id;

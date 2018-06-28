@@ -20,11 +20,11 @@ public class posi{
 	private int com_id;
 	private String address;
 	private int hot_num;
-	private String com_name;
+	/*private String com_name;
 
 	private String domain;
 	private String stage;
-	private String size;
+	private String size;*/
 	private String email;
 	private String detail_address;
 	private int status;
@@ -111,7 +111,7 @@ public class posi{
 		this.hot_num = hot_num;
 	}
 
-	public String getCom_name() {
+	/*public String getCom_name() {
 		return com_name;
 	}
 
@@ -144,7 +144,7 @@ public class posi{
 	public void setSize(String size) {
 		this.size = size;
 	}
-
+*/
 	public String getEmail() {
 		return email;
 	}

@@ -1571,8 +1571,8 @@ div.BMap_cmLstItem {
 						<dd>
 							<!-- 用户是否激活 0-否；1-是 -->
 
-							<a title="投个简历" class="btn fr btn_apply inline cboxElement"
-								href="#setResumeApply">投个简历</a>
+							<a title="投个简历" class="btn fr "
+								href="javascript:void(name = '投递简历成功'); alert(name);">投个简历</a>
 
 						</dd>
 					</dl>

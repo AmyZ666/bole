@@ -257,10 +257,10 @@ public class CompanyAction extends ActionSupport implements SessionAware {
 		int id = (Integer) (session.get("id"));
 		pst.setCom_id(id);
 
-		pst.setCom_name("toosimple");
-		pst.setDomain("互联网");
-		pst.setSize("1024");
-		pst.setStage("已上市");
+	//	pst.setCom_name("toosimple");
+	//	pst.setDomain("互联网");
+	//	pst.setSize("1024");
+	//	pst.setStage("已上市");
 		pst.setHot_num(0);
 		pst.setStart_time(new Date());
 
